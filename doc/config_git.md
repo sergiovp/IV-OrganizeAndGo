@@ -4,7 +4,7 @@ Como sabemos, es esencial tener correctamente configurado el entorno de desarrol
 
 ### Configuración del nombre y correo electrónico.
 
-Con esta configuración, el nombre y correo electrónicoaparecerán en los commits correctamente.
+Con esta configuración, el nombre y correo electrónico aparecerán en los commits correctamente.
 
 ![imagen de la configuración](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/doc/images/git_nombre_correo.png)
 
