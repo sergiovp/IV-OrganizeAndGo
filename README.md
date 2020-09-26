@@ -17,5 +17,16 @@ Se podrán organizar equipos de trabajo de manera eficiente, de forma que en tod
 ## Herramientas
 + Lenguaje de programación: [Go](https://golang.org).
 
+## Documentación
+En el directorio [doc](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/doc) encontraremos distintos ficheros relativos al desarrollo del proyecto. Dichos ficheros son:
+
++ [config_git.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/doc/config_git.md)
+
+Se aportan pruebas para reflejar que git ha sido configurado correctamente.
+
++ [herramientas.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/doc/herramientas.md).
+
+Una justificación de la elección de las herramientas utilizadas para abordar el desarrollo de **Organize&Go**.
+
 ---
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
