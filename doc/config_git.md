@@ -12,6 +12,8 @@ Con esta configuración, el nombre y correo electrónico aparecerán en los comm
 
 ![imagen de la configuración](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/doc/images/git_ssh_keys.png)
 
+![imagen de la configuración](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/doc/images/git_remote_ssh.png)
+
 Como podemos apreciar en la siguiente imagen, al hacer un `push`, antes me pedía la contraseña.
 
 ![imagen de la configuración](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/doc/images/git_pass.png)
