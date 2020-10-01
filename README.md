@@ -18,7 +18,7 @@ Se podrán organizar equipos de trabajo de manera eficiente, de forma que en tod
 + Lenguaje de programación: [Go](https://golang.org).
 
 ## Documentación
-En el directorio [doc](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/docs) encontraremos distintos ficheros relativos al desarrollo del proyecto. Dichos ficheros son:
+En el directorio [docs](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/docs) encontraremos distintos ficheros relativos al desarrollo del proyecto. Dichos ficheros son:
 
 + [config_git.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/config_git.md). Se aportan pruebas para reflejar que git ha sido configurado correctamente.
 
