@@ -11,7 +11,7 @@ En estos últimos días he investigado bastante sobre el desarrollo de microserv
 
 Finalmente, he decidido abordar el problema utilizando **Node.js**. Como sabemos, **JavaScript** fue creado como lenguaje para desarrollar el front-end pero con tecnologías como **NodeJs** es posible utilizarlo como lenguaje back-end, por lo que me vendrá genial de cara a desarrollar mi microservicio.
 
-Otro de los motivos por los que finalmente lo he elegido es por la amplia comunidad y documentación que tiene. 
+Otro de los motivos por los que finalmente lo he elegido es por la amplia comunidad y documentación que tiene, además de su escalabilidad y cantidad de tecnologías que podría utilizar para desarrollar mi proyecto. 
 
 En definitiva, será una buena inversión de tiempo utilizar **Node.js** junto con **JavaScript**.
 
