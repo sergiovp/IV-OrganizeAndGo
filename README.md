@@ -3,6 +3,7 @@
 Repositorio dedicado al proyecto a desarrollar de la asignatura Infraestructura Virtual, impartida por @jj en la UGR (2020/21).
 
 ## Descripción
+
 + ¿Eres jefe de tu empresa?
 + ¿Sueles trabajar de manera colaborativa con otra gente?
 
@@ -15,9 +16,11 @@ En caso negativo, estás de suerte. **Organize&Go** se define como un *microserv
 Se podrán organizar equipos de trabajo de manera eficiente, de forma que en todo momento se conozcan las tareas que están siendo desarrolladas por cada empleado/compañero, el tiempo estimado para la realización de dicha tarea, la cola de trabajo que tiene e incluso la importancia o prioridad de dicha cola.
 
 ## Herramientas
+
 + Lenguaje de programación: [Node.js](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwipxL7ioJbsAhVp8-AKHU4MCqMQFjAAegQIAhAC&url=https%3A%2F%2Fnodejs.org%2Fes%2F&usg=AOvVaw0ExrfV3usJ0jiF4UKHq0z3).
 
 ## Documentación
+
 En el directorio [docs](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/docs) encontraremos distintos ficheros relativos al desarrollo del proyecto. Dichos ficheros son:
 
 + [config_git.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/config_git.md). Se aportan pruebas para reflejar que git ha sido configurado correctamente.
