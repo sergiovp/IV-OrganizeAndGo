@@ -24,8 +24,6 @@ En el directorio [docs](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master
 
 + [herramientas.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md). Una justificación de la elección de las herramientas utilizadas para abordar el desarrollo de **Organize&Go**.
 
-+ [HU.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/HU.md). Fichero en el cual he reflejado dos historias de usuario a partir de las cuales comenzaremos con el desarrollo de **Organize&Go**. En dichas historias se ha tratado de plasmar toda la funcionalidad que tendrá el microservicio.
-
 ## Autor
 
 + [Sergio Vela Pelegrina](https://github.com/sergiovp).
