@@ -3,11 +3,15 @@ En este fichero iremos haciendo una justificación de cada una de las herramient
 
 ---
 
-### Lenguaje de programación: [Go](https://golang.org).
-Me he decido por Go como lenguaje de programación para el desarrollo del microservicio ya que intenta ser dinámico como *Python* ofreciendo un rendimiento de *C*. Es desarrollado por Google y ofrecen nuevas versiones constantemente.
+### Lenguaje de programación: [Node.js](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwipxL7ioJbsAhVp8-AKHU4MCqMQFjAAegQIAhAC&url=https%3A%2F%2Fnodejs.org%2Fes%2F&usg=AOvVaw0ExrfV3usJ0jiF4UKHq0z3).
 
-*Python* era otra alternativa que tenía en mente pero motivado por el profesor, he decidido afrontar el reto de aprender un lenguaje completamente nuevo para mí.
+Siendo sinceros, la idea inicial del proyecto era implementarlo en [Go](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiE8uqeoZbsAhUqx4UKHUyxBc8QFjAAegQIARAC&url=https%3A%2F%2Fgolang.org%2F&usg=AOvVaw1lAoMTHCkaTnhVJgGL4dBP).
 
-Otro motivo que me ha llevado a tomar esta decisión ha sido comprobar que *Go* está dentro de los lenguajes de programación más cotizados a día de hoy, por lo que su aprendizaje puede llegar a ser una inversión.
+En estos últimos días he investigado bastante sobre el desarrollo de microservicios así como la función de un **DevOps**. Como sabemos, JavaScript, según diversas fuentes como [esta](https://hackaboss.com/blog/lenguajes-programacion-demandadas-2020/) es el lenguaje más demandado de 2020, lo que ha provocado que me replantee el lenguaje de programación a utilizar.
 
-Por último, el compañero @elsudano también me animó a utilizar *Go* bajo la siguiente cita "Si algún día Google tiene problemas, ahí es cuando se acaba el mundo".
+Finalmente, he decidido abordar el problema utilizando **Node.js**. Como sabemos, **JavaScript** fue creado como lenguaje para desarrollar el front-end pero con tecnologías como **NodeJs** es posible utilizarlo como lenguaje back-end, por lo que me vendrá genial de cara a desarrollar mi microservicio.
+
+Otro de los motivos por los que finalmente lo he elegido es por la amplia comunidad y documentación que tiene. 
+
+En definitiva, será una buena inversión de tiempo utilizar **Node.js** junto con **JavaScript**.
+
