@@ -15,9 +15,11 @@ Un motivo importante que ha hecho que tome esta decisión ha sido comprobar la a
 
 En definitiva y con vistas a futuro, creo que aprender este lenguaje y tecnologías me va a favorecer profesionalmente.
 
+---
+
 ## Frameworks.
 
-### [Express](https://expressjs.com/es/).
++ ### [Express](https://expressjs.com/es/).
 
 Express es uno de los frameworks más populares para Node. Me he decantado a utilizarlo ya que nos proporcionará funcionalidades útiles que nos ayudarán al desarrollo del proyecto. Alguna de estas funcionalidades son enrutamiento, integración con bases de datos, manejo de errores, middlewares, etc.  
 
