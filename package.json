@@ -1,0 +1,22 @@
+{
+  "name": "iv-organizeandgo",
+  "version": "1.0.0",
+  "description": "Repositorio dedicado al proyecto a desarrollar de la asignatura Infraestructura Virtual, impartida por @jj en la UGR (2020/21).",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergiovp/IV-OrganizeAndGo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergiovp/IV-OrganizeAndGo/issues"
+  },
+  "homepage": "https://github.com/sergiovp/IV-OrganizeAndGo#readme"
+}
