@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/sergiovp/IV-OrganizeAndGo/issues"
   },
-  "homepage": "https://github.com/sergiovp/IV-OrganizeAndGo#readme"
+  "homepage": "https://github.com/sergiovp/IV-OrganizeAndGo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
