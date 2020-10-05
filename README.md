@@ -2,6 +2,8 @@
 
 Repositorio dedicado al proyecto a desarrollar de la asignatura Infraestructura Virtual, impartida por @jj en la UGR (2020/21).
 
+---
+
 ## Descripción
 
 + ¿Eres jefe de tu empresa?
@@ -14,6 +16,8 @@ En caso de que se cumpla alguna de la cuestiones anteriores...
 En caso negativo, estás de suerte. **Organize&Go** se define como un *microservicio* desarrollado para abordar los problemas planteados anteriormente.
 
 Se podrán organizar equipos de trabajo de manera eficiente, de forma que en todo momento se conozcan las tareas que están siendo desarrolladas por cada empleado/compañero, el tiempo estimado para la realización de dicha tarea, la cola de trabajo que tiene e incluso la importancia o prioridad de dicha cola.
+
+---
 
 ## Despliegue
 
@@ -37,12 +41,16 @@ Ejecutamos.
 npm start
 ~~~
 
+---
+
 ## Herramientas
 
 + Lenguaje de programación: [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) + [Node.js](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwipxL7ioJbsAhVp8-AKHU4MCqMQFjAAegQIAhAC&url=https%3A%2F%2Fnodejs.org%2Fes%2F&usg=AOvVaw0ExrfV3usJ0jiF4UKHq0z3).
 
 + Frameworks:
     + [Express](https://expressjs.com/es/).
+
+---
 
 ## Documentación
 
@@ -52,9 +60,12 @@ En el directorio [docs](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master
 
 + [herramientas.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md). Una justificación de la elección de las herramientas utilizadas para abordar el desarrollo de **Organize&Go**.
 
+---
+
 ## Autor
 
 + [Sergio Vela Pelegrina](https://github.com/sergiovp).
 
 ---
+
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
