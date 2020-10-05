@@ -1,9 +1,9 @@
-# Herramientas.
+# Herramientas
 En este fichero iremos haciendo una justificación de cada una de las herramientas que utilizaremos en el desarrollo de **Organize&Go**.
 
 ---
 
-## Lenguaje de programación: [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) + [Node.js](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwipxL7ioJbsAhVp8-AKHU4MCqMQFjAAegQIAhAC&url=https%3A%2F%2Fnodejs.org%2Fes%2F&usg=AOvVaw0ExrfV3usJ0jiF4UKHq0z3).
+## Lenguaje de programación: [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) + [Node.js](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwipxL7ioJbsAhVp8-AKHU4MCqMQFjAAegQIAhAC&url=https%3A%2F%2Fnodejs.org%2Fes%2F&usg=AOvVaw0ExrfV3usJ0jiF4UKHq0z3)
 
 Siendo sinceros, la idea inicial del proyecto era implementarlo en [Go](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiE8uqeoZbsAhUqx4UKHUyxBc8QFjAAegQIARAC&url=https%3A%2F%2Fgolang.org%2F&usg=AOvVaw1lAoMTHCkaTnhVJgGL4dBP).
 
@@ -17,9 +17,9 @@ En definitiva y con vistas a futuro, creo que aprender este lenguaje y tecnolog�
 
 ---
 
-## Frameworks.
+## Frameworks
 
-+ ### [Express](https://expressjs.com/es/).
++ ### [Express](https://expressjs.com/es/)
 
 Express es uno de los frameworks más populares para Node. Me he decantado a utilizarlo ya que nos proporcionará funcionalidades útiles que nos ayudarán al desarrollo del proyecto. Alguna de estas funcionalidades son enrutamiento, integración con bases de datos, manejo de errores, middlewares, etc.  
 
