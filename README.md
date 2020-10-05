@@ -17,9 +17,7 @@ Se podrán organizar equipos de trabajo de manera eficiente, de forma que en tod
 
 ## Despliegue
 
-#### Prerequisitos
-
-+ Tener instalado [NodeJS + NPM](https://nodejs.org/es/download/)
+> Nota: como prerrequisito es necesario tener instalado [NodeJS + NPM](https://nodejs.org/es/download).
 
 ## Herramientas
 
