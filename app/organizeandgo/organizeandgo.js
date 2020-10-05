@@ -19,5 +19,4 @@ class OrganizeAndGo {
     getProridadTarea(idTarea) {
         
     }
-
 }
