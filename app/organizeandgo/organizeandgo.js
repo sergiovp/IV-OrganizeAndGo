@@ -1,4 +1,4 @@
-class organize_and_go {
+class organizeAndGo {
     constructor(equipos) {
         this.equipos = equipos;
     }

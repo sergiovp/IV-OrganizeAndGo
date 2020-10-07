@@ -1,10 +1,10 @@
 class tarea {
-    constructor(id, descripcion, tiempo_estimado, prioridad, empleado_asignado) {
+    constructor(id, descripcion, tiempoEstimado, prioridad, empleadoAsignado) {
         this.id = id;
         this.descripcion = descripcion;
-        this.tiempo_estimado = tiempo_estimado;
+        this.tiempoEstimado = tiempoEstimado;
         this.prioridad = prioridad;
-        this.empleado_asignado = empleado_asignado;
+        this.empleadoAsignado = empleadoAsignado;
     }
 
     get id() {
@@ -15,16 +15,16 @@ class tarea {
         return this.descripcion;
     }
 
-    get tiempo_estimado() {
-        return this.tiempo_estimado;
+    get tiempoEstimado() {
+        return this.tiempoEstimado;
     }
 
     get prioridad() {
         return this.prioridad;
     }
 
-    get empleado_asignado() {
-        return this.empleado_asignado;
+    get empleadoAsignado() {
+        return this.empleadoAsignado;
     }
 
     set id(id) {
@@ -35,15 +35,15 @@ class tarea {
         this.descripcion = descripcion;
     }
 
-    set tiempo_estimado(tiempo_estimado) {
-        this.tiempo_estimado = tiempo_estimado;
+    set tiempoEstimado(tiempoEstimado) {
+        this.tiempoEstimado = tiempoEstimado;
     }
 
     set prioridad(prioridad) {
         this.prioridad = prioridad;
     }
 
-    set empleado_asignado(empleado_asignado) {
-        this.empleado_asignado = empleado_asignado;
+    set empleadoAsignado(empleadoAsignado) {
+        this.empleadoAsignado = empleadoAsignado;
     } 
 }
