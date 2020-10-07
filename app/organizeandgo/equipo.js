@@ -18,7 +18,7 @@ class equipo {
         return this.empleados;
     }
 
-    get empleado(index) {
+    getEmpleado(index) {
         return this.empleados[index];
     }
 
@@ -26,7 +26,7 @@ class equipo {
         return this.tareas;
     }
 
-    get tarea(index) {
+    getTarea(index) {
         return this.tareas[index];
     }
 
@@ -42,7 +42,7 @@ class equipo {
         this.empleados = empleados;
     }
 
-    set empleado(index, empleado) {
+    setEmpleado(index, empleado) {
         this.empleados[index] = empleado;
     }
 
@@ -50,7 +50,7 @@ class equipo {
         this.tareas = tareas;
     }
 
-    set tarea(index, tarea) {
+    setTarea(index, tarea) {
         this.tareas[index] = tarea;
     }
 }

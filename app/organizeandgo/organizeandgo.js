@@ -7,7 +7,7 @@ class organize_and_go {
         return this.equipos;
     }
 
-    get equipo(index) {
+    getEquipo(index) {
         return this.equipos[index];
     }
     

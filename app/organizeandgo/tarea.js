@@ -20,7 +20,7 @@ class tarea {
     }
 
     get prioridad() {
-        return this.prioridad
+        return this.prioridad;
     }
 
     get empleado_asignado() {
