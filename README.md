@@ -19,30 +19,6 @@ Se podrán organizar equipos de trabajo de manera eficiente, de forma que en tod
 
 ---
 
-## Despliegue
-
-> Nota: como prerrequisito es necesario tener instalado [NodeJS + NPM](https://nodejs.org/es/download).
-
-Tras clonar el repositorio, accederemos a él.
-
-~~~
-cd IV-OrganizeAndGo
-~~~
-
-Instalamos las dependencias.
-
-~~~
-npm install
-~~~
-
-Ejecutamos.
-
-~~~
-npm start
-~~~
-
----
-
 ## Herramientas
 
 + Lenguaje de programación: [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) + [Node.js](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwipxL7ioJbsAhVp8-AKHU4MCqMQFjAAegQIAhAC&url=https%3A%2F%2Fnodejs.org%2Fes%2F&usg=AOvVaw0ExrfV3usJ0jiF4UKHq0z3)
