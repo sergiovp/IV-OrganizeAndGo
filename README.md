@@ -21,7 +21,15 @@ Se podrán organizar equipos de trabajo de manera eficiente, de forma que en tod
 
 ## Herramientas
 
+Se pueden consultar más detalles en el fichero [herramientas.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md).
+
 + Lenguaje de programación: [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) + [Node.js](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwipxL7ioJbsAhVp8-AKHU4MCqMQFjAAegQIAhAC&url=https%3A%2F%2Fnodejs.org%2Fes%2F&usg=AOvVaw0ExrfV3usJ0jiF4UKHq0z3)
+
++ Frameworks: *aún por decidir*
+
++ Base de datos: *aún por decidir*
+
++ Sistema de logs: *aún por decidir*
 
 ---
 
