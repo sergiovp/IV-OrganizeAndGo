@@ -45,6 +45,17 @@ En el directorio [docs](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master
 
 ---
 
+## App
+
+En el directorio [app](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/app/) tenemos el código de nuestra aplicación.
+
+Las clases las encontramos en el directorio [organizeandgo](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/app/organizeandgo). Hasta el momento tenemos las siguientes:
+
++ [empleado.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/empleado.js)
++ [equipo.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/equipo.js)
++ [tarea.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/tarea.js)
++ [organizeandgo.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/organizeandgo.js). Este es el fichero *gestor*
+
 ## Historias de usuario
 
 Como sabemos, un proyecto debe de estar bien especificado, en nuestro caso, dichas especificaciones las haremos en forma de **historia de usuario**. Serán documentadas en issues y a medida que avancemos con el proyecto, se podrán incorporar más.
