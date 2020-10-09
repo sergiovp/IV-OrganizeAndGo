@@ -17,6 +17,12 @@ En definitiva y con vistas a futuro, creo que aprender este lenguaje y tecnolog�
 
 ---
 
+## Frameworks:
+
+> Aún por decidir. El proyecto no es lo suficientemente maduro como para elegir los frameworks que utilizaré.
+
+---
+
 ## Base de datos:
 
 > Aún por decidir. El proyecto no es lo suficientemente maduro como para elegir qué SGBD utilizar.
