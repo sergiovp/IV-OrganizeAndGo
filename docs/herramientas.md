@@ -14,3 +14,15 @@ Finalmente, he decidido abordar el problema utilizando **JavaScript** + **Node.j
 Un motivo importante que ha hecho que tome esta decisión ha sido comprobar la amplia comunidad y documentación que tienen detrás, a parte de su escalabilidad y conjunto de tecnologías que podría utilizar para desarrollar el proyecto. 
 
 En definitiva y con vistas a futuro, creo que aprender este lenguaje y tecnologías me va a favorecer profesionalmente.
+
+---
+
+## Base de datos:
+
+> Aún por decidir. El proyecto no es lo suficientemente maduro como para elegir qué SGBD utilizar.
+
+---
+
+## Servicio de logs:
+
+> Aún por decidir. El proyecto no es lo suficientemente maduro como para elegir qué servicio de logs utilizar.
