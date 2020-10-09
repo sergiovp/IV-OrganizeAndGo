@@ -35,6 +35,16 @@ En el directorio [docs](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master
 
 ---
 
+## Historias de usuario
+
+Como sabemos, un proyecto debe de estar bien especificado, en nuestro caso, dichas especificaciones las haremos en forma de **historia de usuario**. Serán documentadas en issues y a medida que avancemos con el proyecto, se podrán incorporar más.
+
++ [HU0: Introducción](https://github.com/sergiovp/IV-OrganizeAndGo/issues/5)
++ [HU1: Consultar información](https://github.com/sergiovp/IV-OrganizeAndGo/issues/6)
++ [HU2: Añadir información](https://github.com/sergiovp/IV-OrganizeAndGo/issues/7)
+
+---
+
 ## Autor
 
 + [Sergio Vela Pelegrina](https://github.com/sergiovp).
