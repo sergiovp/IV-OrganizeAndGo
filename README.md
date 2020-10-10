@@ -25,6 +25,8 @@ Se pueden consultar más detalles en el fichero [herramientas.md](https://github
 
 + Lenguaje de programación: [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) + [Node.js](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwipxL7ioJbsAhVp8-AKHU4MCqMQFjAAegQIAhAC&url=https%3A%2F%2Fnodejs.org%2Fes%2F&usg=AOvVaw0ExrfV3usJ0jiF4UKHq0z3)
 
++ Herramientas de construcción y automatización de tests: *aún por decidir*
+
 + Frameworks: *aún por decidir*
 
 + Base de datos: *aún por decidir*
@@ -55,6 +57,16 @@ Las clases las encontramos en el directorio [organizeandgo](https://github.com/s
 + [equipo.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/equipo.js)
 + [tarea.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/tarea.js)
 + [organizeandgo.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/organizeandgo.js). Este es el fichero *gestor*
+
+---
+
+## Testing
+
+> En construcción, en este apartado se explicará todo lo relativo al testing.
+
+> En cuanto a las herramientas de construcción, se explicarán en el fichero herramientas.md. Quedando reflejado el motivo por el cual uso dicha herramienta. En este caso, al usar JS + Node, usaré el package.json para especificar el fichero de testing.
+
+---
 
 ## Historias de usuario
 
