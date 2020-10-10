@@ -59,3 +59,17 @@ Se han cerrado las siguientes issues:
 #### Milestones
 
 En este hito se ha cerrado el milestone [hito-1](https://github.com/sergiovp/IV-OrganizeAndGo/milestone/1).
+
+---
+
+## Hito 2. Tests.
+
+"Código que no esté probado, está roto". La infraestructura virtual debe ser testeada. En este hito trataremos de crear los tests y una forma automática de ejecutarlos, por lo tanto, deberemos abordar las siguientes tareas:
+
++ [ ] Configuración correcta de herramientas de construcción y correcta justificación de las mismas. 
+Esta tarea se refiere a la automatización de la ejecución de los tests, usando herramientas de construcción. La justificación de las herramientas que utilizaré la podremos ver en el fichero [herramientas.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md).
+
++ [ ] Los tests deben funcionar, siguiendo la metodología, cerrando los issues correspondientes.
+Como sabemos, siguiendo con la gestión del proyecto, las especificaciones y las funcionalidades tendrán que estar en un issue. Se ha creado el milestone [hito-2](https://github.com/sergiovp/IV-OrganizeAndGo/milestone/3) para agrupar las issues relativas a este hito.
+
+Como en hitos anteriores, el avance del proyecto siempre se evaluará positivamente.
