@@ -62,6 +62,27 @@ Las clases las encontramos en el directorio [organizeandgo](https://github.com/s
 
 ---
 
+## Despliegue
+
+> NOTA: Como prerrequisito, se debe tener instalado [Node y npm](https://nodejs.org/es/download/).
+
+Clonamos el respositorio:
+~~~
+git clone https://github.com/sergiovp/IV-OrganizeAndGo
+~~~
+
+Instalamos las dependencias y módulos:
+~~~
+npm install
+~~~
+
+Lanzamos la aplicación:
+~~~
+npm start
+~~~
+
+---
+
 ## Testing
 
 > En construcción, en este apartado se explicará todo lo relativo al testing.
