@@ -23,7 +23,7 @@ Se podrán organizar equipos de trabajo de manera eficiente, de forma que en tod
 
 Se pueden consultar más detalles en el fichero [herramientas.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md).
 
-+ Lenguaje de programación: [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) + [Node.js](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwipxL7ioJbsAhVp8-AKHU4MCqMQFjAAegQIAhAC&url=https%3A%2F%2Fnodejs.org%2Fes%2F&usg=AOvVaw0ExrfV3usJ0jiF4UKHq0z3)
++ Lenguaje de programación: [TypeScript](https://www.typescriptlang.org) + [Node.js](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwipxL7ioJbsAhVp8-AKHU4MCqMQFjAAegQIAhAC&url=https%3A%2F%2Fnodejs.org%2Fes%2F&usg=AOvVaw0ExrfV3usJ0jiF4UKHq0z3)
 
 + Herramientas de construcción y automatización de tests: *aún por decidir*. **Podría ser [mocha](https://mochajs.org).
 
@@ -51,12 +51,14 @@ En el directorio [docs](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master
 
 En el directorio [app](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/app/) tenemos el código de nuestra aplicación.
 
++ [index.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/index.ts) es el fichero principal que cumple la función de "*main*".
+
 Las clases las encontramos en el directorio [organizeandgo](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/app/organizeandgo). Hasta el momento tenemos las siguientes:
 
-+ [empleado.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/empleado.js)
-+ [equipo.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/equipo.js)
-+ [tarea.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/tarea.js)
-+ [organizeandgo.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/organizeandgo.js). Este es el fichero *gestor*
++ [empleado.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/empleado.ts)
++ [equipo.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/equipo.ts)
++ [tarea.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/tarea.ts)
++ [organizeandgo.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/organizeandgo/organizeandgo.ts). Este es el fichero *gestor*
 
 ---
 
