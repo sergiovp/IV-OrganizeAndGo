@@ -3,17 +3,17 @@ En este fichero iremos haciendo una justificación de cada una de las herramient
 
 ---
 
-## Lenguaje de programación: [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) + [Node.js](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwipxL7ioJbsAhVp8-AKHU4MCqMQFjAAegQIAhAC&url=https%3A%2F%2Fnodejs.org%2Fes%2F&usg=AOvVaw0ExrfV3usJ0jiF4UKHq0z3)
+## Lenguaje de programación: [TypeScript](https://www.typescriptlang.org) + [Node.js](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwipxL7ioJbsAhVp8-AKHU4MCqMQFjAAegQIAhAC&url=https%3A%2F%2Fnodejs.org%2Fes%2F&usg=AOvVaw0ExrfV3usJ0jiF4UKHq0z3)
 
 Siendo sinceros, la idea inicial del proyecto era implementarlo en [Go](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiE8uqeoZbsAhUqx4UKHUyxBc8QFjAAegQIARAC&url=https%3A%2F%2Fgolang.org%2F&usg=AOvVaw1lAoMTHCkaTnhVJgGL4dBP).
 
 Pero en estos últimos días he investigado bastante sobre el desarrollo de microservicios así como la función de un **DevOps**. Como sabemos, **JavaScript**, según diversas fuentes como [esta](https://hackaboss.com/blog/lenguajes-programacion-demandadas-2020/) *es el lenguaje más demandado de 2020*, lo que ha provocado que me replantee el lenguaje de programación a utilizar.
 
-Finalmente, he decidido abordar el problema utilizando **JavaScript** + **Node.js**. Como sabemos, **JavaScript** fue creado como lenguaje para desarrollar el front-end pero con tecnologías como **NodeJs** es posible utilizarlo como lenguaje back-end, por lo que me vendrá genial de cara a desarrollar mi microservicio.
+Como sabemos, **JavaScript** fue creado como lenguaje para desarrollar el front-end pero con tecnologías como **NodeJs** es posible utilizarlo como lenguaje back-end, por lo que me vendrá genial de cara a desarrollar mi microservicio.
 
-Un motivo importante que ha hecho que tome esta decisión ha sido comprobar la amplia comunidad y documentación que tienen detrás, a parte de su escalabilidad y conjunto de tecnologías que podría utilizar para desarrollar el proyecto. 
+Un motivo importante que ha hecho que tome esta decisión ha sido comprobar la amplia comunidad y documentación que tienen detrás, a parte de ser asíncrono, escalable y de disponer de un gran conjunto de tecnologías que podría utilizar para desarrollar el proyecto. 
 
-En definitiva y con vistas a futuro, creo que aprender este lenguaje y tecnologías me va a favorecer profesionalmente.
+En definitiva, JavaScript es una gran opción, pero me he decantado finalmente por **TypeScript**, ya que como sabemos, es un superconjunto de JavaScript, que esencialmente añade tipos estáticos y objetos basados en clases. Creo que podré abordar más cómodamente el problema con un lenguaje tipado y con las mismas ventajas que JavaScript.
 
 ---
 
