@@ -20,5 +20,8 @@
     "url": "https://github.com/sergiovp/IV-OrganizeAndGo/issues"
   },
   "homepage": "https://github.com/sergiovp/IV-OrganizeAndGo#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.0.3"
+  }
 }
