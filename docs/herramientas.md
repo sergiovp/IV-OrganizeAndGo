@@ -17,9 +17,23 @@ En definitiva, JavaScript es una gran opción, pero me he decantado finalmente p
 
 ---
 
-## Frameworks:
+## Testing:
 
-> Aún por decidir. El proyecto no es lo suficientemente maduro como para elegir los frameworks que utilizaré.
+Como sabemos, las pruebas unitarias son fundamentales para asegurar la calidad del producto. En mi caso, usaremos las siguientes herramientas para abordar esta tarea.
+
+### [Mocha](https://mochajs.org)
+
+Es un framework para testing de JavaScript que nos permitirá hacer tanto tests síncronos como asíncronos de manera sencilla. Nos proporciona muchas utilidades para la ejecución y reporte de los tests y a parte, se puede utilizar junto con una gran número de bibliotecas u otros módulos.
+
+Estos son los motivos que me han llevado a elegir este framework frente a otros como podría ser [Jest](https://jestjs.io).
+
+En [este enlace](https://blog.logrocket.com/the-best-unit-testing-frameworks-for-node-js/) y [este otro](https://desarrolloactivo.com/blog/jest-vs-mocha/) he podido leer comparaciones entre distintos frameworks.
+
+### [Chai](https://www.chaijs.com)
+
+Es un librería de aserciones, la cual se puede emparejar a la perfección con Mocha. Chai tiene varias interfaces: **assert**, **expect** y **should**, que nos permiten elegir el estilo que nos resulte más legible y cómodo a la hora de desarrollar los tests. Haciendo uso de esta biblioteca, es evidente que la realización de los tests será más cómoda.
+
+He consultado diversas páginas de documentación sobre la biblioteca, como [esta](https://www.npmjs.com/package/chai) o [esta](https://www.paradigmadigital.com/dev/testeando-javascript-mocha-chai/).
 
 ---
 

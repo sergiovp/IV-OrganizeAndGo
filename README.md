@@ -27,8 +27,6 @@ Se pueden consultar más detalles en el fichero [herramientas.md](https://github
 
 + Herramientas de testing: [mocha](https://mochajs.org) + [chai](https://www.chaijs.com)
 
-+ Frameworks: *aún por decidir*
-
 + Base de datos: *aún por decidir*
 
 + Sistema de logs: *aún por decidir*
