@@ -1,3 +1,8 @@
+/**
+ * Clase empleado. Un objeto de esta clase representa a un empleado 
+ * usuario de la aplicación.
+ */
+
 class Empleado {
     private _id: number;
     private _nombre: string;
