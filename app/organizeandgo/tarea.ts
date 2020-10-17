@@ -1,3 +1,7 @@
+/**
+ * Enumerado para especificar la prioridad de una tarea.
+ */
+
 enum Prioridad {
     Baja,
     Media,
@@ -5,16 +9,22 @@ enum Prioridad {
     Urgente,
 }
 
+/**
+ * Clase tarea. Un objeto de esta clase representa a una tarea.
+ */
+
 class Tarea {
     private _id: number;
+    private _terminada: boolean;
     private _descripcion: string;
     private _tiempoEstimado: string;
     private _prioridad: Prioridad;
     private _empleadoAsignado: number;
 
-    constructor(id: number, descripcion: string, 
+    public constructor(id: number, terminada: boolean = false, descripcion: string, 
         tiempoEstimado: string, prioridad: Prioridad, empleadoAsignado: number) {
         this._id = id;
+        this._terminada = terminada;
         this._descripcion = descripcion;
         this._tiempoEstimado = tiempoEstimado;
         this._prioridad = prioridad;
@@ -23,6 +33,10 @@ class Tarea {
 
     get id(): number {
         return this._id;
+    }
+
+    get terminada(): boolean {
+        return this._terminada;
     }
 
     get descripcion(): string {
@@ -43,6 +57,10 @@ class Tarea {
 
     set id(id: number) {
         this._id = id;
+    }
+
+    set terminada(terminada: boolean) {
+        this._terminada = terminada;
     }
 
     set descripcion(descripcion: string) {
