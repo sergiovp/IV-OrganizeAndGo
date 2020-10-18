@@ -21,9 +21,7 @@ class OrganizeAndGo {
         this._equipos = equipos;
     }
 
-    addEquipo(id: number, nombre: string, empleados: Array<Empleado>, tareas: Array<Tarea>) {
-        let nuevoEquipo: Equipo = new Equipo(id, nombre, empleados, tareas);
-
+    addEquipo(nuevoEquipo: Equipo) {
         this._equipos.push(nuevoEquipo);
     }
     
