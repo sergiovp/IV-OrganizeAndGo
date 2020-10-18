@@ -1,1 +1,7 @@
-entidad: app/organizeandgo/organizeandgo.js
+entidad: app/organizeandgo/organizeandgo.ts
+
+lenguaje: TypeScript
+
+test: tests/organizeandgo_test.ts
+
+taskfile: package.json
