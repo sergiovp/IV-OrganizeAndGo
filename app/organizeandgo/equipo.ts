@@ -11,7 +11,7 @@ class Equipo {
     private _empleados: Array<Empleado>;
     private _tareas: Array<Tarea>;
 
-    constructor(id: number, nombre: string,
+    public constructor(id: number, nombre: string,
         empleados: Array<Empleado>, tareas: Array<Tarea>) {
         this._id = id;
         this._nombre = nombre;
@@ -67,17 +67,11 @@ class Equipo {
         this.tareas[index] = nuevaTarea;
     }
 
-    addEmpleado(id: number, nombre: string, apellido: string, email: string) {
-        let nuevoEmpleado: Empleado = new Empleado(id, nombre, apellido, email);
-        
+    addEmpleado(nuevoEmpleado: Empleado) {
         this._empleados.push(nuevoEmpleado);
     }
 
-    addTarea(id: number, terminada: boolean = false,descripcion: string, tiempoEstimado: string,
-        prioridad: Prioridad, empleadoAsignado: number) {
-        let nuevaTarea: Tarea = new Tarea(id, terminada,descripcion, tiempoEstimado,
-            prioridad, empleadoAsignado);
-
+    addTarea(nuevaTarea: Tarea) {
         this._tareas.push(nuevaTarea);
     }
 }
