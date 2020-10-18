@@ -3,6 +3,7 @@ import { Tarea, Prioridad } from './tarea';
 
 /**
  * Clase equipo. Un objeto de esta clase representa a un equipo que usa la aplicación.
+ * 
  */
 
 class Equipo {
