@@ -69,7 +69,32 @@ En este hito se ha cerrado el milestone [hito-1](https://github.com/sergiovp/IV-
 + [x] Configuración correcta de herramientas de construcción y correcta justificación de las mismas. 
 Esta tarea se refiere a la automatización de la ejecución de los tests, usando herramientas de construcción. La justificación de las herramientas que utilizaré la podremos ver en el fichero [herramientas.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md).
 
-+ [ ] Los tests deben funcionar, siguiendo la metodología, cerrando los issues correspondientes.
++ [x] Los tests deben funcionar, siguiendo la metodología, cerrando los issues correspondientes.
 Como sabemos, siguiendo con la gestión del proyecto, las especificaciones y las funcionalidades tendrán que estar en un issue. Se ha creado el milestone [hito-2](https://github.com/sergiovp/IV-OrganizeAndGo/milestone/3) para agrupar las issues relativas a este hito.
 
 Como en hitos anteriores, el avance del proyecto siempre se evaluará positivamente.
+
+#### Issues
+
+Se han cerrado las siguientes issues:
+
+- [Cambio de lenguaje a TypeScript](https://github.com/sergiovp/IV-OrganizeAndGo/issues/30).
+- [Se suben los ficheros compilados de TS](https://github.com/sergiovp/IV-OrganizeAndGo/issues/31).
+- [HU1: Consultar información de las tareas ](https://github.com/sergiovp/IV-OrganizeAndGo/issues/6).
+- [HU2: Modificar información de las tareas](https://github.com/sergiovp/IV-OrganizeAndGo/issues/7).
+- [HU3: Añadir equipos](https://github.com/sergiovp/IV-OrganizeAndGo/issues/32).
+- [HU4: Añadir empleados](https://github.com/sergiovp/IV-OrganizeAndGo/issues/33).
+- [HU5: Añadir tareas](https://github.com/sergiovp/IV-OrganizeAndGo/issues/34).
+- [Fix rootdir error ](https://github.com/sergiovp/IV-OrganizeAndGo/issues/35).
+- [Instalar módulos para testing y especificar el comando a ejecutar para que se inicien ](https://github.com/sergiovp/IV-OrganizeAndGo/issues/36).
+- [Añadir tests para la clase Empleado](https://github.com/sergiovp/IV-OrganizeAndGo/issues/37).
+- [Añadir tests para la clase Tarea](https://github.com/sergiovp/IV-OrganizeAndGo/issues/38).
+- [Añadir tests para la clase Equipo](https://github.com/sergiovp/IV-OrganizeAndGo/issues/39).
+- [Añadir tests para la clase OrganizeAndGo](https://github.com/sergiovp/IV-OrganizeAndGo/issues/40).
+- [Cambios métodos addEmpleado y addTarea](https://github.com/sergiovp/IV-OrganizeAndGo/issues/41).
+- [Cambiar método addEquipo](https://github.com/sergiovp/IV-OrganizeAndGo/issues/42).
+- [Ampliar fichero iv.yaml](https://github.com/sergiovp/IV-OrganizeAndGo/issues/43).
+
+#### Milestones
+
+En este hito se ha cerrado el milestone [hito-2](https://github.com/sergiovp/IV-OrganizeAndGo/milestone/2).
