@@ -17,6 +17,16 @@ En definitiva, JavaScript es una gran opción, pero me he decantado finalmente p
 
 ---
 
+## Sistema gestor de paquetes:
+
+Me he decantado por utilizar **npm** como sistema de gestión de paquetes. Por defecto, es el sistema gestor para Node.
+
+**npm** manejará las dependencias de nuestra aplicación de manera muy sencilla. Dichas dependencias las podemos ver en el fichero `package.json`. Para que se instalen, tan solo deberemos ejecutar `npm install`.
+
+No solo se encargará de instalar las dependencias, sino que podrá lanzar la aplicación con `npm start` y los tests con `npm test`.
+
+---
+
 ## Testing:
 
 Como sabemos, las pruebas unitarias son fundamentales para asegurar la calidad del producto. En mi caso, usaremos las siguientes herramientas para abordar esta tarea.

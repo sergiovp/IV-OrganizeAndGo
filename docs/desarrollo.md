@@ -66,7 +66,7 @@ En este hito se ha cerrado el milestone [hito-1](https://github.com/sergiovp/IV-
 
 "Código que no esté probado, está roto". La infraestructura virtual debe ser testeada. En este hito trataremos de crear los tests y una forma automática de ejecutarlos, por lo tanto, deberemos abordar las siguientes tareas:
 
-+ [ ] Configuración correcta de herramientas de construcción y correcta justificación de las mismas. 
++ [x] Configuración correcta de herramientas de construcción y correcta justificación de las mismas. 
 Esta tarea se refiere a la automatización de la ejecución de los tests, usando herramientas de construcción. La justificación de las herramientas que utilizaré la podremos ver en el fichero [herramientas.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md).
 
 + [ ] Los tests deben funcionar, siguiendo la metodología, cerrando los issues correspondientes.
