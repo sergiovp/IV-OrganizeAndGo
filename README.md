@@ -107,8 +107,8 @@ npm test
 Como sabemos, un proyecto debe de estar bien especificado, en nuestro caso, dichas especificaciones las haremos en forma de **historia de usuario**. Serán documentadas en issues y a medida que avancemos con el proyecto, se podrán incorporar más.
 
 + [HU0: Introducción](https://github.com/sergiovp/IV-OrganizeAndGo/issues/5)
-+ [HU1: Consultar información](https://github.com/sergiovp/IV-OrganizeAndGo/issues/6)
-+ [HU2: Añadir información](https://github.com/sergiovp/IV-OrganizeAndGo/issues/7)
+
+En la ISSUE anterior podemos ver el avance de las HU. Tanto las que ya hemos cerrado tras su implementación como las nuevas.
 
 ---
 
