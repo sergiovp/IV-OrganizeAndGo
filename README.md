@@ -83,9 +83,22 @@ npm start
 
 ## Testing
 
-> En construcción, en este apartado se explicará todo lo relativo al testing.
+> NOTA: Como prerrequisito, se debe tener instalado [Node y npm](https://nodejs.org/es/download/).
 
-> En cuanto a las herramientas de construcción, se explicarán en el fichero herramientas.md. Quedando reflejado el motivo por el cual uso dicha herramienta. En este caso, al usar JS + Node, usaré el package.json para especificar el fichero de testing.
+Clonamos el respositorio:
+~~~
+git clone https://github.com/sergiovp/IV-OrganizeAndGo
+~~~
+
+Instalamos las dependencias y módulos:
+~~~
+npm install
+~~~
+
+Lanzamos los tests:
+~~~
+npm test
+~~~
 
 ---
 
