@@ -100,6 +100,14 @@ Lanzamos los tests:
 npm test
 ~~~
 
+Los tests los encontramos en el directorio [tests](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/tests).
+Tenemos un fichero por cada clase de nuestro proyecto:
+
++ [empleado_test.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/tests/empleado_test.ts)
++ [tarea_test.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/tests/tarea_test.ts)
++ [equipo_test.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/tests/equipo_test.ts)
++ [organizeandgo_test.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/tests/organizeandgo_test.ts)
+
 ---
 
 ## Historias de usuario
