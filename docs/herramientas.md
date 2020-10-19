@@ -35,6 +35,10 @@ Es un librería de aserciones, la cual se puede emparejar a la perfección con M
 
 He consultado diversas páginas de documentación sobre la biblioteca, como [esta](https://www.npmjs.com/package/chai) o [esta](https://www.paradigmadigital.com/dev/testeando-javascript-mocha-chai/).
 
+Tanto Mocha como Chai quedarán especificados en el `package.json`, de forma que con `npm install` se instalen no solo estas dependencias, sino todas.
+
+Cabe destacar que también he instado **ts-node** para no tener que usar el compilador de TypeScript (tsc) y después ejecutar node sobre los fuentes.
+
 ---
 
 ## Base de datos:
