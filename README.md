@@ -27,6 +27,8 @@ Se pueden consultar más detalles en el fichero [herramientas.md](https://github
 
 + Herramientas de testing: [mocha](https://mochajs.org) + [chai](https://www.chaijs.com)
 
++ Despliegue de la aplicación en la nube: [docker](https://www.docker.com)
+
 + Base de datos: *aún por decidir*
 
 + Sistema de logs: *aún por decidir*
