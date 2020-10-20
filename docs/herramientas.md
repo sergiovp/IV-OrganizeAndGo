@@ -25,6 +25,8 @@ Me he decantado por utilizar **npm** como sistema de gestión de paquetes. Por d
 
 No solo se encargará de instalar las dependencias, sino que podrá lanzar la aplicación con `npm start` y los tests con `npm test`.
 
+Cabe destacar que he estudiado la posibilidad de utilizar alternativas a **npm**, una de estas ha sido [yarn](https://yarnpkg.com). Pero como he comentado, **npm** es por defecto el gestor de paquetes y gracias a él podremos tener cualquier librería disponible con solo una línea de código.**npm** me ayudará a administrar los módulos requeridos para el proyecto, distribuir paquetes y agregar dependencias de una manera sencilla.
+
 ---
 
 ## Testing:
@@ -33,7 +35,7 @@ Como sabemos, las pruebas unitarias son fundamentales para asegurar la calidad d
 
 ### [Mocha](https://mochajs.org)
 
-Es un framework para testing de JavaScript que nos permitirá hacer tanto tests síncronos como asíncronos de manera sencilla. Nos proporciona muchas utilidades para la ejecución y reporte de los tests y a parte, se puede utilizar junto con una gran número de bibliotecas u otros módulos.
+Es un framework para testing de JavaScript que nos permitirá hacer tanto tests síncronos como asíncronos de manera sencilla. Nos proporciona muchas utilidades para la ejecución y reporte de los tests y a parte, se puede utilizar junto con una gran número de bibliotecas u otros módulos. Esto último ha hecho que me decante por este framework, ya que dispone de una gran comunidad detrás, es sencillo de utilizar y compatible con muchas bibliotecas que me serán de utilidad. Una de estas es **chai**, que lo explicaré más adelante.
 
 Estos son los motivos que me han llevado a elegir este framework frente a otros como podría ser [Jest](https://jestjs.io).
 
@@ -45,9 +47,17 @@ Es un librería de aserciones, la cual se puede emparejar a la perfección con M
 
 He consultado diversas páginas de documentación sobre la biblioteca, como [esta](https://www.npmjs.com/package/chai) o [esta](https://www.paradigmadigital.com/dev/testeando-javascript-mocha-chai/).
 
+Me he decantado por esta biblioteca ya que me ha parecido súper sencilla de utilizar. Otras alternativas podrían haber sido **assert** o **supertest** pero **chai** dispone de una buena comunidad y es sencillo encontrar información sobre la biblioteca.
+
 Tanto Mocha como Chai quedarán especificados en el `package.json`, de forma que con `npm install` se instalen no solo estas dependencias, sino todas.
 
-Cabe destacar que también he instado **ts-node** para no tener que usar el compilador de TypeScript (tsc) y después ejecutar node sobre los fuentes.
+Cabe destacar que también he instado **ts-node** para no tener que usar el compilador de TypeScript (tsc) y después ejecutar node sobre los fuentes. Se puede ver el uso de este comando en el package.json cuando ejecuto los tests con el siguiente comando: `mocha -r ts-node/register tests/**/*.ts`.
+
+---
+
+## Docker
+
+> Aquí pondré la justificación de la configuración de mi Dockerfile.
 
 ---
 
