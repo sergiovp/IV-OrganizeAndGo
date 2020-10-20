@@ -58,7 +58,7 @@ Se han cerrado las siguientes issues:
 
 #### Milestones
 
-En este hito se ha cerrado el milestone [hito-1](https://github.com/sergiovp/IV-OrganizeAndGo/milestone/1).
+En este hito se ha utilizado el milestone [hito-1](https://github.com/sergiovp/IV-OrganizeAndGo/milestone/1).
 
 ---
 
@@ -97,4 +97,28 @@ Se han cerrado las siguientes issues:
 
 #### Milestones
 
-En este hito se ha cerrado el milestone [hito-2](https://github.com/sergiovp/IV-OrganizeAndGo/milestone/2).
+En este hito se ha utilizado el milestone [hito-2](https://github.com/sergiovp/IV-OrganizeAndGo/milestone/2).
+
+## Hito 3. Contenedores para un microservicio
+
+Como sabemos, el principal uso de Docker es es aislar la ejecución de una aplicación de forma que sea mucho más fácil desplegarla. También permite crear fácilmente infraestructuras que se pueden reproducir en cualquier instalación en la nube entre otras muchas cosas.
+
+Con el uso de Docker se soluciona también el típico problema de los estudiantes de: "en mi ordenador funcionaba, no sé por qué aquí no..." Esto es debido a que el entorno desplegado será idéntico para todos los que usen la misma imagen de Docker.
+
++ [ ] Contenedor desplegado. Se incluirá un punto más de la nota si se ha desplegado en más de una plataforma.
+
++ [ ] Descripción de los pasos necesarios para desplegarlo y automatización de los mismos.
+
++ [ ] Dockerfile y otros ficheros de despliegue de la aplicación en funcionamiento y siguiendo todas las buenas prácticas, incluyendo el usado en el despliegue. Se valorará especialmente que el entorno se pueda descargar con una sola orden de DockerHub.
+
++ [] Documentación correcta del (o de los) Dockerfile(s).
+
+Se recuerda que se valolará positivamente la originalidad de la aplicación, grado de terminación, utilidad para la asignatura, originalidad de las herramientas usadas o sistema operativo, cantidad de trabajo invertido, publicación del contenedor. También por uso de sistemas de contenedores alternativos y complicación del proyecto, etc.
+
+#### Issues
+
+Se han cerrado las siguientes issues:
+
+#### Milestones
+
+En este hito se ha utilizado el milestone [hito-3](https://github.com/sergiovp/IV-OrganizeAndGo/milestone/3).
