@@ -57,7 +57,15 @@ Cabe destacar que también he instado **ts-node** para no tener que usar el comp
 
 ## Docker
 
-> Aquí pondré la justificación de la configuración de mi Dockerfile.
+El fichero [Dockerfile]() será el encargado de construir la imagen con las herramientas necesarias para que los tests de nuestro proyecto se ejecuten. En este apartado justificaremos las configuración del fichero *Dockerfile*.
+
+En primer lugar, deberemos elegir la imagen base a partir de la cual crearemos nuestra propia imagen.
+
+Para Node, tenemos varias alternativas:
+1. node:<version>
+2. node:<version>-alpine
+3. node:<version>-slim
+
 
 ---
 
