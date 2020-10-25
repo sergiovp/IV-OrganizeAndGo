@@ -17,7 +17,7 @@ En definitiva, JavaScript es una gran opción, pero me he decantado finalmente p
 
 ---
 
-## Sistema gestor de paquetes:
+## Sistema gestor de paquetes (task runner):
 
 Me he decantado por utilizar **npm** como sistema de gestión de paquetes. Por defecto, es el sistema gestor para Node.
 
@@ -62,9 +62,9 @@ El fichero [Dockerfile]() será el encargado de construir la imagen con las herr
 En primer lugar, deberemos elegir la imagen base a partir de la cual crearemos nuestra propia imagen.
 
 Para Node, tenemos varias alternativas:
-1. node:<version>
-2. node:<version>-alpine
-3. node:<version>-slim
+1. `node:<version>`
+2. `node:<version>-alpine`
+3. `node:<version>-slim`
 
 
 ---
