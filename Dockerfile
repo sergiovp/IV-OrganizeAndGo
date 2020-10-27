@@ -1,14 +1,11 @@
-FROM node:14-slim
+FROM node:14-alpine
 
 LABEL version="1.0" maintainer="sergiovp96@gmail.com"
 
-WORKDIR /app
-
 COPY package*.json ./
 
-## BUENA PRÁCTICA HACER QUE EL USUARIO SEA DISTINTO DE ROOT
+RUN useradd -r -u 2727 vela && npm install && rm package*.json
 
-RUN npm install
-#RUN rm package*.json
+USER vela
 
 CMD ["npm", "test"]
