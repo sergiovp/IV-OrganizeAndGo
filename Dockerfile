@@ -11,7 +11,4 @@ COPY package*.json ./
 RUN npm install
 #RUN rm package*.json
 
-COPY ./app ./app
-COPY ./tests ./tests
-
 CMD ["npm", "test"]
