@@ -6,7 +6,7 @@ WORKDIR /home/node
 
 COPY package*.json ./
 
-RUN npm install && rm package*.json
+RUN npm install
 
 ENV PATH=/node_modules/.bin:$PATH
 
@@ -15,4 +15,4 @@ USER node
 WORKDIR /test
 VOLUME /test
 
-CMD ["cp -r /home/node/node_modules .", "npm", "test"]
+CMD ["npm", "test"]
