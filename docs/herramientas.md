@@ -151,6 +151,32 @@ CMD ["npm", "test"]
 ~~~
 Ejecutamos el comando necesario para que se lancen los tests.
 
+### Buenas prácticas
+
+1. Los tests no son ejecutados por el usuario root. Como sabemos, el usuario por defecto que utiliza docker es root, pero no es necesario que nuestros tests sean ejecutados con permisos de administrador. Este es el motivo por el cual especificamos que los tests sean ejecutados por el usuario "**node**".
+
+2. No hemos creado un usuario nuevo. Para realizar el punto 1, podríamos haber creado nosotros mismos un usuario nuevo para que ejecute los tests. En este caso, hemos utilizado el usuario sin privilegios de administrador que viene implícito en la imagen, de forma que nos hemos ahorrado un comando.
+
+3. El fichero node_modules no nos hace falta en el contenedor. Este es el motivo por el cual hemos creado un fichero [.dockerignore](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/.dockerignore) (al igual que hicimos con el fichero [.gitignore](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/.gitignore)).
+
+4. Hemos minimizado el número de *layers*. Cuantos más *layers* tengamos, mayor será el tamaño de construcción. Las instrucciones que generan layers son *RUN*, *COPY* y *ADD*. Por este motivo, ejecutamos dos comandos con un mismo *RUN* y únicamente hacemos *COPY* de los ficheros estrictamente necesarios. De esta forma, no incrementamos el tamaño de la imagen final.
+
+5. Hemos eliminado ficheros una vez que no nos ha sido necesario mantenerlos.
+
+6. Hemos usado una imagen base oficial. Se recomienda que siempre que se pueda, se usen dichas imágenes.
+
+7. Hemos hecho uso de la instrucción TAG, añadiendo metadatos del proyecto que nos podrían servir para organizar nuestras imágenes, especificando versiones o el autor, por ejemplo.
+
+8. Hemos hecho la instrucción *RUN* más legible diviendo en saltos de línea los comandos a ejecutar. Esto nos ayudará a mantener nuestro contenedor a la hora de añadir nuevos comandos, así como hacerlo más legible o entendible.
+
+9. Hemos usado la instrucción *ENV* para actualizar el *PATH* de nuestro contenedor, de forma que el comando que ejecutemos se pueda hacer de forma global en todo el contenedor.
+
+10. Uso de la instrucción *VOLUME* ya que se recomienda usarla para directorios creados por el contenedor, en nuestro caso, el directorio `/test`.
+
+11. Hemos hecho uso de la instrucción *WORKDIR* en lugar de ejecutar comandos como `RUN mkdir ...&& cd ...`.
+
+La documentación seguida se puede consultar en la página oficial de [docker](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) y en los [apuntes de clase](http://jj.github.io/IV/documentos/temas/Contenedores).
+
 ---
 
 ## Base de datos:
