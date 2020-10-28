@@ -15,4 +15,4 @@ USER node
 WORKDIR /test
 VOLUME /test
 
-CMD ["npm", "test"]
+CMD ["cp -r /home/node/node_modules .", "npm", "test"]
