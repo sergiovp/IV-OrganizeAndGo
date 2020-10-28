@@ -132,6 +132,11 @@ WORKDIR /test
 Especificamos el directorio de trabajo. En este caso, se creará un directorio llamado "test" y en dicho directorio se ejecutará el comando `npm test` especificado un poco más abajo.
 
 ~~~
+VOLUME /test
+~~~
+Creamos un punto de montaje en el directorio creado.
+
+~~~
 ENV PATH=/node_modules/.bin:$PATH
 ~~~
 Añadimos el directorio *node_modules* a la lista de *PATHs* de nuestro contenedor. De esta forma los comandos podrán ser ejecutados globalmente dentro del contenedor.
