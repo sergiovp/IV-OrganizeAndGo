@@ -57,14 +57,47 @@ Cabe destacar que también he instado **ts-node** para no tener que usar el comp
 
 ## Docker
 
-El fichero [Dockerfile]() será el encargado de construir la imagen con las herramientas necesarias para que los tests de nuestro proyecto se ejecuten. En este apartado justificaremos las configuración del fichero *Dockerfile*.
+### Imagen base
+
+El fichero [Dockerfile](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/Dockerfile) será el encargado de construir la imagen con las herramientas necesarias para que los tests de nuestro proyecto se ejecuten. En este apartado justificaremos las configuración del fichero *Dockerfile*.
 
 En primer lugar, deberemos elegir la imagen base a partir de la cual crearemos nuestra propia imagen.
+
+Siguiendo el guión de teoría con la siguiente cita *"El usar imágenes oficiales de un lenguaje es mucho más conveniente que usar la de un sistema operativo y posteriormente instalar el lenguaje y cualquier otra cosa que necesite"* he decidido usar una imagen **oficial**.
+
+Dicho esto, buscaremos una base que tenga instalado por defecto nuestro task runner, o sea, node y npm. De esta forma nos ahorraremos dicha instalación en el Dockerfile.
 
 Para Node, tenemos varias alternativas:
 1. `node:<version>`
 2. `node:<version>-alpine`
 3. `node:<version>-slim`
+
+En cuanto a la **primera opción**, es la imagen por defecto. Esto implica que si no estamos seguros de cuáles van a ser nuestras necesidades, probablemente deberíamos elegir esta opción. 
+
+La **segunda opción**, como el nombre indica, está basada en la distribución Linux *Alpine*. Esta imagen tiene un tamaño reducido, por lo que la imagen que creemos a partir de esta problablemente también lo tendrá.
+
+La **tercera opción** sólo contiene los paquetes mínimos para poder ejecutar node.
+
+Haremos una tabla con el tamaño de las imágenes:
+
+|node:14-Alpine|node:14-Slim|node:14|
+|---|---|---|
+|41.42MiB|57.89MiB|316.79MiB|
+
+Como podemos apreciar, la imagen `node:14` la descartamos del tirón por razones obvias, es demasiado pesada.
+
+Lo que me sorprende de la comparación entre *Alpine* y *Slim* es que a pesar de que slim contiene los paquetes mínimos, es más pesada que alpine.
+
+Compararemos ahora, por tanto, los tiempos de construcción de las imágenes que nos proporciona DockerHub tanto de *Alpine* como de *Slim*.
+
+![tiempo_alpine](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/alpine.png)
+![tiempo_slim](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/slim.png)
+
+Como podemos observar, el tiempo de construcción con la imagen *Slim* es la mitad del tiempo con la imagen *Alpine* (1m vs 2m).
+
+Otro punto a favor de *Slim* es que no me ha dado problemas a la hora de crear un usuario para que no se ejecute en modo root. *Alpine* sin embargo me ha estado problemas con los comandos *adduser* y *useradd*. 
+
+Por los motivos citados, finalmente he decido utilizar **node:14-slim**.
 
 
 ---
