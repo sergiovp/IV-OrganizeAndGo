@@ -4,10 +4,11 @@ LABEL version="1.0" maintainer="sergiovp96@gmail.com"
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install \
+    && rm package*.json
 
-WORKDIR /test
-VOLUME /test
+WORKDIR /home/node/test
+VOLUME /home/node/test
 
 ENV PATH=/node_modules/.bin:$PATH
 
