@@ -6,7 +6,8 @@ WORKDIR /home/node
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install \
+    && rm package*.json
 
 ENV PATH=/node_modules/.bin:$PATH
 
