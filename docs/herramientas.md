@@ -151,6 +151,14 @@ CMD ["npm", "test"]
 ~~~
 Ejecutamos el comando necesario para que se lancen los tests.
 
+### DockerHub
+
+Nuestro contenedor ha sido subido a DockerHub, lo podemos ver pinchando [aquí](https://hub.docker.com/r/sergiovela/iv-organizeandgo).
+
+El repositorio se actualiza automáticamente, lo podemos comprobar viendo en el enlace anterior cómo está actualizado el README de DockerHub con el de GitHub o en la siguiente captura de pantalla:
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/build_docker.png)
+
 ### Buenas prácticas
 
 1. Los tests no son ejecutados por el usuario root. Como sabemos, el usuario por defecto que utiliza docker es root, pero no es necesario que nuestros tests sean ejecutados con permisos de administrador. Este es el motivo por el cual especificamos que los tests sean ejecutados por el usuario "**node**".
