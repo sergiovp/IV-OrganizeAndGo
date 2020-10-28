@@ -3,7 +3,7 @@ FROM node:14-slim
 LABEL version="1.0" maintainer="sergiovp96@gmail.com"
 
 COPY package*.json ./
-
+RUN pwd
 RUN npm install \
     && rm package*.json
 
