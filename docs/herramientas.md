@@ -99,6 +99,52 @@ Otro punto a favor de *Slim* es que no me ha dado problemas a la hora de crear u
 
 Por los motivos citados, finalmente he decido utilizar **node:14-slim**.
 
+### Dockerfile
+
+En este apartado justificaremos cada línea de nuestro fichero [Dockerfile](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/Dockerfile).
+
+~~~
+FROM node:14-slim
+~~~
+Es la imagen base de la que partimos. En el apartado anterior tenemos la justificación de esta elección.
+
+~~~
+LABEL version="1.0" maintainer="sergiovp96@gmail.com"
+~~~
+Con el tag LABEL especificamos metadatos. Se pueden especificar el autor, fecha de construcción, descripción, etc. En nuestro caso hemos especificado la versión y el autor.
+
+~~~
+COPY package*.json ./
+~~~
+Como sabemos, es esencial para poder ejecutar nuestros tests el fichero *packahe.json* y *package-lock.json*. Con ellos, nos descargaremos las dependencias o módulos necesarios del proyecto, como *Mocha*, *Chai*, etc.
+
+~~~
+RUN npm install && rm package*.json
+~~~
+En este caso ejecutamos dos comandos.
+
+1. Instalamos todas las dependencias y módulos especificados en el package.json con las versiones especificadas en el package-lock.json.
+2. Una vez instalados los módulos, ni el package.json ni el package-lock.json nos hacen falta. Los borramos.
+
+~~~
+WORKDIR /test
+~~~
+Especificamos el directorio de trabajo. En este caso, se creará un directorio llamado "test" y en dicho directorio se ejecutará el comando `npm test` especificado un poco más abajo.
+
+~~~
+ENV PATH=/node_modules/.bin:$PATH
+~~~
+Añadimos el directorio *node_modules* a la lista de *PATHs* de nuestro contenedor. De esta forma los comandos podrán ser ejecutados globalmente dentro del contenedor.
+
+~~~
+USER node
+~~~
+La imagen que utilizamos de node tiene un usuario ya creado distinto de root. En lugar de crear a mano nosotros un usuario, utilizamos este ahorrándonos un comando en el Dockerfile. Se podría decir que es una medida de seguridad, ya que Docker, por defecto utiliza el usuario root para ejecutar comandos. Por ello, especificamos un usuario distinto sin permisos de administrador para que ejecute
+el comando `npm test`.
+~~~
+CMD ["npm", "test"]
+~~~
+Ejecutamos el comando necesario para que se lancen los tests.
 
 ---
 
