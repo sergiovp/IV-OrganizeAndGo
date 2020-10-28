@@ -2,13 +2,11 @@ FROM node:14-slim
 
 LABEL version="1.0" maintainer="sergiovp96@gmail.com"
 
+WORKDIR /test
+
 COPY package*.json ./
 
-WORKDIR /home/node/test
-VOLUME /home/node/test
-
-RUN npm install \
-    && rm package*.json
+RUN npm install && rm package*.json
 
 
 ENV PATH=/node_modules/.bin:$PATH
