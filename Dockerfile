@@ -12,4 +12,7 @@ ENV PATH=/node_modules/.bin:$PATH
 
 USER node
 
+WORKDIR /test
+VOLUME /test
+
 CMD ["npm", "test"]
