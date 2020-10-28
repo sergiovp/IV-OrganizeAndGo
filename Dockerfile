@@ -4,8 +4,7 @@ LABEL version="1.0" maintainer="sergiovp96@gmail.com"
 
 COPY package*.json ./
 
-RUN npm install \
-    && rm package*.json
+RUN npm install
 
 WORKDIR /test
 VOLUME /test
