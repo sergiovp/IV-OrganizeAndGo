@@ -71,6 +71,11 @@ Clonamos el respositorio:
 git clone https://github.com/sergiovp/IV-OrganizeAndGo
 ~~~
 
+Nos situamos sobre el repositorio:
+~~~
+cd IV-OrganizeAndGo
+~~~
+
 Instalamos las dependencias y módulos:
 ~~~
 npm install
@@ -92,6 +97,11 @@ Clonamos el respositorio:
 git clone https://github.com/sergiovp/IV-OrganizeAndGo
 ~~~
 
+Nos situamos sobre el repositorio:
+~~~
+cd IV-OrganizeAndGo
+~~~
+
 Instalamos las dependencias y módulos:
 ~~~
 npm install
@@ -109,6 +119,89 @@ Tenemos un fichero por cada clase de nuestro proyecto:
 + [tarea_test.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/tests/tarea_test.ts)
 + [equipo_test.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/tests/equipo_test.ts)
 + [organizeandgo_test.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/tests/organizeandgo_test.ts)
+
+---
+
+## Docker
+
+Todo lo relativo a la práctica de Docker lo encontramos justificado en el fichero [herramientas.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md).
+
+Por comodidad, se ofrecen enlaces directos a dicha documentación:
+
++ [Elección y justificación de la imagen base usada](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md#imagen-base)
+
++ [Fichero Dockerfile](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/Dockerfile)
+
++ [Justificación desarrollo fichero Dockerfile](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md#dockerfile)
+
++ [Contenedor subido a DockerHub](https://hub.docker.com/r/sergiovela/iv-organizeandgo)
+
++ [Actualización automática del contenedor en DockerHub](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md#dockerhub)
+
++ [Buenas prácticas desarrollo de Dockerfile](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md#buenas-pr%C3%A1cticas)
+
++ [Añadido fichero .dockerignore](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/.dockerignore)
+
+### Ejecutar los tests con Docker
+
+> NOTA: Como prerrequisito, se debe tener instalado [Docker](https://docs.docker.com/get-docker/).
+
+Clonamos el respositorio:
+~~~
+git clone https://github.com/sergiovp/IV-OrganizeAndGo
+~~~
+
+Nos situamos sobre el repositorio:
+~~~
+cd IV-OrganizeAndGo
+~~~
+
+Descargamos la imagen:
+~~~
+docker pull sergiovela/iv-organizeandgo:latest
+~~~
+
+> NOTA: No es necesario descargarse la imagen previamente. Este proceso se hará solo si lo ejecutamos directamente como vemos en la siguiente línea.
+
+Los ejecutamos:
+~~~
+docker run -t -v `pwd`:/test sergiovela/iv-organizeandgo
+~~~
+
+---
+
+## GitHub Container Registry
+
+He hecho uso de un registro alternativo a DcokerHub, en este caso es *GitHub Container Registry*.
+
+El paquete se puede ver [aquí](https://github.com/users/sergiovp/packages/container/package/iv-organizeandgo).
+
+### Ejecutar los tests con GitHub Container Resgistry
+
+> NOTA: Como prerrequisito, se debe tener instalado [Docker](https://docs.docker.com/get-docker/).
+
+Clonamos el respositorio:
+~~~
+git clone https://github.com/sergiovp/IV-OrganizeAndGo
+~~~
+
+Nos situamos sobre el repositorio:
+~~~
+cd IV-OrganizeAndGo
+~~~
+
+Descargamos la imagen:
+~~~
+docker pull ghcr.io/sergiovp/iv-organizeandgo:latest
+~~~
+
+> NOTA: No es necesario descargarse la imagen previamente. Este proceso se hará solo si lo ejecutamos directamente como vemos en la siguiente línea.
+
+Los ejecutamos:
+~~~
+docker run -t -v `pwd`:/test ghcr.io/sergiovp/iv-organizeandgo:latest
+~~~
+> **NOTA IMPORTANTE**: Ver esta [ISSUE](https://github.com/sergiovp/IV-OrganizeAndGo/issues/55)
 
 ---
 
