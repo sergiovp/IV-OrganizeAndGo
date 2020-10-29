@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:14-slim
 
 LABEL version="1.0" maintainer="sergiovp96@gmail.com"
 
@@ -6,7 +6,7 @@ WORKDIR /home/node
 
 COPY package*.json ./
 
-RUN npm i --production \
+RUN npm install \
     && rm package*.json
 
 ENV PATH=/node_modules/.bin:$PATH
