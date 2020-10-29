@@ -2,7 +2,7 @@ FROM node:14-slim
 
 LABEL version="1.0" maintainer="sergiovp96@gmail.com"
 
-WORKDIR /home/node
+#WORKDIR /home/node
 
 COPY package*.json ./
 
