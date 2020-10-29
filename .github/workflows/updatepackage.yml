@@ -5,9 +5,9 @@ jobs:
         name: update package docker image
         runs on: ubuntu-latest
         steps:
-            - name: Checkout Dockerfile
+            - name: Check out the repo
             uses: actions/checkout@v2
-            - name: Run updatepackage
+            - name: Push to GitHub Packages
             uses: docker/build-push-action@v1
             with:
                 username: ${{ github.actor }}
