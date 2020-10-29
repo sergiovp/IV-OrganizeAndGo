@@ -11,7 +11,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.CR_PAT }}
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
           repository: sergiovp/iv-organizeandgo
           tag_with_ref: true
