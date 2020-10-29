@@ -1,0 +1,17 @@
+name: updatepackage
+on: push
+jobs:
+    update-package-docker:
+        name: update package docker image
+        runs on: ubuntu-latest
+        steps:
+            - name: Checkout Dockerfile
+            uses: actions/checkout@v2
+            - name: Run updatepackage
+            uses: docker/build-push-action@v1
+            with:
+                username: ${{ github.actor }}
+                password: ${{ secrets.GITHUB_TOKEN }}
+                registry: ghcr.io
+                repository: sergiovp/IV-OrganizeAndGo
+                tag_with_ref: true
