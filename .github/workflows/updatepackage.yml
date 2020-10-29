@@ -12,6 +12,6 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ github.token }}
+          password: ${{ secrets.CR_PAT }}
           repository: sergiovp/iv-organizeandgo
           tag_with_ref: true
