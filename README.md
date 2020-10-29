@@ -1,6 +1,6 @@
 # Infraestructura Virtual - Organize&Go
 
-Repositorio dedicado al proyecto a desarrollar de la asignatura Infraestructura Virtual, impartida por @jj en la UGR (2020/21).
+Repositorio dedicado al proyecto a desarrollar de la asignatura Infraestructura Virtual, impartida por @jj y @fbarranco en Ingeniería Informática, UGR (2020/21).
 
 ---
 
@@ -117,8 +117,11 @@ Tenemos un fichero por cada clase de nuestro proyecto:
 Como sabemos, un proyecto debe de estar bien especificado, en nuestro caso, dichas especificaciones las haremos en forma de **historia de usuario**. Serán documentadas en issues y a medida que avancemos con el proyecto, se podrán incorporar más.
 
 + [HU0: Introducción](https://github.com/sergiovp/IV-OrganizeAndGo/issues/5)
-
-En la ISSUE anterior podemos ver el avance de las HU. Tanto las que ya hemos cerrado tras su implementación como las nuevas.
++ [HU1: Consultar información de las tareas](https://github.com/sergiovp/IV-OrganizeAndGo/issues/6)
++ [HU2: Modificar información de las tareas](https://github.com/sergiovp/IV-OrganizeAndGo/issues/7)
++ [HU3: Añadir equipos](https://github.com/sergiovp/IV-OrganizeAndGo/issues/32)
++ [HU4: Añadir empleados ](https://github.com/sergiovp/IV-OrganizeAndGo/issues/33)
++ [HU5: Añadir tareas](https://github.com/sergiovp/IV-OrganizeAndGo/issues/34)
 
 ---
 
