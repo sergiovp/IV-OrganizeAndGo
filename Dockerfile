@@ -6,7 +6,7 @@ RUN npm i -g mocha chai ts-node typescript && mkdir /node_modules && chmod 755 /
 
 USER node
 COPY --chown=node package*.json ./
-RUN npm i && rm package*.json
+RUN npm i
 
 WORKDIR /test
 
