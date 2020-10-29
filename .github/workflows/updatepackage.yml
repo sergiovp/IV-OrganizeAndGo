@@ -13,5 +13,5 @@ jobs:
           registry: docker.pkg.github.com
           username: ${{ github.actor }}
           password: ${{ github.token }}
-          repository: sergiovp/iv-organizeandgo
+          repository: sergiovp/iv-organizeandgo/latest
           tag_with_ref: true
