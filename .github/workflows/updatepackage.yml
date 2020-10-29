@@ -10,8 +10,7 @@ jobs:
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
-          registry: docker.pkg.github.com
+          registry: ghcr.io/sergiovp/iv-organizeandgo:latest
           username: ${{ github.actor }}
           password: ${{ github.token }}
-          repository: sergiovp/iv-organizeandgo/latest
           tag_with_ref: true
