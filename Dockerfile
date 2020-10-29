@@ -1,4 +1,4 @@
-FROM node:14-slim
+FROM node:14-alpine
 
 LABEL version="1.0" maintainer="sergiovp96@gmail.com"
 
