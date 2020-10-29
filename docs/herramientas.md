@@ -93,11 +93,22 @@ Compararemos ahora, por tanto, los tiempos de construcción de las imágenes que
 ![tiempo_alpine](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/alpine.png)
 ![tiempo_slim](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/slim.png)
 
-Como podemos observar, el tiempo de construcción con la imagen *Slim* es la mitad del tiempo con la imagen *Alpine* (1m vs 2m).
+Tiempos de construcción en local:
+|node:14-Alpine|node:14-Slim|
+|---|---|
+|50.920s|39.192s|
 
-Otro punto a favor de *Slim* es que no me ha dado problemas a la hora de crear un usuario para que no se ejecute en modo root. *Alpine* sin embargo me ha estado problemas con los comandos *adduser* y *useradd*. 
+Tiempos de ejecución de los tests:
+|node:14-Alpine|node:14-Slim|
+|---|---|
+|14.892s|7.150s|
 
-Por los motivos citados, finalmente he decido utilizar **node:14-slim**.
+Como podemos observar, el tiempo de construcción con la imagen *Slim* es la mitad del tiempo con la imagen *Alpine* (1m vs 2m) en DockerHub. En local, nuevamente la imagen Slim ofrece mejor tiempos que Alpine.
+
+En cuanto a tiempos de ejecución, nuevamente Slim nos ofrece un tiempo más reducido que Alpine.
+
+A pesar de que el tamaño de la imagen base *Slim* es mayor que la de *Alpine*, ofrece mejores tiempos de construcción y ejecución, siendo este el motivo por el cual me he decidido a usar **Slim** como imagen base a utilizar.
+
 
 ### Dockerfile
 
@@ -112,6 +123,11 @@ Es la imagen base de la que partimos. En el apartado anterior tenemos la justifi
 LABEL version="1.0" maintainer="sergiovp96@gmail.com"
 ~~~
 Con el tag LABEL especificamos metadatos. Se pueden especificar el autor, fecha de construcción, descripción, etc. En nuestro caso hemos especificado la versión y el autor.
+
+~~~
+WORKDIR /home/node
+~~~
+Especifico el directorio del usuario *node* para que se instalen las dependencias en dicho directorio.
 
 ~~~
 COPY package*.json ./
@@ -146,6 +162,7 @@ USER node
 ~~~
 La imagen que utilizamos de node tiene un usuario ya creado distinto de root. En lugar de crear a mano nosotros un usuario, utilizamos este ahorrándonos un comando en el Dockerfile. Se podría decir que es una medida de seguridad, ya que Docker, por defecto utiliza el usuario root para ejecutar comandos. Por ello, especificamos un usuario distinto sin permisos de administrador para que ejecute
 el comando `npm test`.
+
 ~~~
 CMD ["npm", "test"]
 ~~~
