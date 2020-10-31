@@ -63,16 +63,16 @@ El fichero [Dockerfile](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master
 
 En primer lugar, deberemos elegir la imagen base a partir de la cual crearemos nuestra propia imagen.
 
-Siguiendo el guión de teoría con la siguiente cita *"El usar imágenes oficiales de un lenguaje es mucho más conveniente que usar la de un sistema operativo y posteriormente instalar el lenguaje y cualquier otra cosa que necesite"* he decidido usar una imagen **oficial**.
+Siguiendo el guión de teoría con la siguiente cita *"El usar imágenes oficiales de un lenguaje es mucho más conveniente que usar la de un sistema operativo y posteriormente instalar el lenguaje y cualquier otra cosa que necesite"* seguramente haga que me decide por utilizar una imagen oficial.
 
-Dicho esto, buscaremos una base que tenga instalado por defecto nuestro task runner, o sea, node y npm. De esta forma nos ahorraremos dicha instalación en el Dockerfile.
+Nos conviene por tanto utilizar una imagen base que venga con node y npm instalado, esto nos ahorrará la instalación de dichos módulos en el Dockerfile.
 
 Para Node, tenemos varias alternativas:
 1. `node:<version>`
 2. `node:<version>-alpine`
 3. `node:<version>-slim`
 
-En cuanto a la **primera opción**, es la imagen por defecto. Esto implica que si no estamos seguros de cuáles van a ser nuestras necesidades, probablemente deberíamos elegir esta opción. 
+En cuanto a la **primera opción**, es la imagen por defecto (*full*). Esto implica que si no estamos seguros de cuáles van a ser nuestras necesidades, probablemente deberíamos elegir esta opción. 
 
 La **segunda opción**, como el nombre indica, está basada en la distribución Linux *Alpine*. Esta imagen tiene un tamaño reducido, por lo que la imagen que creemos a partir de esta problablemente también lo tendrá.
 
@@ -107,8 +107,46 @@ Como podemos observar, el tiempo de construcción con la imagen *Slim* es la mit
 
 En cuanto a tiempos de ejecución, nuevamente Slim nos ofrece un tiempo más reducido que Alpine.
 
-A pesar de que el tamaño de la imagen base *Slim* es mayor que la de *Alpine*, ofrece mejores tiempos de construcción y ejecución, siendo este el motivo por el cual me he decidido a usar **Slim** como imagen base a utilizar.
+A pesar de que el tamaño de la imagen base *Slim* es mayor que la de *Alpine*, ofrece mejores tiempos de construcción y ejecución, sonaría coherente que como decisión final, nos quedemos con la imagen de Slim para nuestro contenedor, pero antes me gustaría realizar otras comparaciones.
 
+Tanto la versión por defecto (*full*) como la Slim, están basadas en Debian, Alpine por el contrario está basada en Alpine (valga la redundancia).
+
+*Ante este dato, ¿Por qué no probamos una imagen base basada en otra distribución?*
+
+Probaremos con **CentOS**, en concreto, la última versión (*CentOS8*).
+|Peso de la imagen|Tº de construcción|Tº de ejecución de los test|
+|---|---|---|
+|215MiB|1m25s|7,193s|
+
+Como podemos apreciar, era de esperar que el tiempo de construcción iba a ser superior a imágenes en las que node se encuentra instalado por defecto. Esto es debido a que tenemos que instalar node antes de poder ejecutar los tests. En cuanto al tiempo de ejecución de los tests, bajo mi sorpresa, es bastante bajo y se encuentra a la par que la versión de Slim.
+
+Descartamos la utilización de CentOS como imagen base ya que es un SO completo (implicando que habrá paquetes instalados que nunca necesitaremos ni utilizaremos) y a parte, debemos instalar *npm* en el Dockerfile. No es la mejor solución para nuestro proyecto.
+
+*Por último, probaremos alguna imagen base NO oficial que SÍ traiga node instalado por defecto*.
+
+Para este caso, utilizaré una imagen sacada de un repositorio de [GitHub](https://github.com/nodesource/docker-node). La imagen se llama *nodesource/jessie:0.12.7*. Está basada en *Debian8*.
+
+|Peso de la imagen|Tº de construcción|Tº de ejecución de los test|
+|---|---|---|
+|413MiB|51.67s|¿?|
+
+En cuanto al tiempo de construcción, sigue siendo mayor que la imagen *Slim* y prácticamente igual que la *Alpine*. Cabe destacar que no he podido ejecutar los tests debido a que no encuentra El framework que utilizo para ello, *Mocha*. Esto es debido a que no instala mis dependias.
+
+~~~
+root@a51b5da85ec6:/home# npm test
+
+> iv-organizeandgo@1.0.0 test /home
+> mocha -r ts-node/register tests/**/*.ts
+
+sh: 1: mocha: not found
+npm ERR! Test failed.  See above for more details.
+~~~
+
+He intentado instalar yo las dependencias manualmente pero ni por esas. Quizás sea este uno de los motivos por el cual es conveniente utilizar imágenes oficiales. Estoy seguro de que hay imágenes no oficiales que son geniales en cuanto a tiempos de construcción, ejecución y que están optimizadas, pero esta imagen no es el caso.
+
+**En definitiva, tras estudiar todas estas imágenes, me voy a decidir por utilizar la imagen oficial de node Slim. El motivo creo que es evidente, es ligera y ofrece los mejores tiempos de construcción y ejecución.**
+
+*Más adelante trataremos de optimizar el contenedor aún más*.
 
 ### Dockerfile
 
