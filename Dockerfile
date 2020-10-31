@@ -7,7 +7,7 @@ USER node
 
 COPY package*.json ./
 
-RUN npm i --no-optional \
+RUN npm install --no-optional \
     && rm package*.json
 
 ENV PATH=/node_modules/.bin:$PATH
