@@ -1,4 +1,4 @@
-FROM node:14-slim
+FROM centos:8
 
 LABEL version="1.0" maintainer="sergiovp96@gmail.com"
 
