@@ -142,6 +142,8 @@ Por comodidad, se ofrecen enlaces directos a dicha documentación:
 
 + [Añadido fichero .dockerignore](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/.dockerignore)
 
++ [Optimización Dockerfile]()
+
 ### Ejecutar los tests con Docker
 
 > NOTA: Como prerrequisito, se debe tener instalado [Docker](https://docs.docker.com/get-docker/).
