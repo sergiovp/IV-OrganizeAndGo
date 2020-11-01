@@ -1,5 +1,8 @@
 name: Publish Docker image
-on: [push]
+on: push
+env:
+  IMAGEN_URL = ghcr.io/sergiovp/iv-organizeandgo:latest
+
 jobs:
   push_to_registry:
     name: Push Docker Image to Github Container Registry
@@ -8,10 +11,11 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Push to Github
-        uses: docker/build-push-action@v2
+        uses: docker/login-action@v1
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: ghcr.io
           repository: sergiovp/IV-OrganizeAndGo
-          tag_with_ref: true
+      - name: Action
+        run: docker build -t $IMAGEN_URL . && docker push $IMAGEN_URL  
