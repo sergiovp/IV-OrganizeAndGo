@@ -1,7 +1,7 @@
 name: Publish Docker image
 on: push
 env:
-  IMAGEN_URL = ghcr.io/sergiovp/iv-organizeandgo:latest
+  IMAGEN_URL: ghcr.io/sergiovp/iv-organizeandgo:latest
 
 jobs:
   push_to_registry:
