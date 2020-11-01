@@ -16,6 +16,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: ghcr.io
-          repository: sergiovp/IV-OrganizeAndGo
       - name: Action
         run: docker build -t $IMAGEN_URL . && docker push $IMAGEN_URL  
