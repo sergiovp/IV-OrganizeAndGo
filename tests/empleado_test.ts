@@ -5,7 +5,7 @@ describe('Testing clase Empleado: ', () => {
     let unEmpleado = new Empleado(7, "Sergio", "Vela", "sergiovp96@gmail.com");
     
     it ('get id nos debe devolver el id asignado al empleado', () => {
-        expect(unEmpleado.id).to.equal(7);
+        expect(unEmpleado.id).to.equal(7).and.to.be.greaterThan(0);
     });
 
     it ('get nombre nos debe devolver el nombre del empleado', () => {
@@ -22,7 +22,7 @@ describe('Testing clase Empleado: ', () => {
     
     it ('set id debe modificar el id del empleado', () => {
         unEmpleado.id = 27;
-        expect(unEmpleado.id).to.equal(27);
+        expect(unEmpleado.id).to.equal(27).and.to.be.greaterThan(0);
     });
 
     it ('set nombre debe modificar el nombre del empleado', () => {
