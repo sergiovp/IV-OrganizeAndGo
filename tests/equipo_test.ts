@@ -17,7 +17,7 @@ describe('Testing clase Equipo: ', () => {
     let unEquipo: Equipo = new Equipo(1, "Equipo de Vela", empleados, tareas);
     
     it ('get id nos debe devolver el id del equipo', () => {
-        expect(unEquipo.id).to.equal(1);
+        expect(unEquipo.id).to.equal(1).and.to.be.greaterThan(0);
     });
 
     it ('get nombre nos debe devolver el nombre del equipo', () => {
@@ -44,7 +44,7 @@ describe('Testing clase Equipo: ', () => {
     
     it ('set id debe modificar el id del equipo', () => {
         unEquipo.id = 27;
-        expect(unEquipo.id).to.equal(27);
+        expect(unEquipo.id).to.equal(27).and.to.be.greaterThan(0);
     });
 
     it ('set nombre debe modificar el nombre del equipo', () => {
