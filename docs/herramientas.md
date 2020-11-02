@@ -168,17 +168,28 @@ WORKDIR /home/node
 Especifico el directorio del usuario *node* para que se instalen las dependencias en dicho directorio.
 
 ~~~
+USER node
+~~~
+La imagen que utilizamos de node tiene un usuario ya creado distinto de root. En lugar de crear a mano nosotros un usuario, utilizamos este ahorrándonos un comando en el Dockerfile. Se podría decir que es una medida de seguridad, ya que Docker, por defecto utiliza el usuario root para ejecutar comandos. Por ello, especificamos un usuario distinto sin permisos de administrador para que ejecute
+el comando `npm test`.
+
+~~~
 COPY package*.json ./
 ~~~
 Como sabemos, es esencial para poder ejecutar nuestros tests el fichero *packahe.json* y *package-lock.json*. Con ellos, nos descargaremos las dependencias o módulos necesarios del proyecto, como *Mocha*, *Chai*, etc.
 
 ~~~
-RUN npm install && rm package*.json
+RUN npm i --no-optional && rm package*.json
 ~~~
 En este caso ejecutamos dos comandos.
 
-1. Instalamos todas las dependencias y módulos especificados en el package.json con las versiones especificadas en el package-lock.json.
+1. Instalamos todas las dependencias y módulos especificados en el package.json con las versiones especificadas en el package-lock.json. (Los paquetes opcionales no los instalamos).
 2. Una vez instalados los módulos, ni el package.json ni el package-lock.json nos hacen falta. Los borramos.
+
+~~~
+ENV PATH=/node_modules/.bin:$PATH
+~~~
+Añadimos el directorio *node_modules* a la lista de *PATHs* de nuestro contenedor. De esta forma los comandos podrán ser ejecutados globalmente dentro del contenedor.
 
 ~~~
 WORKDIR /test
@@ -191,20 +202,22 @@ VOLUME /test
 Creamos un punto de montaje en el directorio creado.
 
 ~~~
-ENV PATH=/node_modules/.bin:$PATH
-~~~
-Añadimos el directorio *node_modules* a la lista de *PATHs* de nuestro contenedor. De esta forma los comandos podrán ser ejecutados globalmente dentro del contenedor.
-
-~~~
-USER node
-~~~
-La imagen que utilizamos de node tiene un usuario ya creado distinto de root. En lugar de crear a mano nosotros un usuario, utilizamos este ahorrándonos un comando en el Dockerfile. Se podría decir que es una medida de seguridad, ya que Docker, por defecto utiliza el usuario root para ejecutar comandos. Por ello, especificamos un usuario distinto sin permisos de administrador para que ejecute
-el comando `npm test`.
-
-~~~
 CMD ["npm", "test"]
 ~~~
 Ejecutamos el comando necesario para que se lancen los tests.
+
+### Optimización Dockerfile
+
+Para la optimización del Dockerfile hemos hecho una serie de tareas. Podríamos decir que seguir unas buenas prácticas a la hora de desarrollar el Dockerfile ayudará a que este sea óptimo. Comentaremos lo más relevante:
+
+1. Copiar únicamente los paquetes/ficheros necesarios para pasar los tests. Podríamos haber copiado en el docker todos los ficheros relativos al proyecto, sin embargo, los únicos ficheros que copiamos son el `package.json` y `package-lock.json`. Esto hará que el contenedor sea más ligero.
+2. No instalamos paquetes opcionales. Esto lo conseguimos con el parámetro `--no-optional` de npm. Nuevamente al ahorrar instalaciones innecesarias, el contenedor será más ligero.
+3. Borramos ficheros una vez que no nos hagan falta. Una vez instalamos las dependencias, borramos los ficheros `packages`.
+4. La propia elección adecuada de una imagen base ayuda a que el contenedor sea óptimo. Por ello, hemos escogido la imagen más rápida ejecutando los tests y construyéndose, trayendo node ya instalado por defecto.
+5. He minimizado el número de *LAYERS* (RUN, COPY, ADD) en el Dockerfile. Cuantos más layers se tengan, mayor será el tiempo de construcción, por lo que ha sido una decisión acertada.
+6. He evitado crear un usuario nuevo utilizando el que la imagen trae por defecto.
+
+En definitiva, se ha evitado ejecutar comandos innecesarios, copiar ficheros que no se vayan a utilizar o instalar dependencias opcionales. Si esto se lo sumamos a la elacción de una imagen base correcta, se presenta un docker óptimo.
 
 ### DockerHub
 
