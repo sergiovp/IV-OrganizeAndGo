@@ -7,7 +7,7 @@ describe('Testing clase Tarea: ', () => {
     "6 horas", prioridad, 27);
     
     it ('get id nos debe devolver el id de la tarea', () => {
-        expect(unaTarea.id).to.equal(7);
+        expect(unaTarea.id).to.equal(7).and.to.be.greaterThan(0);
     });
 
     it ('get terminada nos debe devolver si la tarea ha sido terminada', () => {
@@ -32,7 +32,7 @@ describe('Testing clase Tarea: ', () => {
     
     it ('set id debe modificar el id de la tarea', () => {
         unaTarea.id = 27;
-        expect(unaTarea.id).to.equal(27);
+        expect(unaTarea.id).to.equal(27).and.to.be.greaterThan(0);
     });
 
     it ('set terminada debe modificar el valor de terminada', () => {
