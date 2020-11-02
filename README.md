@@ -142,7 +142,7 @@ Por comodidad, se ofrecen enlaces directos a dicha documentación:
 
 + [Añadido fichero .dockerignore](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/.dockerignore)
 
-+ [Optimización Dockerfile]()
++ [Optimización Dockerfile](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md#optimizaci%C3%B3n-dockerfile)
 
 ### Ejecutar los tests con Docker
 
@@ -203,7 +203,6 @@ Los ejecutamos:
 ~~~
 docker run -t -v `pwd`:/test ghcr.io/sergiovp/iv-organizeandgo:latest
 ~~~
-> **NOTA IMPORTANTE**: Ver esta [ISSUE](https://github.com/sergiovp/IV-OrganizeAndGo/issues/55)
 
 ---
 
