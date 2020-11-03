@@ -219,6 +219,24 @@ Para la optimización del Dockerfile hemos hecho una serie de tareas. Podríamos
 
 En definitiva, se ha evitado ejecutar comandos innecesarios, copiar ficheros que no se vayan a utilizar o instalar dependencias opcionales. Si esto se lo sumamos a la elacción de una imagen base correcta, se presenta un docker óptimo.
 
+Por otro lado, también podríamos usar otra herramienta para optimización del Dockerfile, en este caso y siguiendo este [hilo](https://stackoverflow.com/questions/41764336/how-does-the-new-docker-squash-work) usaremos `Squash`, este parámetro está introducido en Docker desde la versión `1.13`.
+
+Para ver los resultados, ejecutamos `docker history <id_contenedor>`.
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/docker_optimization1.png)
+
+Como podemos ver en la captura, el ID de mi contenedor es `ab5d42daaedc`.
+
+Antes de construir con `--squash`:
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/docker_optimization2.png)
+
+Tras construirlo con `--squash`:
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/docker_optimization3.png)
+Podemos reducir el número de capas incluyendo el comando `--squash` a la hora de construir el docker.
+Como podemos ver, hemos reducido el número de capas. Esto es debido a que han sido fusionadas.
+
 ### DockerHub
 
 Nuestro contenedor ha sido subido a DockerHub, lo podemos ver pinchando [aquí](https://hub.docker.com/r/sergiovela/iv-organizeandgo).
