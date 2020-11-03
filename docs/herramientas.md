@@ -234,8 +234,9 @@ Antes de construir con `--squash`:
 Tras construirlo con `--squash`:
 
 ![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/docker_optimization3.png)
-Podemos reducir el número de capas incluyendo el comando `--squash` a la hora de construir el docker.
-Como podemos ver, hemos reducido el número de capas. Esto es debido a que han sido fusionadas.
+
+
+Como podemos ver, han sido mergeadas capas, reduciendo el número de éstas.
 
 ### DockerHub
 
