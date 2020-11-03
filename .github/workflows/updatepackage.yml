@@ -6,7 +6,7 @@ env:
 jobs:
   main:
     name: Build and Push Docker Image to Github Container Registry
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       -
         name: Check out the repo
