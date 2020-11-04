@@ -15,7 +15,7 @@ describe('Testing clase Tarea: ', () => {
     });
 
     it ('get descripcion nos debe devolver la descripción de la tarea', () => {
-        expect(unaTarea.descripcion).to.equal("Entregar el hito 2").and.not.empty;
+        expect(unaTarea.descripcion).to.equal("").and.not.empty;
     });
 
     it ('get tiempoEstimado nos debe devolver el tiempo estimado de la tarea', () => {
