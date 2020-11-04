@@ -4,7 +4,7 @@ services:
   - docker
 
 env:
-  - URL_IMAGEN=sergiovela/iv-organizeandgo:latest
+  - URL_IMAGEN = sergiovela/iv-organizeandgo:latest
 
 before_install:
   - docker pull $URL_IMAGEN
