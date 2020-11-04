@@ -21,3 +21,4 @@ jobs:
       -
         name: Build and Push Exacution
         run: docker build -t $URL_IMAGEN . && docker push $URL_IMAGEN && docker run -t -v `pwd`:/test $URL_IMAGEN 
+
