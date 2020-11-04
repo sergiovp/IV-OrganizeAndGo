@@ -19,6 +19,5 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
       -
-        name: Build and Push Exacution
+        name: Build, Push and Run the docker
         run: docker build -t $URL_IMAGEN . && docker push $URL_IMAGEN && docker run -t -v `pwd`:/test $URL_IMAGEN 
-
