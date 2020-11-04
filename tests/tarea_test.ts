@@ -14,12 +14,12 @@ describe('Testing clase Tarea: ', () => {
         expect(unaTarea.terminada).to.be.false;
     });
 
-    it ('get descripcion nos debe devolver la descripción de la tarea', () => {
-        expect(unaTarea.descripcion).to.equal("").and.not.empty;
+    it ('get descripcion nos debe devolver la descripción de la tarea', ( ) => {
+        expect(unaTarea.descripcion).to.equal("");
     });
 
     it ('get tiempoEstimado nos debe devolver el tiempo estimado de la tarea', () => {
-        expect(unaTarea.tiempoEstimado).to.equal("6 horas").and.not.empty;
+        expect(unaTarea.tiempoEstimado).to.equal("6 horas");
     });
 
     it ('get prioridad nos debe devolver la prioridad de la tarea', () => {
@@ -42,12 +42,12 @@ describe('Testing clase Tarea: ', () => {
 
     it ('set descripcion debe modificar la descripción de la tarea', () => {
         unaTarea.descripcion = "Entregar hito 2 y objetivos semana 3";
-        expect(unaTarea.descripcion).to.equal("Entregar hito 2 y objetivos semana 3").and.not.empty;
+        expect(unaTarea.descripcion).to.equal("Entregar hito 2 y objetivos semana 3");
     });
 
     it ('set tiempoEstimado debe modificar el tiempo estimado de la tarea', () => {
         unaTarea.tiempoEstimado = "12 horas y media";
-        expect(unaTarea.tiempoEstimado).to.equal("12 horas y media").and.not.empty;
+        expect(unaTarea.tiempoEstimado).to.equal("12 horas y media");
     });
 
     it ('set prioridad debe modificar la prioridad de la tarea', () => {
