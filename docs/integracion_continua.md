@@ -83,7 +83,7 @@ env:
 
 ~~~
 jobs:
-  main:
+  build-push-run-docker:
     name: Build and Push Docker Image to Github Container Registry and Run it
     runs-on: ubuntu-latest
     steps:
@@ -103,7 +103,46 @@ jobs:
 
 ~~~
 
-+ 
+En el tag `jobs` especificaremos las tareas a abordar. Si nos fijamos, únicamente tenemos una tarea a la que he denominado **build-push-run**. También se ha especificado que se ejecute en la última versión de ubuntu.
+
+Con la acción `actions/checkout@v2` comprobamos el repositorio para que podamos acceder a él. Tras lo cual, nos logeamos en GHCR con `docker/login-action@v1`. Podemos especificar el usuario haciendo uso de la variable `github.repository_owner` y para hacer uso del *token* generado para poder hacer uso de la action, hemos debido crear una "*variable secreta*" llamada **CR_PAT** que almacene el token. Esto se utiliza para que el token quede encriptado y no pueda ser utilizado por alguien que no es colaborador del repositorio.
+En esta captura podemos ver la variable secreta creada:
+![captura-variable](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/variable_secreta.png)
+
+El próximo paso es ejecutar los comandos oportunos, en este caso, se construye el contenedor con nuestro Dockerfile, se hace un push para que se actualice también el contenedor remoto y se ejecutan los tests.
+
+Podemos comprobar que efectivamente se ejecutan los tests correctamente en las siguientes capturas:
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/action_funciona2.png)
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/action_funciona1.png)
+
+**NOTA IMPORTANTE**
+
+Hemos comentado que en el tag `jobs` especificamos las tareas a abordar... ¿no sería más coeherente dividir nuestra `action` en tres partes?
+
+Estas tres partes podrían ser:
+
+1. Construcción del contenedor
+2. Actualización del contenedor remoto
+3. Ejecución de los tests
+
+Suena coherente que se hiciera de esa forma. Lo que me ha llevado a hacerlo todo con una única tarea es que dividiendo la tarea en tres, no debemos logear 3 veces en GHCR tres veces (copiando y pegando lo mismo 3 veces). A parte, al ejecutar los tests, siempre se tiene que descargar al completo la imagen porque no la encuentra localmente como podemos ver en la siguiente captura:
+
+![](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/descarga_imagen.png)
+
+Esto implica que github va a tardar más en terminar la action, haciéndola más ineficiente.
+
+Sin embargo, si construimos, actualizamos y ejecutamos los tests con una única tarea, nos ahorramos descargarnos la imagen y tener que logearnos 3 veces en GHCR (con logearnos una vez nos basta). De esta forma los tests se ejecutan más rápido.
+
+Esto lo podemos ver en las siguientes capturas:
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/construimos_imagen.png)
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/actuailzamos_imagen.png)
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/ejecucion_tests.png)
+
+Como vemos, en este caso no necesitamos hacer un pull de la imagen.
 
 ### Uso correcto del gestor de tareas en todos los casos anteriores.
 
