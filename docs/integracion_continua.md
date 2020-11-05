@@ -84,23 +84,22 @@ env:
 ~~~
 jobs:
   build-push-run-docker:
-    name: Build and Push Docker Image to Github Container Registry and Run it
+    name: Reconstruimos y atualizamos la imagen y ejecutamos los tests
     runs-on: ubuntu-latest
     steps:
       -
-        name: Check out the repo
+        name: Comprobamos el repositorio para que podamos acceder a él
         uses: actions/checkout@v2
       -
-        name: Login to GitHub Container Registry
+        name: Nos logeamos en GHCR
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
       -
-        name: Build, Push and Run the docker
+        name: Ejecutamos los comandos para construir, actualizar y ejecutar los tests
         run: docker build -t $URL_IMAGEN . && docker push $URL_IMAGEN && docker run -t -v `pwd`:/test $URL_IMAGEN 
-
 ~~~
 
 En el tag `jobs` especificaremos las tareas a abordar. Si nos fijamos, únicamente tenemos una tarea a la que he denominado **build-push-run**. También se ha especificado que se ejecute en la última versión de ubuntu.
@@ -126,7 +125,7 @@ Estas tres partes podrían ser:
 2. Actualización del contenedor remoto
 3. Ejecución de los tests
 
-Suena coherente que se hiciera de esa forma. Lo que me ha llevado a hacerlo todo con una única tarea es que dividiendo la tarea en tres, no debemos logear 3 veces en GHCR tres veces (copiando y pegando lo mismo 3 veces). A parte, al ejecutar los tests, siempre se tiene que descargar al completo la imagen porque no la encuentra localmente como podemos ver en la siguiente captura:
+Suena coherente que se hiciera de esa forma. Lo que me ha llevado a hacerlo todo con una única tarea es que dividiendo la tarea en tres, nos debemos logear 3 veces en GHCR y por tanto, copiar y pegar lo mismo tres veces. A parte, al ejecutar los tests, siempre se tiene que descargar al completo la imagen porque no la encuentra localmente como podemos ver en la siguiente captura:
 
 ![](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/descarga_imagen.png)
 
@@ -136,15 +135,64 @@ Sin embargo, si construimos, actualizamos y ejecutamos los tests con una única 
 
 Esto lo podemos ver en las siguientes capturas:
 
+Construimos la imagen:
+
 ![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/construimos_imagen.png)
+
+Actualizamos la imagen remota:
 
 ![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/actuailzamos_imagen.png)
 
+Sin necesidad de volver a descargar la imagen, ejecutamos los tests:
+
 ![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/ejecucion_tests.png)
 
-Como vemos, en este caso no necesitamos hacer un pull de la imagen.
+**Otra nota**:
+
+En este caso, para variar un poco con respecto a la ejecución de los tests con Travis, se ha intentado realizar dicha ejecusión en un SO distinto (MacOS o Windows). El problema es como podemos ver en la siguiente captura de pantalla, que no es posible logearse en GHCR con un sistema distinto a Linux:
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/soloLINUX.png)
 
 ### Uso correcto del gestor de tareas en todos los casos anteriores.
+
+Como hemos comentado en los dos puntos anteriores, hemos hecho uso del docker del hito anterior para la ejecución de los tets, por lo tanto, en los ficheros de configuración de la integración continua no hemos tenido que hacer uso de nuestro gestor de tareas de manera implícita, ya que para eso, lo utilizamos en el docker.
+
+No obstante, me he propuesto utilizarlo con un tercer sistema de integración continua, para este caso, utilizaré [shippable](https://www.shippable.com).
+
+Lo que más me ha llamado la atención de shippeable es que si detecta que tienes el fichero `package.json`, da por hecho que se utiliza `npm`. Por ello, se ejecuta el comando `npm install` por defecto, sin neesidad de que se lo especifiquemos implícitamente. Por defecto, también ejecuta el comando `npm test` por lo que el fichero de configuración de este sistema de CI es tan sencillo como:
+
+~~~
+language: node_js
+
+node_js:
+  - 11.10.0
+  - 12.19.0
+  - 14.13.0
+~~~
+
+Como vemos, tan solo debemos especificar el lenguaje y las versiones en las que queremos que se ejecute. Para esto, he leído la [documentación](http://docs.shippable.com/ci/nodejs-continuous-integration/).
+
+Hemos especificado 3 versiones de node. La 14.13.0 es la que uso en local. Las otras dos son anteriores y nos servirán para saber si nuestro proyecto funciona en dichas versiones.
+
+Comprobaremos que funciona correctamente:
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/shippable_tests1.png)
+
+Como hemos podido observar, se ejecuta en las tres versiones especificadas. Podemos entrar en detalle pinchando sobre alguna:
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/shippable_tests2.png)
+
+En este caso, podemos ver como se ejecuta `npm install` y `npm test`.
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/shippable_tests3.png)
+
+En este último caso, podemos ver como los tests efectivamente han sido ejecutados correctamente.
+
+Como acabamos de ver, en este caso tampoco hemos tenido que utilizar nuestro task runner de manera implícita.
+
+En resumidas cuentas, tanto en Travis, como en la action de github, nuestro task runner ha sido ejecutado en el docker. Por otro lado con shippable, es ejecutado por defecto. 
+
+Podemos concluir afirmando que el gestor de tareas ha sido usado correctamente en los tres casos.
 
 ### Aprovechamiento del contenedor de Docker.
 
