@@ -159,7 +159,7 @@ Como hemos comentado en los dos puntos anteriores, hemos hecho uso del docker de
 
 No obstante, me he propuesto utilizarlo con un tercer sistema de integración continua, para este caso, utilizaré [shippable](https://www.shippable.com).
 
-Lo que más me ha llamado la atención de shippeable es que si detecta que tienes el fichero `package.json`, da por hecho que se utiliza `npm`. Por ello, se ejecuta el comando `npm install` por defecto, sin neesidad de que se lo especifiquemos implícitamente. Por defecto, también ejecuta el comando `npm test` por lo que el fichero de configuración de este sistema de CI es tan sencillo como:
+Lo que más me ha llamado la atención de shippable es que si detecta que tienes el fichero `package.json`, da por hecho que se utiliza `npm`. Por ello, se ejecuta el comando `npm install` por defecto, sin neesidad de que se lo especifiquemos implícitamente. Por defecto, también ejecuta el comando `npm test` por lo que el fichero de configuración de este sistema de CI es tan sencillo como:
 
 ~~~
 language: node_js
@@ -196,4 +196,8 @@ Podemos concluir afirmando que el gestor de tareas ha sido usado correctamente e
 
 ### Aprovechamiento del contenedor de Docker.
 
-El contenedor de Docker ha sido utilizado tanto para ejecutar los tests con Travis como con la action de github. En ambos casos se ejecuta el contenedor tras un commit. 
+El contenedor de Docker ha sido utilizado tanto para ejecutar los tests con Travis como con la action de github. En ambos casos se ejecuta el contenedor tras un commit. Por lo que el contenedor construido en el hito anterior ha sido aprovechado para ejecutar los tests en este.
+
+Cabe destacar que es muy cómodo trabajar con un Docker cuando queremos aplicar integración continua, ya que únicamente tendremos que encargarnos de ejecutar el contenedor, sin necesidad de utilizar nuestro gestor de tareas. Aunque hay sistemas de CI, como hemos visto anteriormente, que no es necesitario ejecutar el gestor de tareas porque se hace por defecto, en este caso hablo de shippable.
+
+También comprobado como la ejecución de los tests se hace de manera correcta usando el contenedor.
