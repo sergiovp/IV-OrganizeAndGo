@@ -206,6 +206,20 @@ docker run -t -v `pwd`:/test ghcr.io/sergiovp/iv-organizeandgo:latest
 
 ---
 
+## Integración continua
+
+Todo lo relativo a la integración continua (justificaciones, capturas de pantalla, etc) se encuentra en el fichero [integracion_continua.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/integracion_continua.md). Se ofrecen los siguientes accesos directos para mayor comodidad:
+
++ [Integración continua con Travis funcionando y justificada](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/integracion_continua.md#integraci%C3%B3n-continua-con-travis-funcionando-y-justificaci%C3%B3n)
+
++ [Configuración de algun sistema de IC adicional](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/integracion_continua.md#sistema-de-integraci%C3%B3n-continua-adicional-funcionando-y-justificaci%C3%B3n)
+
++ [Uso correcto del gestor de tareas en todos los casos anteriores](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/integracion_continua.md#uso-correcto-del-gestor-de-tareas-en-todos-los-casos-anteriores)
+
++ [Aprovechamiento del contenedor de Docker](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/integracion_continua.md#aprovechamiento-del-contenedor-de-docker)
+
+---
+
 ## Historias de usuario
 
 Como sabemos, un proyecto debe de estar bien especificado, en nuestro caso, dichas especificaciones las haremos en forma de **historia de usuario**. Serán documentadas en issues y a medida que avancemos con el proyecto, se podrán incorporar más.
