@@ -20,5 +20,5 @@ jobs:
           password: ${{ secrets.CR_PAT }}
       -
         name: Ejecutamos los comandos para construir, actualizar y ejecutar los tests
-        run: docker build -t $URL_IMAGEN . && docker push $URL_IMAGEN docker run -t -v `pwd`:/test $URL_IMAGEN
+        run: docker build -t $URL_IMAGEN . && docker push $URL_IMAGEN && docker run -t -v `pwd`:/test $URL_IMAGEN
 
