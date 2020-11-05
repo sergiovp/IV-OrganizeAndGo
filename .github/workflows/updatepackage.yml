@@ -4,8 +4,8 @@ env:
   URL_IMAGEN: ghcr.io/sergiovp/iv-organizeandgo:latest
 
 jobs:
-  build-update-docker:
-    name: Reconstruimos y atualizamos el contenedor
+  build-push-run-docker:
+    name: Reconstruimos y atualizamos la imagen y ejecutamos los tests
     runs-on: ubuntu-latest
     steps:
       -
@@ -19,24 +19,6 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
       -
-        name: Ejecutamos los comandos para construir y actualizar
-        run: docker build -t $URL_IMAGEN . && docker push $URL_IMAGEN
- 
-  run-tests:
-    name: Ejecutamos los tests
-    needs: build-update-docker
-    runs-on: ubuntu-latest
-    steps:
-      -
-        name: Comprobamos el repositorio para que podamos acceder a él
-        uses: actions/checkout@v2
-      -
-        name: Nos logeamos en GHCR
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.CR_PAT }}
-      -
-        name: Comando para ejecutar los tests
-        run: docker run -t -v `pwd`:/test $URL_IMAGEN
+        name: Ejecutamos los comandos para construir, actualizar y ejecutar los tests
+        run: docker build -t $URL_IMAGEN . && docker push $URL_IMAGEN docker run -t -v `pwd`:/test $URL_IMAGEN
+
