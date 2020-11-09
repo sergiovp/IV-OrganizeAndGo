@@ -6,7 +6,7 @@ services:
 env:
   - URL_IMAGEN=sergiovela/iv-organizeandgo:latest
 
-before_install:
+install:
   - docker pull $URL_IMAGEN
 
 script: docker run -t -v `pwd`:/test $URL_IMAGEN
