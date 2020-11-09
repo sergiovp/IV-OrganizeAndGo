@@ -43,7 +43,7 @@ env:
 Definimos una variable que contenga la URL de nuestro contenedor. Esta será usada más adelante.
 
 ~~~
-install:
+before_install:
   - docker pull $URL_IMAGEN
 ~~~
 
