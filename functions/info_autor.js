@@ -1,10 +1,11 @@
 const informacion = require('./datos_autor.json');
 
 exports.handler = async function(req, res) {
+    
     if(req.body != undefined) {
         var text = req.body.message.text;
         var mostrar = "";
-        var chatID = req.body.message.chat.id
+        var chatID = req.body.message.chat.id;
 
         if(text == "/nombre") {
             mostrar = "Sergio\n";
@@ -12,7 +13,7 @@ exports.handler = async function(req, res) {
             mostrar = "Puedes consultar...\n"
         }
 
-        var objetoJSON ={text : mostrar, method : "sendMessage", chat_id : chatID}
+        var objetoJSON ={text : mostrar, method : "sendMessage", chat_id : chatID};
         res.setHeader("Content-Type","application/json");
         res.status(200).json(objetoJSON);
 
