@@ -1,6 +1,6 @@
 const informacion = require('./datos_autor.json');
 
-exports.handler = async function(req, res) {
+module.exports = async (req, res) => {
     
     if(req.body != undefined) {
         var text = req.body.message.text;
