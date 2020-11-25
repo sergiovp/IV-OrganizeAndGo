@@ -26,6 +26,8 @@ exports.handler = async event => {
     } else if (mensajeChat == "/github") {
         respuesta = datos.informacionautor.github;
     
+    } else if (mensajeChat == "/body") {
+        respuesta = JSON.stringify(body);
     } else {
         respuesta = "No conozco ese comando :(\n ¿Necesitas ayuda? Teclee /help";
     }
