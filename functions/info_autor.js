@@ -9,28 +9,25 @@ exports.handler = async event => {
     if (mensajeChat == "/start" || mensajeChat == "" || mensajeChat == "/help") {
         respuesta = "\ ¡Hola!, aquí podrás consultar toda la \
             información del autor de OrganizeAndGo.\n \
-            · Para sonsultar toda la información: /info\n \
             · Para consultar el nombre: /nombre\n \
             · Para consultar el correo: /correo\n \
             · Para consultar el repositorio: /repo\n \
             · Para consultar el GitHub: /github";
-    } else if (mensajeChat == "/info") {
-        respuesta = datos.informacionautor;
 
     } else if(mensajeChat == "/nombre") {
         respuesta = datos.informacionautor.autor;
 
     } else if (mensajeChat == "/correo") {
-        respuesta = "sergiovp96@gmail.com";
+        respuesta = datos.informacionautor.contacto;
 
     } else if (mensajeChat == "/repo") {
-        respuesta = "https://github.com/sergiovp/IV-OrganizeAndGo";
+        respuesta = datos.informacionautor.repositorio;
     
     } else if (mensajeChat == "/github") {
-        respuesta = "https://github.com/sergiovp";
+        respuesta = datos.informacionautor.github;
     
     } else {
-        respuesta = "No conozco ese comando :( ¿Necesitas ayuda? Teclee /help";
+        respuesta = "No conozco ese comando :(\n ¿Necesitas ayuda? Teclee /help";
     }
 
     return {
