@@ -1,10 +1,10 @@
 
 exports.handler = async event => {
-    var contenido = JSON.parse(event.postData.contents);
+    var body = JSON.parse(event.body);
 
-    if(contenido.message != undefined){
-        var ChatID = contenido.message.chat.id;
-        var mensajeChat = contenido.message.text;
+    if(body.message != undefined){
+        var ChatID = body.message.chat.id;
+        var mensajeChat = body.message.text;
         var respuesta;
 
         if (mensajeChat == "/start") {
