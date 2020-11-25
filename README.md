@@ -19,6 +19,18 @@ Se podrán organizar equipos de trabajo de manera eficiente, de forma que en tod
 
 ---
 
+## Serverless
+
++ Despliegue correcto y funcionando con documentación de la conexión entre el repositorio de GitHub y vercel para despliegue continuo. Se puede consultar [aquí](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/serverless.md#despliegue-correcto-y-funcionando-con-documentaci%C3%B3n-de-la-conexi%C3%B3n-entre-el-repositorio-de-github-y-vercel-para-despliegue-continuo)
+
++ Integración dentro del proyecto general se puede consultar [aquí](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/serverless.md#integraci%C3%B3n-dentro-del-proyecto-general-con-vercel) con su respectiva [HU](https://github.com/sergiovp/IV-OrganizeAndGo/issues/72)
+
++ Uso e integración de una plataforma adicional (Netlify) se puede consultar [aquí](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/serverless.md#uso-e-integraci%C3%B3n-de-una-plataforma-adicional-netlify)
+
++ Integración función serverless con bot de telegram se puede consultar [aquí](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/serverless.md#integraci%C3%B3n-funci%C3%B3n-serverless-con-bot-de-telegram)
+
+---
+
 ## Herramientas
 
 Se pueden consultar más detalles en el fichero [herramientas.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/herramientas.md).
