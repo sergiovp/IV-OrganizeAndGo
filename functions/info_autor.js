@@ -7,7 +7,7 @@ exports.handler = async event => {
     var respuesta;
 
     if (mensajeChat == "/start" || mensajeChat == "" || mensajeChat == "/help") {
-        respuesta = "\ ¡Hola!, aquí podrás consultar toda la \
+        respuesta = "¡Hola!, aquí podrás consultar toda la \
             información del autor de OrganizeAndGo.\n \
             · Para consultar el nombre: /nombre\n \
             · Para consultar el correo: /correo\n \
