@@ -10,10 +10,10 @@ exports.handler = async event => {
         if (mensajeChat == "/start") {
             respuesta = "¡Hola!, aquí podrás consultar toda la información del autor de OrganizeAndGo.";
 
-        } else if(mensaje == "/autor") {
-            respuesta = "Sergio";
+        } else if(mensajeChat == "/autor") {
+            respuesta = "Sergio Vela";
 
-        } else if (mensaje == "/help") {
+        } else if (mensajeChat == "/help") {
             respuesta = "Mensaje de ayuda";
         }
         else {
