@@ -1,3 +1,4 @@
+const datos = require('./datos_autor.json');
 
 exports.handler = async event => {
     var body = JSON.parse(event.body);
@@ -14,10 +15,10 @@ exports.handler = async event => {
             · Para consultar el repositorio: /repo\n \
             · Para consultar el GitHub: /github";
     } else if (mensajeChat == "/info") {
-        respuesta = "aa";
+        respuesta = datos.informacionautor;
 
     } else if(mensajeChat == "/nombre") {
-        respuesta = "Sergio Vela";
+        respuesta = datos.informacionautor.autor;
 
     } else if (mensajeChat == "/correo") {
         respuesta = "sergiovp96@gmail.com";
