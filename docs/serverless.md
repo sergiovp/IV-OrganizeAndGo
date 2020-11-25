@@ -6,15 +6,15 @@ Como primer sistema serverless, he decidido utilizar [Vercel](https://vercel.com
 
 En Vercel nos podemos registrar con nuestra cuenta de GitHub, tras lo cual tan solo deberemos pulsar sobre "import project" una vez estemos en nuestro dashboard.
 
-![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel1.png).
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel1.png)
 
 Deberemos introducir la URL de nuestro repositorio y presionar sobre "deploy". 
 
-![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel2.png).
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel2.png)
 
 Esperamos hasta que se despliegue el proyecto y ¡listo!
 
-![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel3.png).
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel3.png)
 
 Siguiendo la [documentación de Vercel](https://vercel.com/docs), a modo de ejemplo para demostrar que el despliegue continuo funciona correctamente, crearemos un fichero [saludo.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/api/saludo.ts) en el directorio [api](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/api) que únicamente mostrará un mensaje por pantalla.
 
@@ -42,6 +42,7 @@ Podemos también trabajar en local:
 
 > Nota: para instalar la CLI se ha seguido la [documentación](https://vercel.com/download). Básicamente es ejecutar el comando `npm i -g vercel`.
 
+Para información extra, podemos consultar el [respositorio de ejercicios](https://github.com/sergiovp/IV-Ejercicios/blob/main/Sesiones/sesi%C3%B3n_hito_5.md) o el [repositorio creado para pruebas](https://github.com/sergiovp/Testing-Vercel).
 
 ### Integración dentro del proyecto general con Vercel
 
@@ -58,7 +59,7 @@ Podemos consultar las siguientes URLs:
 
 + https://iv-organize-and-go.vercel.app/api/info_equipo
 
-**Esta será la salida que utilizaré para el fichero [5.json](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/5.json) y el enlace que aparecerá en el fichero [iv.yaml](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/iv.yaml) con el tag *URL**.
+**Esta será la salida que utilizaré para el fichero [5.json](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/5.json) y el enlace que aparecerá en el fichero [iv.yaml](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/iv.yaml) con el tag URL**.
 
 ![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel_ejecucion1.png)
 
@@ -125,13 +126,13 @@ Como he comentado, la función se despliega en Netlify. Para obtener más inform
 
 ### Integración función serverless con bot de telegram
 
-+ **El fichero con la implementación es [info_autor.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/functions/info_autor.js) que se encuentra en el directorio [funstions](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/functions).**
++ **El fichero con la implementación es [info_autor.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/functions/info_autor.js) que se encuentra en el directorio [functions](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/functions).**
 
 Como he comentado en el anterior apartado, he integrado una función serverless que ofrece información del autor de la aplicación a un bot de telegram.
 
 Para crear el bot, siguiendo [este post](https://elandroidelibre.elespanol.com/2018/02/como-crear-tu-propio-bot-de-telegram.html) le mandé un mensaje a `@BotFather` y especifiqué que quería crear un bot y el nombre de este:
 
-![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/bot1.png)
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/bot1.jpg)
 
 Se pueden configurar otros parámetros del bot, como por ejemplo, la descripción.
 
@@ -162,6 +163,6 @@ En el resto del código simplemente me centro en parsear lo que el usuario pueda
 
 Podemos ver al bot funcionando en las siguientes capturas de pantalla:
 
-![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/botfuncionando1.jpg)
-
 ![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/botfuncionando2.jpg)
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/botfuncionando1.jpg)
