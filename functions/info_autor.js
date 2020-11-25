@@ -16,9 +16,9 @@ exports.handler = async event => {
         } else if (mensajeChat == "/help") {
             respuesta = "Mensaje de ayuda";
         }
-        /*else {
+        else {
             respuesta = "Escribe /start";
-        }*/
+        }
 
         return {
         statusCode: 200,
