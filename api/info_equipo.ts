@@ -56,7 +56,7 @@ export default (request: NowRequest, response: NowResponse) => {
 
     // Mostramos un equipo en concreto por su ID
     if (request.query["equipo"]) {
-        mostrar = JSON.stringify(obj.getEquipo(request.query["equipo"]));
+        mostrar = JSON.stringify(obj.getEquipo(Number(request.query["equipo"])));
 
         // No hay ningún equipo con ese ID
         if (!mostrar) {
