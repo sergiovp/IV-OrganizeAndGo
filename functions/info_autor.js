@@ -2,7 +2,7 @@
 exports.handler = async event => {
     var body = JSON.parse(event.body);
 
-    if(body.message != undefined){
+    //if(body.message != undefined){
         var ChatID = body.message.chat.id;
         var mensajeChat = body.message.text;
         var respuesta;
@@ -16,9 +16,9 @@ exports.handler = async event => {
         } else if (mensajeChat == "/help") {
             respuesta = "Mensaje de ayuda";
         }
-        else {
+        /*else {
             respuesta = "Escribe /start";
-        }
+        }*/
 
         return {
         statusCode: 200,
@@ -27,13 +27,13 @@ exports.handler = async event => {
             'Content-Type': 'application/json'
             }
         }
-    }
-    else {
+    //}
+    /*else {
         respuesta = "Hola";
         
         return {
             statusCode: 200,
             body: respuesta.toString()
         }
-    }
+    }*/
 }
