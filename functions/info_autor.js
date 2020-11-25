@@ -2,7 +2,7 @@ const datos = require('./datos_autor.json');
 
 exports.handler = async event => {
     var body = JSON.parse(event.body);
-    //var ChatID = body.message.chat.id;
+    var ChatID = body.message.chat.id;
     var mensajeChat = body.message.text;
     var respuesta;
 
@@ -28,13 +28,14 @@ exports.handler = async event => {
     
     } else if (mensajeChat == "/body") {
         respuesta = JSON.stringify(body);
+
     } else {
         respuesta = "No conozco ese comando :(\n ¿Necesitas ayuda? Teclee /help";
     }
 
     return {
         statusCode: 200,
-        body: JSON.stringify({text: respuesta, method:'sendMessage'/*, chat_id: ChatID*/}),
+        body: JSON.stringify({text: respuesta, method:'sendMessage', chat_id: ChatID}),
         headers:{
             'Content-Type': 'application/json'
         }
