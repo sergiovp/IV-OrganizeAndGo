@@ -15,8 +15,8 @@ exports.handler = async event => {
 
         } else if (mensaje == "/help") {
             respuesta = "Mensaje de ayuda";
-
-        }else{
+        }
+        else {
             respuesta = "Escribe /start";
         }
 
