@@ -30,6 +30,8 @@ Si pinchamos sobre él, podemos ver que el proyecto ha sido desplegado con éxit
 
 Para ver el resultado de la ejecución de la función, podemos pinchar [aquí](https://iv-organize-and-go.sergiovp.vercel.app/api/saludo).
 
+Cabe destacar que para desplegar la función en Vercel he sido la docuentación oficial. En concreto podemos ver el siguiente [apartado](https://vercel.com/docs/serverless-functions/supported-languages#using-typescript), donde se especifica que la función la deberemos de implementar en un directorio llamado `api` y en nuestro caso, al tratarse de una función en TypeScript, como es obvio deberá llevar la extensión `ts`. Al tratarse de un lenguaje compilado, para especificar los tipos de datos que recibe la función (petición y respuesta) deberemos de importar dos módulos `import { NowRequest, NowResponse } from '@vercel/node'`. En este caso, he decidido instalar el módulo de Vercel en mi proyecto, lo podemos consultar en el fichero [package.json](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/package.json) de esta forma evitamos que nuestro editor nos resalte como error la importación de dichos módulos.
+
 También hemos instalado la `CLI` en nuestro proyecto. Podemos ver cómo la ejecutamos:
 
 ![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel7.png)
@@ -166,3 +168,11 @@ Podemos ver al bot funcionando en las siguientes capturas de pantalla:
 ![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/botfuncionando2.jpg)
 
 ![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/botfuncionando1.jpg)
+
+#### Despliegue del bot
+
+Para poder ver el funcionamiento del bot, deberemos tener instalado [Telegram](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjRjaL10aLtAhURhRoKHaU-A1UQFjAAegQIARAD&url=https%3A%2F%2Fweb.telegram.org%2F&usg=AOvVaw0lI4JHsSdBRCge6TQdJIip). Buscamos al bot mediante el alias `@OrganizeAndGo_AuthorInfoBot` y presionaremos sobre `iniciar`.
+
+Automáticamente se nos deplegará un mensaje que nos informará de las posibilidades que nos ofrece el bot.
+
+> Nota. En caso de que no aparezca `iniciar` en la conversación con el bot, podemos manualmente nosotros comenzar la conversaión escribirendo `/start` o `/help`.
