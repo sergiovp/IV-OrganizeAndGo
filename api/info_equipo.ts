@@ -48,25 +48,35 @@ function initApp() {
     obj = new OrganizeAndGo(equipos);
 }
 
+var noParametros = {
+    "error": 400,
+    "mensaje": "No se ha introducido el parámetro equipo en la petición"
+};
+
+var noEquipo = {
+    "error": 404,
+    "mensaje": "No se ha encontrado ningún equipo con el ID seleccionado, pruebe con otro"
+};
+
 /* Función serverless */
 export default (request: NowRequest, response: NowResponse) => {
     let mostrar: any;
-
     initApp();
 
     // Mostramos un equipo en concreto por su ID
     if (request.query["equipo"]) {
         mostrar = JSON.stringify(obj.getEquipo(Number(request.query["equipo"])));
 
-        // No hay ningún equipo con ese ID
+        // No hay ningún equipo con ese ID. 404
         if (!mostrar) {
-            mostrar = "No hay ningún equipo con el ID seleccionado :("; 
+            response.status(404).send(JSON.stringify((noEquipo))); 
         }
 
-    // Mostramos todos los equipos
-    } else {
-        mostrar = JSON.stringify(obj);
-    }
+        // Si hemos llegado aquí, sí que hay un equipo, lo devolvemos éxitosamente
+        response.status(200).send(mostrar);
 
-    response.status(200).send(mostrar);
+    // No hay parámetros
+    } else {
+        response.status(400).send(JSON.stringify((noParametros)));
+    }
 }
