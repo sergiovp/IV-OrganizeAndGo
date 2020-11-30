@@ -6,4 +6,4 @@ test: tests/organizeandgo_test.ts
 
 taskfile: package.json
 
-URL: https://iv-organize-and-go.vercel.app/api/info_equipo
+URL: https://iv-organize-and-go.vercel.app/api/info_equipo?equipo=0
