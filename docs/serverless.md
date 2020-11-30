@@ -80,34 +80,51 @@ Podemos consultar las siguientes URLs:
 En cuanto al código propio de la función, se puede consultar en el fichero [info_equipo.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/api/info_equipo.ts) que lo encontramos en el directorio [api](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/api).
 
 ~~~
+var noParametros = {
+    "error": 400,
+    "mensaje": "No se ha introducido el parámetro equipo en la petición"
+};
+
+var noEquipo = {
+    "error": 404,
+    "mensaje": "No se ha encontrado ningún equipo con el ID seleccionado, pruebe con otro"
+};
+
+/* Función serverless */
 export default (request: NowRequest, response: NowResponse) => {
     let mostrar: any;
-
     initApp();
 
     // Mostramos un equipo en concreto por su ID
     if (request.query["equipo"]) {
-        mostrar = JSON.stringify(obj.getEquipo(request.query["equipo"]));
+        mostrar = JSON.stringify(obj.getEquipo(Number(request.query["equipo"])));
 
-        // No hay ningún equipo con ese ID
+        // No hay ningún equipo con ese ID. 404
         if (!mostrar) {
-            mostrar = "No hay ningún equipo con el ID seleccionado :("; 
+            response.status(404).send(JSON.stringify((noEquipo))); 
         }
 
-    // Mostramos todos los equipos
-    } else {
-        mostrar = JSON.stringify(obj);
-    }
+        // Si hemos llegado aquí, sí que hay un equipo, lo devolvemos éxitosamente
+        response.status(200).send(mostrar);
 
-    response.status(200).send(mostrar);
+    // No hay parámetros
+    } else {
+        response.status(400).send(JSON.stringify((noParametros)));
+    }
 }
 ~~~
 
-Como vemos, la función es muy sencilla, recibe una petición y una respuesta. la función `initApp()` es la que se encarga de crear los objetos de nuestra clase para que podamos trabajar con ellos. La variable `mostrar` será lo que devolveremos al hacer la petición.
-Como vemos, comprobamos si hemos introducido el parámetro `equipo` en cuyo caso, mostramos toda la información relativa a ese equipo que lo distinguimos por su ID. En caso de que no haya un equipo con ese ID, devolveremos un mensaje de error.
-Si no introducimos el parámetro `equipo`, devolveremos toda la infomación de todos los equipos.
+Como vemos, las funciones serverless reciben dos parámetros. Una petición y una respuesta.
+En primer lugar, tenemos dos variables, `noParametros` y `noEquipo`. Estas variables se usarán para gestionar el status de la petición. De forma que si no hubiera parámetros en la petición, lanzaremos el código de estado 400, con un mensaje describiendo el error (se debe especificar el parámtro `equipo`). En caso de que no haya ningún equipo con el ID especificado como parámetro, lanzaremos el estado 404 y de igual forma, explicaremos qué ocurre (no se ha encontrado ningún equipo con ese ID).
 
-La respuesta la mandamos en la última línea de código `response.status(200).send(mostrar);`.
+La llamada a la función `initApp()` la hacemos para inicializar los objetos de nuestra clase, de forma que podamos trabajar con ellos.
+
+La variable `mostrar` es importante en la función, ya que en caso de éxito, contendrá el JSON como respuesta que devolveremos al usuario.
+
+En cuanto a la lógica de la función, en primer lugar, comprobamos si se ha introducido el parámetro *equipo* en la línea `if (request.query["equipo"])`. En caso negativo, en el `else`, devolveremos el estado de error 400 `response.status(400).send(JSON.stringify((noParametros)));`. En caso de que sí se haya introducido el parámetro `equipo`, asignamos a la variable `mostrar` el resultado de consultar toda la información relativa del equipo introducido como parámetro en la petición (`mostrar = JSON.stringify(obj.getEquipo(Number(request.query["equipo"])));`).
+En caso de que no exista ningún equipo con ese ID (`if (!mostrar)`), devolveremos el estado de error 404, especificando que no hemos encontrado ningún equipo con ese ID (`response.status(404).send(JSON.stringify((noEquipo)));`).
+En caso contrario, hemos encontrado un equipo con ese ID y lo devolveremos con el estado 200 (respuesta satisfactoria) (`response.status(200).send(mostrar);`).
+
 
 ### Uso e integración de una plataforma adicional (Netlify)
 
