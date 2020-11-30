@@ -8,6 +8,7 @@ exports.handler = async event => {
     var ChatID = body.message.chat.id;
     var mensajeChat = body.message.text;
     var respuesta;
+    let obj_data = JSON.parse(datos);
 
     if (mensajeChat == "/start" || mensajeChat == "" || mensajeChat == "/help") {
         respuesta = "¡Hola!, aquí podrás consultar toda la \
@@ -18,20 +19,17 @@ exports.handler = async event => {
             · Para consultar el GitHub: /github";
 
     } else if(mensajeChat == "/nombre") {
-        respuesta = datos.informacionautor.autorapp;
+        respuesta = obj_data.informacionautor.autorapp;
 
     } else if (mensajeChat == "/correo") {
-        respuesta = datos.informacionautor.contacto;
+        respuesta = obj_data.informacionautor.contacto;
 
     } else if (mensajeChat == "/repo") {
-        respuesta = datos.informacionautor.repositorio;
+        respuesta = obj_data.informacionautor.repositorio;
     
     } else if (mensajeChat == "/github") {
-        respuesta = datos.informacionautor.github;
+        respuesta = obj_data.informacionautor.github;
     
-    } else if (mensajeChat == "/body") {
-        respuesta = JSON.stringify(body);
-
     } else {
         respuesta = "No conozco ese comando :(\n ¿Necesitas ayuda? Teclee /help";
     }
