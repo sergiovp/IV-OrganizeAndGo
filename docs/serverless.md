@@ -59,23 +59,29 @@ Como resultado, la función nos devolverá toda la información relativa a todos
 
 Podemos consultar las siguientes URLs:
 
-+ https://iv-organize-and-go.vercel.app/api/info_equipo
-
-**Esta será la salida que utilizaré para el fichero [5.json](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/5.json) y el enlace que aparecerá en el fichero [iv.yaml](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/iv.yaml) con el tag URL**.
-
-![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel_ejecucion1.png)
-
 + https://iv-organize-and-go.sergiovp.vercel.app/api/info_equipo?equipo=0
+
+**Esta será la salida que utilizaré para el fichero [5.json](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/5.json) y el enlace que aparecerá en el fichero [iv.yaml](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/iv.yaml) con el tag URL**. La respuesta como vemos, es toda la información relativa al equipo cuyo ID es **0**.
 
 ![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel_ejecucion2.png)
 
 + https://iv-organize-and-go.sergiovp.vercel.app/api/info_equipo?equipo=1
 
+En este caso, mostraremos toda la información relativa al equipo cuyo ID es **1**.
+
 ![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel_ejecucion3.png)
 
 + https://iv-organize-and-go.sergiovp.vercel.app/api/info_equipo?equipo=2
 
-![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel_ejecucion4.png)
+En este caso, como no hay ningún equipo cuyo ID sea igual a 2, devolveremos el código de error 404 y especificaremos que no hay ningún equipo con ese ID.
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel_ejecucion4_1.png)
+
++ https://iv-organize-and-go.vercel.app/api/info_equipo
+
+En este caso, al no especificar parámetros, devolveremos el estado de error 400 con un mensaje que especifique que se necesitan parámetros.
+
+![captura](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/images/vercel_ejecucion1_1.png)
 
 En cuanto al código propio de la función, se puede consultar en el fichero [info_equipo.ts](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/api/info_equipo.ts) que lo encontramos en el directorio [api](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/api).
 
