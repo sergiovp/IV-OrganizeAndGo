@@ -15,7 +15,7 @@ exports.handler = async event => {
             · Para consultar el GitHub: /github";
 
     } else if(mensajeChat == "/nombre") {
-        respuesta = datos.informacionautor.autor;
+        respuesta = datos.informacionautor.autorapp;
 
     } else if (mensajeChat == "/correo") {
         respuesta = datos.informacionautor.contacto;
