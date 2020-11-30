@@ -147,7 +147,7 @@ Tan solo leemos dicho fichero y accedemos a los distintos campos, que son los si
 + Repositorio
 + GitHub
 
-Como he comentado, la función se despliega en Netlify. Para obtener más información sobre la conexión entre Netlify y mi repositorio de GitHub, podemos consultar mi [resposito de ejercicios](https://github.com/sergiovp/IV-Ejercicios/blob/main/Sesiones/sesi%C3%B3n_hito_5.md#tomar-alguna-de-las-funciones-de-prueba-de-netlify-y-hacer-despliegues-de-prueba-con-el-mismo) o el [repositorio creado para pruebas](https://github.com/sergiovp/Testing-Netlify). 
+Como he comentado, la función se despliega en Netlify. Para obtener más información sobre la conexión entre Netlify y mi repositorio de GitHub, podemos consultar mi [repositorio de ejercicios](https://github.com/sergiovp/IV-Ejercicios/blob/main/Sesiones/sesi%C3%B3n_hito_5.md#tomar-alguna-de-las-funciones-de-prueba-de-netlify-y-hacer-despliegues-de-prueba-con-el-mismo) o el [repositorio creado para pruebas](https://github.com/sergiovp/Testing-Netlify). 
 
 ### Integración función serverless con bot de telegram
 
