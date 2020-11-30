@@ -1,4 +1,7 @@
-const datos = require('./datos_autor.json');
+const datos = '{"informacionautor":{"autorapp":"Sergio Vela Pelegrina",' +
+    '"contacto":"sergiovp96@gmail.com",' +
+    '"repositorio":"https://github.com/sergiovp/IV-OrganizeAndGo",' +
+    '"github":"https://github.com/sergiovp"}}';
 
 exports.handler = async event => {
     var body = JSON.parse(event.body);
