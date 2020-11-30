@@ -1,12 +1,10 @@
-//const datos = require('./datos_autor.json');
-import { datos_autor } from './datos_autor';
+const datos = require('./datos_autor.json');
 
 exports.handler = async event => {
     var body = JSON.parse(event.body);
     var ChatID = body.message.chat.id;
     var mensajeChat = body.message.text;
     var respuesta;
-    const datos = datos_autor();
 
     if (mensajeChat == "/start" || mensajeChat == "" || mensajeChat == "/help") {
         respuesta = "¡Hola!, aquí podrás consultar toda la \
