@@ -5,10 +5,10 @@ const datos = '{"informacionautor":{"autorapp":"Sergio Vela Pelegrina",' +
 
 exports.handler = async event => {
     var body = JSON.parse(event.body);
+    let obj_data = JSON.parse(datos);
     var ChatID = body.message.chat.id;
     var mensajeChat = body.message.text;
     var respuesta;
-    let obj_data = JSON.parse(datos);
 
     if (mensajeChat == "/start" || mensajeChat == "" || mensajeChat == "/help") {
         respuesta = "¡Hola!, aquí podrás consultar toda la \
