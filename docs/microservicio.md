@@ -68,7 +68,7 @@ Los parámetros son los siguientes:
 
 Como resultado de la ejecución del benchmark, se muestran distintos parámetros como el tiempo que tarda en ejecutarse el test, los bytes transferidos, porcentaje de peticiones servidas, etc.
 
-Para este caso, nos centraremos en tres parámetros, que son los más importantes a la hora de decidirnos por un framework u otro, dichos parámetros serán:
+Para este caso, nos centraremos en cuatro parámetros, que son los más importantes a la hora de decidirnos por un framework u otro, dichos parámetros serán:
 
 + Peticiones por segundo. (Resultado de dividir el número de peticiones por el tiempo total)
 + Tiempo por petición. (Tiempo medio para cada petición)
@@ -84,7 +84,7 @@ Lógicamente, deberemos de tener levantada la pequeña app para poder realizarle
 | Tiempo por petición concurrente (ms) | 57.937 | 35.434 | 45.288 | 49.773 |
 | Tiempo de conexión (ms) | 55 | 31 | 41  | 41 |
 
-Como podemos apreciar, el framework con mejores resultados a sido Koa, ya que es el que más peticiones por segundo soporta y el que menor tiempo por petición, peticiones concurrentes y conexión tiene. Seguido por Restify, que está casi empatado con Hapi y por último, Express. Llegados a este punto, quedan descartados *Express* y *Hapy*.
+Como podemos apreciar, el framework con mejores resultados ha sido Koa, ya que es el que más peticiones por segundo soporta y el que menor tiempo por petición, peticiones concurrentes y conexión tiene. Seguido por Restify, que está casi empatado con Hapi y por último, Express. Llegados a este punto, quedan descartados *Express* y *Hapy*.
 
 La decisión entre *Koa* y *Restify* es algo tediosa, ya que ambos son microframeworks que cumplen a la perfección nuestras espectativas para la realización de la API REST, pero finalmente me deparo por **Koa** ya que como hemos visto en las gráficas, es un framework que está empezando a coger fuerza con respecto a sus competidores, el número de descargas va en aumento. Por otro lado, es indiscutible que los resultados de ejecutar el benchmark son favorables para dicho framework.
 
