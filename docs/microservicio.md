@@ -50,3 +50,36 @@ En este caso, podemos ver las actualizaciones, el tamaño del módulo, fecha de 
 
 Como vemos, Express es el más maduro de todos (fue el que antes se desarrolló). Los 4 frameworks son actualizados con frecuencia, lo cual es una buena noticia y como curiosidad, podemos observar el tamaño tan reducido de Koa con respecto a sus competidores.
 
+Tras estas gráficas comparativas, pasaremos a la ejecución de un Benchmark para obtener datos más objetivos sobre las prestaciones de cada framework.
+
+En este caso, utilizaremos [ab](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjol574ysbtAhXXQkEAHQJaAnUQFjAAegQIARAC&url=https%3A%2F%2Fhttpd.apache.org%2Fdocs%2F2.4%2Fprograms%2Fab.html&usg=AOvVaw1E9XkdDRN5RkpsgZUEUrZ4) que es un benchmark desarrollado por Apache para servidores HTTP.
+
+El comando que ejecutaremos será:
+
+~~~
+ab -c 100 -n 10000 "http://localhost:3000/"
+~~~
+
+Los parámetros son los siguientes:
+
++ `ab` es el comando para ejecutar el benchmark
++ `-c` indica el número de peticiones concurrentes. Para este caso, he decidido simular 100 peticiones simultáneas.
++ `-n` el número de peticiones totales. Para este caso, realizaremos un total de 10000 peticiones.
+
+Como resultado de la ejecución del benchmark, se muestran distintos parámetros como el tiempo que tarda en ejecutarse el test, los bytes transferidos, porcentaje de peticiones servidas, etc.
+
+Para este caso, nos centraremos en tres parámetros, que son los más importantes a la hora de decidirnos por un framework u otro, dichos parámetros serán:
+
++ Peticiones por segundo. (Resultado de dividir el número de peticiones por el tiempo total)
++ Tiempo por petición. (Tiempo medio para cada petición)
++ Tiempo por petición concurrente. (Tiempo medio para cada conjunto de peticiones concurrentes)
++ Tiempo de conexión medio. La media de la suma del tiempo de establecer cada conexión más el tiempo en procesarla)
+
+Lógicamente, deberemos de tener levantada la pequeña app para poder realizarle las peticiones. Para ello, he implementado un 'Hola Mundo' haciendo uso de los distintos frameworks (express, hapi, restify y koa) obteniendo los siguientes resultados:
+
+|  | Express | Koa | Hapi | Restify |
+| -- | -- | -- | -- | -- |
+| Peticiones por segundo | 1726.00 | 2822.18 | 2208.09 | 2009.12 |
+| Tiempo por petición (ms) | 0.579 |  | 0.354 | 0.453 | 0.498 |
+| Tiempo por petición concurrente (ms) | 57.937 | 35.434 | 45.288 | 49.773 |
+| Tiempo de conexión (ms) | 55 | 31 | 41  | 41 |
