@@ -77,9 +77,15 @@ Para este caso, nos centraremos en tres parámetros, que son los más importante
 
 Lógicamente, deberemos de tener levantada la pequeña app para poder realizarle las peticiones. Para ello, he implementado un 'Hola Mundo' haciendo uso de los distintos frameworks (express, hapi, restify y koa) obteniendo los siguientes resultados:
 
-|  | Express | Koa | Hapi | Restify |
+|  | Express | Koa | Restify | Hapi |
 | -- | -- | -- | -- | -- |
 | Peticiones por segundo | 1726.00 | 2822.18 | 2208.09 | 2009.12 |
 | Tiempo por petición (ms) | 0.579 | 0.354 | 0.453 | 0.498 |
 | Tiempo por petición concurrente (ms) | 57.937 | 35.434 | 45.288 | 49.773 |
 | Tiempo de conexión (ms) | 55 | 31 | 41  | 41 |
+
+Como podemos apreciar, el framework con mejores resultados a sido Koa, ya que es el que más peticiones por segundo soporta y el que menor tiempo por petición, peticiones concurrentes y conexión tiene. Seguido por Restify, que está casi empatado con Hapi y por último, Express. Llegados a este punto, quedan descartados *Express* y *Hapy*.
+
+La decisión entre *Koa* y *Restify* es algo tediosa, ya que ambos son microframeworks que cumplen a la perfección nuestras espectativas para la realización de la API REST, pero finalmente me deparo por **Koa** ya que como hemos visto en las gráficas, es un framework que está empezando a coger fuerza con respecto a sus competidores, el número de descargas va en aumento. Por otro lado, es indiscutible que los resultados de ejecutar el benchmark son favorables para dicho framework.
+
+Estos son los motivos por los cuales, utilizaremos **KOA**.
