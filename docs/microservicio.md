@@ -80,6 +80,6 @@ Lógicamente, deberemos de tener levantada la pequeña app para poder realizarle
 |  | Express | Koa | Hapi | Restify |
 | -- | -- | -- | -- | -- |
 | Peticiones por segundo | 1726.00 | 2822.18 | 2208.09 | 2009.12 |
-| Tiempo por petición (ms) | 0.579 |  | 0.354 | 0.453 | 0.498 |
+| Tiempo por petición (ms) | 0.579 | 0.354 | 0.453 | 0.498 |
 | Tiempo por petición concurrente (ms) | 57.937 | 35.434 | 45.288 | 49.773 |
 | Tiempo de conexión (ms) | 55 | 31 | 41  | 41 |
