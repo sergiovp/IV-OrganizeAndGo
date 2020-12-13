@@ -20,7 +20,9 @@
     "url": "https://github.com/sergiovp/IV-OrganizeAndGo/issues"
   },
   "homepage": "https://github.com/sergiovp/IV-OrganizeAndGo#readme",
-  "dependencies": {},
+  "dependencies": {
+    "koa": "^2.13.0"
+  },
   "devDependencies": {
     "@types/chai": "^4.2.14",
     "@types/mocha": "^8.0.3",
