@@ -5,7 +5,7 @@ describe('Testing clase Empleado: ', () => {
     let unEmpleado = new Empleado(7, "Sergio", "Vela", "sergiovp96@gmail.com");
 
     it ('Comprobamos el constructor', () => {
-        expect(unEmpleado).to.be.a('object').and.not.empty;
+        expect(unEmpleado).to.be.an('object').and.not.empty;
     });
 
     it ('get id nos debe devolver el id asignado al empleado', () => {
