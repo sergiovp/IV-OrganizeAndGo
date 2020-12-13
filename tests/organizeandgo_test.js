@@ -1,14 +1,8 @@
-/*import { OrganizeAndGo } from '../app/organizeandgo/organizeandgo';
-import { Equipo } from '../app/organizeandgo/equipo';
-import { Empleado } from '../app/organizeandgo/empleado';
-import { Tarea, Prioridad } from '../app/organizeandgo/tarea';
-import { expect } from 'chai';*/
-
+const expect = require('chai').expect;
 const Equipo = require('../app/organizeandgo/equipo');
 const Tarea = require('../app/organizeandgo/tarea');
 const Empleado = require('../app/organizeandgo/empleado');
 const OrganizeAndGo = require('../app/organizeandgo/organizeandgo');
-const expect = require('chai').expect;
 
 describe('Testing clase OrganizeAndGo: ', () => {
     let empleado1 = new Empleado(1, "Sergio", "Vela", "sergiovp96@gmail.com");
@@ -32,14 +26,18 @@ describe('Testing clase OrganizeAndGo: ', () => {
     let equipos = [equipo1, equipo2];
 
     let objOrganize = new OrganizeAndGo(equipos);
-    
+
+    it ('Comprobamos el constructor', () => {
+        expect(objOrganize).to.be.an('object').and.not.to.empty;
+    });
+
     it ('get equipos nos debe devolver un array de equipos', () => {
-        expect(objOrganize.equipos).to.equal(equipos);
+        expect(objOrganize.equipos).to.equal(equipos).and.to.be.an('array');
     });
 
     it ('getEquipo nos debe devolver un equipo en concreto', () => {
-        expect(objOrganize.equipos[0]).to.equal(equipo1);
-        expect(objOrganize.equipos[1]).to.equal(equipo2);
+        expect(objOrganize.equipos[0]).to.equal(equipo1).and.to.be.an('object');
+        expect(objOrganize.equipos[1]).to.equal(equipo2).and.to.be.an('object');
     });
 
     it ('setEquipos debe modificar a los equipos', () => {
@@ -55,7 +53,7 @@ describe('Testing clase OrganizeAndGo: ', () => {
 
         objOrganize.equipos = equipos1;
 
-        expect(objOrganize.equipos).to.equal(equipos1);
+        expect(objOrganize.equipos).to.equal(equipos1).and.to.be.an('array');
     });
 
     it ('addEquipo debe introducir un equipo a la lista de equipos', () => {
@@ -69,6 +67,6 @@ describe('Testing clase OrganizeAndGo: ', () => {
 
         objOrganize.addEquipo(equipo1);
 
-        expect(objOrganize.equipos[1]).to.equal(equipo1);
+        expect(objOrganize.equipos[1]).to.equal(equipo1).and.to.be.an('object');
     });
 });
