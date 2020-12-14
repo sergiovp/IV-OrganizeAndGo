@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "",
+    "start": "node app/index.js",
     "test": "mocha tests"
   },
   "repository": {
@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/sergiovp/IV-OrganizeAndGo#readme",
   "dependencies": {
-    "koa": "^2.13.0"
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-router": "^10.0.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.14",
