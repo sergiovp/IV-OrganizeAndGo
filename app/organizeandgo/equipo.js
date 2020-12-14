@@ -1,6 +1,3 @@
-//import { Empleado } from './empleado';
-//import { Tarea, Prioridad } from './tarea';
-
 const Empleado = require('./empleado');
 const Tarea = require('./tarea');
 
@@ -11,11 +8,11 @@ const Tarea = require('./tarea');
 
 class Equipo {
 
-    constructor(id, nombre, empleados, tareas) {
+    constructor(id, nombre) {
         this._id = id;
         this._nombre = nombre;
-        this._empleados = empleados;
-        this._tareas = tareas;
+        this._empleados = new Array();
+        this._tareas = new Array();
     }
 
     get id() {
@@ -66,12 +63,14 @@ class Equipo {
         this.tareas[index] = nuevaTarea;
     }
 
-    addEmpleado(nuevoEmpleado) {
-        this._empleados.push(nuevoEmpleado);
+    addEmpleado(id, nombre, apellido, email) {
+        let empleadoNuevo = new Empleado(id, nombre, apellido, email);
+        this._empleados.push(empleadoNuevo);
     }
 
-    addTarea(nuevaTarea) {
-        this._tareas.push(nuevaTarea);
+    addTarea(id, terminada, descripcion, tiempoEstimado, prioridad, empleadoAsignado) {
+        let tareaNueva = new Tarea(id, terminada, descripcion, tiempoEstimado, prioridad, empleadoAsignado);
+        this._tareas.push(tareaNueva);
     }
 }
 
