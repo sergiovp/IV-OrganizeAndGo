@@ -1,14 +1,9 @@
-//import { Empleado } from "./empleado";
-//import { Equipo } from "./equipo";
-//import { Tarea } from "./tarea";
-const Empleado = require('./empleado');
 const Equipo = require('./equipo');
-const Tarea = require('./tarea');
 
 class OrganizeAndGo {
     
-    constructor(equipos) {
-        this._equipos = equipos;
+    constructor() {
+        this._equipos = new Array();
     }
 
     get equipos() {
@@ -23,10 +18,10 @@ class OrganizeAndGo {
         this._equipos = equipos;
     }
 
-    addEquipo(nuevoEquipo) {
-        this._equipos.push(nuevoEquipo);
+    addEquipo(id, nombre) {
+        let equipoNuevo = new Equipo(id, nombre);
+        this._equipos.push(equipoNuevo);
     }
-    
 }
 
 module.exports = OrganizeAndGo;
