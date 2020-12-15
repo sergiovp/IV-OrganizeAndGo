@@ -50,26 +50,48 @@ router.post('/equipo', async (ctx) => {
 	}
 });
 
-// Añadir empleados HU4
+/**
+ * AÑADIR EMPLEADOS -> HU4
+ * 
+ * Se debe especificar el ID del equipo en el que estará el empleado.
+ * 
+ */
 router.post('/empleado', async (ctx) => {
-	/*let id = ctx.params.id;
-	let nombre = ctx.params.nombre;
-	let apellido = ctx.params.apellido;
-	let email = ctx.params.email;
+	let id_equipo = ctx.request.body.id_equipo;
+	let id_empleado = ctx.request.body.id_empleado;
+	let nombre = ctx.request.body.nombre;
+	let apellido = ctx.request.body.apellido;
+	let email = ctx.request.body.email;
 
-	if (id && nombre && apellido && email) {
-		for (i in controller._equipos) {
-			if (id == controller._equipos[i].id_equipo) {
-				let nuevoEmpleado = new Empleado(id, nombre, apellido, email);
-				controller._equipos[i].addEmpleado(nuevoEmpleado);
+	if (id_equipo && id_empleado && nombre && apellido && email) {
+		for (let i in controller.equipos) {
+			console.log(controller.equipos[i].id);
+			if (id_equipo == controller.equipos[i].id) {
+				try {
+					controller.equipos[i].addEmpleado(id_empleado, nombre, apellido, email);
 
-				ctx.status = 200;
-				ctx.body = {
-    				mensaje: "¡Correcto!"
-				};
+					ctx.status = 202;
+  					ctx.body = {
+    					id_empleado: id_empleado,
+						nombre: nombre,
+						apellido: apellido,
+						email: email
+					};
+
+				} catch (error) {
+					ctx.status = 404;
+  					ctx.body = {
+    					error: "No se ha podido añadir el empleado"
+  					};
+				}
 			}
 		}
-	}*/
+	} else {
+		ctx.status = 400;
+  		ctx.body = {
+    		error: "No se han introducido los parámetros correctos"
+  		};
+	}
 });
 
 // Añadir tareas HU5
