@@ -54,7 +54,6 @@ router.post('/equipo', async (ctx) => {
  * AÑADIR EMPLEADOS -> HU4
  * 
  * Se debe especificar el ID del equipo en el que estará el empleado.
- * 
  */
 router.post('/empleado', async (ctx) => {
 	let id_equipo = ctx.request.body.id_equipo;
@@ -65,7 +64,6 @@ router.post('/empleado', async (ctx) => {
 
 	if (id_equipo && id_empleado && nombre && apellido && email) {
 		for (let i in controller.equipos) {
-			console.log(controller.equipos[i].id);
 			if (id_equipo == controller.equipos[i].id) {
 				try {
 					controller.equipos[i].addEmpleado(id_empleado, nombre, apellido, email);
@@ -100,11 +98,42 @@ router.post('/tarea/:id/:terminada/:descripcion/:tiempo/:prioridad/:empleado', a
 	// Añadiremos una tarea
 });
 
-// Consultar información de un empleado HU6
-router.get('/empleado/:id_empleado', async (ctx) => {
+/**
+ * CONSULTAR INFORMACIÓN DE UN EMPLEADO -> HU6
+ * 
+ * Hay que introducir el ID del equipo y empleado sobre el que queremos obtener la información.
+ */
+router.get('/empleado/:id_equipo/:id_empleado', async (ctx) => {
+	let id_equipo = ctx.params.id_equipo;
 	let id_empleado = ctx.params.id_empleado;
 
-	// Devolveremos los datos del empleado cuyo ID coincida
+	if (id_equipo && id_empleado) {
+		for (let i in controller.equipos) {
+			if (id_equipo == controller.equipos[i].id) {
+				for (let j in controller.equipos[i].empleados) {
+					if (id_empleado == controller.equipos[i].empleados[j].id) {
+						try {
+							let infoEmpleado = controller.equipos[i].getEmpleado(j);
+							ctx.status = 200;
+							ctx.body = infoEmpleado;
+
+						} catch (error) {
+							ctx.status = 404;
+  							ctx.body = {
+    							error: "No se ha podido consultar la información del empleado"
+  							};
+						}
+					}
+				}
+			}
+		}
+
+	} else {
+		ctx.status = 400;
+  		ctx.body = {
+    		error: "No se han introducido los parámetros correctos"
+  		};
+	}
 });
 
 // Modificar información de un empleado HU6
@@ -114,7 +143,11 @@ router.put('/empleado/:id_empleado', async (ctx) => {
 	// Modificaremos los datos del empleado cuyo ID coincida
 });
 
-// Consultar información del desarrollador HU7
+/**
+ * CONSULTAR INFORMACIÓN DEL DESARROLLADOR -> HU7
+ * 
+ * No requiere ningún parámetro.
+ */
 router.get('/developer', async (ctx) => {
 	ctx.status = 200;
 	ctx.body = {
@@ -125,7 +158,11 @@ router.get('/developer', async (ctx) => {
 	};
 });
 
-// Consultar información de los equipos HU8
+/**
+ * CONSULTAR INFORMACIÓN DE LOS EQUIPOS -> HU8
+ * 
+ * Hay que introducir el ID del equipo sobre el que queremos obtener la información.
+ */
 router.get('/equipo/:id_equipo', async (ctx) => {
 	let id_equipo = ctx.params.id_equipo;
 
@@ -143,7 +180,11 @@ router.get('/equipo/:id_equipo', async (ctx) => {
 	}
 });
 
-// Consultar información de los empleados de un equipo HU9
+/**
+ * CONSULTAR INFORMACIÓN DE LOS EMPLEADOS DE UN EQUIPO-> HU9
+ * 
+ * Hay que introducir el ID del equipo sobre el que queremos obtener la información.
+ */
 router.get('/empleados/:id_equipo', async (ctx) => {
 	let id_equipo = ctx.params.id_equipo;
 
