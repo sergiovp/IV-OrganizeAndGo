@@ -1,6 +1,9 @@
-var Router = require('koa-router');
+const Router = require('koa-router');
+const OrganizeAndGo = require('../organizeandgo/organizeandgo');
 
 const router = new Router();
+var controller = new OrganizeAndGo();
+
 
 // Función 'index' que da la bienvenida a la API
 router.get('/', async (ctx) => {
@@ -19,9 +22,55 @@ router.get('/tareas/:id_equipo', async (ctx) => {
 
 // Modificar información de las tareas HU2
 
-// Añadir equipos HU3
+// Añadir equipos HU3 OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+router.post('/equipo', async (ctx) => {
+	let id_equipo = ctx.request.body.id_equipo;
+	let nombre = ctx.request.body.nombre;
+	
+	if (id_equipo && nombre) {
+		try {
+			controller.addEquipo(id_equipo, nombre);
+			
+			ctx.status = 202;
+  			ctx.body = {
+    			id_equipo: id_equipo,
+    			nombre: nombre
+  			};
+		} catch (error) {
+			ctx.status = 404;
+  			ctx.body = {
+    			error: "No se ha podido añadir el equipo"
+  			};
+		}
+	} else {
+		ctx.status = 400;
+  		ctx.body = {
+    		error: "No se han introducido los parámetros id_equipo y nombre"
+  		};
+	}
+});
 
 // Añadir empleados HU4
+router.post('/empleado/:id_eq/:id_em/:nombre/:apellido/:email', async (ctx) => {
+	/*let id = ctx.params.id;
+	let nombre = ctx.params.nombre;
+	let apellido = ctx.params.apellido;
+	let email = ctx.params.email;
+
+	if (id && nombre && apellido && email) {
+		for (i in controller._equipos) {
+			if (id == controller._equipos[i].id_equipo) {
+				let nuevoEmpleado = new Empleado(id, nombre, apellido, email);
+				controller._equipos[i].addEmpleado(nuevoEmpleado);
+
+				ctx.status = 200;
+				ctx.body = {
+    				mensaje: "¡Correcto!"
+				};
+			}
+		}
+	}*/
+});
 
 // Añadir tareas HU5
 router.post('/tarea/:id/:terminada/:descripcion/:tiempo/:prioridad/:empleado', async (ctx) => {
@@ -54,9 +103,22 @@ router.get('/developer', async (ctx) => {
 	};
 });
 
-// Consultar información de todos los equipos HU8
+// Consultar información de los equipos HU8
 router.get('/equipo/:id_equipo', async (ctx) => {
 	let id_equipo = ctx.params.id_equipo;
+
+	try {
+		let info = controller.getEquipo(id_equipo);
+
+		ctx.status = 200;
+  		ctx.body = info;
+			
+	} catch (error) {
+		ctx.status = 404;
+  		ctx.body = {
+    		error: "No se ha encontrado información del equipo"
+  		};
+	}
 });
 
 module.exports = router;
