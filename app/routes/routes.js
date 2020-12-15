@@ -22,7 +22,11 @@ router.get('/tareas/:id_equipo', async (ctx) => {
 
 // Modificar información de las tareas HU2
 
-// Añadir equipos HU3 OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+/**
+ * AÑADIR EQUIPOS -> HU3
+ * 
+ * Se debe especificar el ID del equipo y el NOMBRE para éste.
+ */
 router.post('/equipo', async (ctx) => {
 	let id_equipo = ctx.request.body.id_equipo;
 	let nombre = ctx.request.body.nombre;
