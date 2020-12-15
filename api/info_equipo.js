@@ -1,50 +1,22 @@
-const Equipo = require('../app/organizeandgo/equipo');
-const Tarea = require('../app/organizeandgo/tarea');
-const Empleado = require('../app/organizeandgo/empleado');
 const OrganizeAndGo = require('../app/organizeandgo/organizeandgo');
 
-/* Objetos globales */
-var empleado1Equipo1;
-var empleado2Equipo1;
-var empleado1Equipo2;
-var tarea1Equipo1;
-var tarea2Equipo1;
-var tarea1Equipo2;
-var empleadosEquipo1;
-var empleadosEquipo2;
-var tareasEquipo1;
-var tareasEquipo2;
-var equipo1;
-var equipo2;
-var equipos;
-var obj;
+/* Objeto global */
+var controlador = new OrganizeAndGo();
 
 function initApp() {
-    /* Definimos los empleados */
-    empleado1Equipo1 = new Empleado(0, "Sergio", "Vela", "sergiovp96@gmail.com");
-    empleado2Equipo1 = new Empleado(1, "Juan", "Blanco", "juan@gmail.com");
-    empleado1Equipo2 = new Empleado(2, "Noelia", "Sbrn", "sbrn@gmail.com");
+    /* Añadimos dos equipos */
+    controlador.addEquipo(0, "Equipo de desarrollo");
+    controlador.addEquipo(1, "Equipo de RRHH");
 
-    /* Definimos las tareas */
-    tarea1Equipo1 = new Tarea(0, false, "Entregar hito 5", "1 semana", "Importante", 0);
-    tarea2Equipo1 = new Tarea(1, false, "Entregar P4 DAI", "4 días", "Importante", 0);
-    tarea1Equipo2 = new Tarea(2, false, "Estudiar", "1 año", "Importante", 2);
+    /* Añadimos dos empleados al equipo 1 y un empleado al equipo 2 */
+    controlador.equipos[0].addEmpleado(0, "Sergio", "Vela", "sergiovp96@gmail.com");
+    controlador.equipos[0].addEmpleado(1, "Juan", "Blanco", "juan@gmail.com");
+    controlador.equipos[1].addEmpleado(2, "Noelia", "Sbrn", "sbrn@gmail.com");
 
-    /* Array con los empleados y las tareas */
-    empleadosEquipo1 = [empleado1Equipo1, empleado2Equipo1];
-    tareasEquipo1 = [tarea1Equipo1, tarea2Equipo1];
-    empleadosEquipo2 = [empleado1Equipo2];
-    tareasEquipo2 = [tarea1Equipo2];
-
-    /* Definimos los equipos */
-    equipo1 = new Equipo(0, "Equipo de desarrollo", empleadosEquipo1, tareasEquipo1);
-    equipo2 = new Equipo(1, "Equipo de RRHH", empleadosEquipo2, tareasEquipo2);
-
-    /* Array de quipos */
-    equipos = [equipo1, equipo2];
-
-    /* Definimos un objeto de la clase OrganiAndGo */
-    obj = new OrganizeAndGo(equipos);
+    /* Añadimos dos tareas al equipo 1 y una al equipo 2 */
+    controlador.equipos[0].addTarea(0, false, "Entregar hito 5", "1 semana", "Importante", 0);
+    controlador.equipos[0].addTarea(1, false, "Entregar P4 DAI", "4 días", "Importante", 0);
+    controlador.equipos[1].addTarea(2, false, "Estudiar", "1 año", "Importante", 2);
 }
 
 var noParametros = {
@@ -64,7 +36,7 @@ export default (request, response) => {
 
     // Mostramos un equipo en concreto por su ID
     if (request.query["equipo"]) {
-        mostrar = JSON.stringify(obj.getEquipo(Number(request.query["equipo"])));
+        mostrar = JSON.stringify(controlador.getEquipo(Number(request.query["equipo"])));
 
         // No hay ningún equipo con ese ID. 404
         if (!mostrar) {
