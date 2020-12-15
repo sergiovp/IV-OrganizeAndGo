@@ -51,7 +51,7 @@ router.post('/equipo', async (ctx) => {
 });
 
 // Añadir empleados HU4
-router.post('/empleado/:id_eq/:id_em/:nombre/:apellido/:email', async (ctx) => {
+router.post('/empleado', async (ctx) => {
 	/*let id = ctx.params.id;
 	let nombre = ctx.params.nombre;
 	let apellido = ctx.params.apellido;
@@ -112,6 +112,24 @@ router.get('/equipo/:id_equipo', async (ctx) => {
 
 		ctx.status = 200;
   		ctx.body = info;
+			
+	} catch (error) {
+		ctx.status = 404;
+  		ctx.body = {
+    		error: "No se ha encontrado información del equipo"
+  		};
+	}
+});
+
+// Consultar información de los empleados de un equipo HU9
+router.get('/empleados/:id_equipo', async (ctx) => {
+	let id_equipo = ctx.params.id_equipo;
+
+	try {
+		let empleados = controller.equipos[id_equipo].empleados;
+
+		ctx.status = 200;
+  		ctx.body = empleados;
 			
 	} catch (error) {
 		ctx.status = 404;
