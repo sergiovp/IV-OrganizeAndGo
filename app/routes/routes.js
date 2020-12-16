@@ -13,7 +13,37 @@ router.get('/', async (ctx) => {
 	};
 });
 
+/**
+ * CONSULTAR INFORMACIÓN DE LAS TAREAS -> HU1
+ * 
+ * Se debe especificar el ID del equipo.
+ */
+router.get('/tareas/:id_equipo', async (ctx) => {
+	let id_equipo = ctx.params.id_equipo;
+	console.log("HOLA");
+	if (id_equipo) {
+		for (let i in controller.equipos) {
+			if (id_equipo == controller.equipos[i].id) {
+				try {
+					let tareas = controller.equipos[i].tareas;
 
+					ctx.status = 200;
+					ctx.body = tareas;
+				} catch (error) {
+					ctx.status = 404;
+					ctx.body = {
+					  error: "No se han podido obtener las tareas"
+					};
+				}
+			}
+		}
+	} else {
+		ctx.status = 400;
+  		ctx.body = {
+    		error: "No se han introducido los parámetros correctos"
+  		};
+	}
+});
 
 // Modificar información de las tareas HU2
 
