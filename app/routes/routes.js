@@ -20,7 +20,7 @@ router.get('/', async (ctx) => {
  */
 router.get('/tareas/:id_equipo', async (ctx) => {
 	let id_equipo = ctx.params.id_equipo;
-	console.log("HOLA");
+
 	if (id_equipo) {
 		for (let i in controller.equipos) {
 			if (id_equipo == controller.equipos[i].id) {
@@ -273,11 +273,62 @@ router.get('/empleado/:id_equipo/:id_empleado', async (ctx) => {
 	}
 });
 
-// Modificar información de un empleado HU6
-router.put('/empleado/:id_empleado', async (ctx) => {
-	let id_empleado = ctx.params.id_empleado;
+/**
+ * MODIFICAMOS INFORMACIÓN DE UN EMPLEADO -> HU6
+ * 
+ * Requiere el ID del equipo y el ID del empleado
+ */
+router.put('/empleado', async (ctx) => {
+	let id_equipo = ctx.request.body.id_equipo;
+	let id_empleado = ctx.request.body.id_empleado;
+	let nuevoID = ctx.request.body.nuevo_id;
+	let nuevoNombre = ctx.request.body.nombre;
+	let nuevoApellido = ctx.request.body.apellido;
+	let nuevoEmail = ctx.request.body.email;
 
-	// Modificaremos los datos del empleado cuyo ID coincida
+	if (id_equipo && id_empleado) {
+		for (let i in controller.equipos) {
+			if (id_equipo == controller.equipos[i].id) {
+				for (let j in controller.equipos[i].empleados) {
+					if (id_empleado == controller.equipos[i].empleados[j].id) {
+						try {
+							if (nuevoID) {
+								controller.equipos[i].empleados[j].id = nuevoID;
+							}
+							if (nuevoNombre) {
+								controller.equipos[i].empleados[j].nombre = nuevoNombre;
+							}
+							if (nuevoApellido) {
+								controller.equipos[i].empleados[j].apellido = nuevoApellido;
+							}
+							if (nuevoEmail) {
+								controller.equipos[i].empleados[j].email = nuevoEmail;
+							}
+
+							ctx.status = 202;
+							ctx.body = {
+								id: controller.equipos[i].empleados[j].id,
+								terminada: controller.equipos[i].empleados[j].nombre,
+								descripcion: controller.equipos[i].empleados[j].apellido,
+								tiempoEstimado: controller.equipos[i].empleados[j].email
+							};
+
+						} catch (error) {
+							ctx.status = 404;
+  							ctx.body = {
+    							error: "No se ha podido modificar la información de la tarea"
+  							};
+						}
+					}
+				}
+			}
+		}
+	} else {
+		ctx.status = 400;
+  		ctx.body = {
+    		error: "No se han introducido los parámetros correctos"
+  		};
+	}
 });
 
 /**
