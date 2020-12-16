@@ -4,8 +4,9 @@ const OrganizeAndGo = require('../organizeandgo/organizeandgo');
 const router = new Router();
 var controller = new OrganizeAndGo();
 
-
-// Función 'index' que da la bienvenida a la API
+/**
+ * RUTA INDEX DE PRUEBA
+ */
 router.get('/', async (ctx) => {
     ctx.status = 200;
 	ctx.body = {
