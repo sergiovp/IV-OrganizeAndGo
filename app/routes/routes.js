@@ -355,18 +355,27 @@ router.get('/developer', async (ctx) => {
 router.get('/equipo/:id_equipo', async (ctx) => {
 	let id_equipo = ctx.params.id_equipo;
 
-	try {
-		let info = controller.getEquipo(id_equipo);
-
-		ctx.status = 200;
-  		ctx.body = info;
-			
-	} catch (error) {
-		ctx.status = 404;
-  		ctx.body = {
-    		error: "No se ha encontrado información del equipo"
-  		};
+	if (id_equipo) {
+		try {
+			id_equipo -= 1;
+			let info = controller.getEquipo(id_equipo);
+	
+			ctx.status = 200;
+			  ctx.body = info;
+				
+		} catch (error) {
+			ctx.status = 404;
+			  ctx.body = {
+				error: "No se ha encontrado información del equipo"
+			  };
+		}
+	} else {
+		ctx.status = 400;
+		ctx.body = {
+		  error: "No se han introducido los parámetros correctos"
+		};
 	}
+	
 });
 
 /**
@@ -376,17 +385,24 @@ router.get('/equipo/:id_equipo', async (ctx) => {
  */
 router.get('/empleados/:id_equipo', async (ctx) => {
 	let id_equipo = ctx.params.id_equipo;
-
-	try {
-		let empleados = controller.equipos[id_equipo].empleados;
-
-		ctx.status = 200;
-  		ctx.body = empleados;
-			
-	} catch (error) {
-		ctx.status = 404;
+	if (id_equipo) {
+		try {
+			id_equipo -= 1;
+			let empleados = controller.equipos[id_equipo].empleados;
+	
+			ctx.status = 200;
+			  ctx.body = empleados;
+				
+		} catch (error) {
+			ctx.status = 404;
+			  ctx.body = {
+				error: "No se ha encontrado información de los empleados"
+			  };
+		}
+	} else {
+		ctx.status = 400;
   		ctx.body = {
-    		error: "No se ha encontrado información del equipo"
+    		error: "No se han introducido los parámetros correctos"
   		};
 	}
 });
