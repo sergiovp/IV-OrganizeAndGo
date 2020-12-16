@@ -13,12 +13,7 @@ router.get('/', async (ctx) => {
 	};
 });
 
-// Consultar información de las tareas HU1
-router.get('/tareas/:id_equipo', async (ctx) => {
-	let id_equipo = ctx.params.id_equipo;
 
-	// Devolveremos las tareas del equipo cuyo ID coincida
-});
 
 // Modificar información de las tareas HU2
 
@@ -97,9 +92,47 @@ router.post('/empleado', async (ctx) => {
 });
 
 // Añadir tareas HU5
-router.post('/tarea/:id/:terminada/:descripcion/:tiempo/:prioridad/:empleado', async (ctx) => {
+router.post('/tarea', async (ctx) => {
+	let id_equipo = ctx.request.body.id_equipo;
+	let id_tarea = ctx.request.body.id_tarea;
+	let terminada = ctx.request.body.terminada;
+	let descripcion = ctx.request.body.descripcion;
+	let tiempoEstimado = ctx.request.body.tiempo_estimado;
+	let prioridad = ctx.request.body.prioridad;
+	let empleadoAsignado = ctx.request.body.empleado_asignado;
 
-	// Añadiremos una tarea
+	if (id_equipo && id_tarea && terminada && descripcion &&
+		tiempoEstimado && prioridad && empleadoAsignado) {
+			for (let i in controller.equipos) {
+				if (id_equipo == controller.equipos[i].id) {
+					try {
+						controller.equipos[i].addTarea(id_tarea, terminada, descripcion,
+							tiempoEstimado, prioridad, empleadoAsignado);
+	
+						ctx.status = 202;
+						  ctx.body = {
+							id_tarea: id_tarea,
+							terminada: terminada,
+							descripcion: descripcion,
+							tiempoEstimado: tiempoEstimado,
+							prioridad: prioridad,
+							empleadoAsignado: empleadoAsignado
+						};
+	
+					} catch (error) {
+						ctx.status = 404;
+						  ctx.body = {
+							error: "No se ha podido añadir la tarea"
+						  };
+					}
+				}
+			}
+	} else {
+		ctx.status = 400;
+  		ctx.body = {
+    		error: "No se han introducido los parámetros correctos"
+  		};
+	}
 });
 
 /**
