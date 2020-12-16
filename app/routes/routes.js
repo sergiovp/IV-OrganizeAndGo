@@ -45,7 +45,73 @@ router.get('/tareas/:id_equipo', async (ctx) => {
 	}
 });
 
-// Modificar información de las tareas HU2
+/**
+ * MODIFICAR INFORMACIÓN DE LAS TAREAS -> HU2
+ * 
+ * Se debe especificar el ID del equipo y el ID de la tarea.
+ */
+router.put('/tarea', async (ctx) => {
+	let id_equipo = ctx.request.body.id_equipo;
+	let id_tarea = ctx.request.body.id_tarea;
+	let nuevoID = ctx.request.body.nuevo_id;
+	let nuevaTerminada = ctx.request.body.terminada;
+	let nuevaDescripcion = ctx.request.body.descripcion;
+	let nuevoTiempoEstimado = ctx.request.body.tiempo_estimado;
+	let nuevaPrioridad = ctx.request.body.prioridad;
+	let nuevoEmpleadoAsignado = ctx.request.body.empleado_asignado;
+
+	if (id_equipo && id_tarea) {
+		for (let i in controller.equipos) {
+			if (id_equipo == controller.equipos[i].id) {
+				for (let j in controller.equipos[i].tareas) {
+					if (id_tarea == controller.equipos[i].tareas[j].id) {
+						try {
+							if (nuevoID) {
+								controller.equipos[i].tareas[j].id = nuevoID;
+							}
+							if (nuevaTerminada) {
+								controller.equipos[i].tareas[j].terminada = nuevaTerminada;
+							}
+							if (nuevaDescripcion) {
+								controller.equipos[i].tareas[j].descripcion = nuevaDescripcion;
+							}
+							if (nuevoTiempoEstimado) {
+								controller.equipos[i].tareas[j].tiempoEstimado = nuevoTiempoEstimado;
+							}
+							if (nuevaPrioridad) {
+								controller.equipos[i].tareas[j].prioridad = nuevaPrioridad;
+							}
+							if (nuevoEmpleadoAsignado) {
+								controller.equipos[i].tareas[j].empleadoAsignado = nuevoEmpleadoAsignado;
+							}
+
+							ctx.status = 202;
+							ctx.body = {
+								id: controller.equipos[i].tareas[j].id,
+								terminada: controller.equipos[i].tareas[j].terminada,
+								descripcion: controller.equipos[i].tareas[j].descripcion,
+								tiempoEstimado: controller.equipos[i].tareas[j].tiempoEstimado,
+								prioridad: controller.equipos[i].tareas[j].prioridad,
+								empleadoAsignado: controller.equipos[i].tareas[j].empleadoAsignado
+							};
+
+						} catch (error) {
+							ctx.status = 404;
+  							ctx.body = {
+    							error: "No se ha podido modificar la información de la tarea"
+  							};
+						}
+					}
+				}
+			}
+		}
+	} else {
+		ctx.status = 400;
+  		ctx.body = {
+    		error: "No se han introducido los parámetros correctos"
+  		};
+	}
+});
 
 /**
  * AÑADIR EQUIPOS -> HU3
@@ -121,7 +187,11 @@ router.post('/empleado', async (ctx) => {
 	}
 });
 
-// Añadir tareas HU5
+/**
+ * AÑADIR TAREAS -> HU5
+ * 
+ * Se debe especificar el ID del equipo.
+ */
 router.post('/tarea', async (ctx) => {
 	let id_equipo = ctx.request.body.id_equipo;
 	let id_tarea = ctx.request.body.id_tarea;
