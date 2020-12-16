@@ -354,17 +354,24 @@ Keep-Alive: timeout=5
 ~~~
 router.get('/empleados/:id_equipo', async (ctx) => {
 	let id_equipo = ctx.params.id_equipo;
-
-	try {
-		let empleados = controller.equipos[id_equipo].empleados;
-
-		ctx.status = 200;
-  		ctx.body = empleados;
-			
-	} catch (error) {
-		ctx.status = 404;
+	if (id_equipo) {
+		try {
+			id_equipo -= 1;
+			let empleados = controller.equipos[id_equipo].empleados;
+	
+			ctx.status = 200;
+			  ctx.body = empleados;
+				
+		} catch (error) {
+			ctx.status = 404;
+			  ctx.body = {
+				error: "No se ha encontrado información de los empleados"
+			  };
+		}
+	} else {
+		ctx.status = 400;
   		ctx.body = {
-    		error: "No se ha encontrado información de los empleados"
+    		error: "No se han introducido los parámetros correctos"
   		};
 	}
 });
@@ -374,7 +381,7 @@ Ruta con verbo **GET** puesto que queremos recibir la información que solicitam
 
 Ejemplo de petición (se ha añadido otro empleado más):
 ~~~
-vela@vela-PC:~$ http GET localhost:2727/empleados/0
+vela@vela-PC:~$ http GET localhost:2727/empleados/1
 HTTP/1.1 200 OK
 Connection: keep-alive
 Content-Length: 158
@@ -747,26 +754,35 @@ Keep-Alive: timeout=5
 router.get('/equipo/:id_equipo', async (ctx) => {
 	let id_equipo = ctx.params.id_equipo;
 
-	try {
-		let info = controller.getEquipo(id_equipo);
-
-		ctx.status = 200;
-  		ctx.body = info;
-			
-	} catch (error) {
-		ctx.status = 404;
-  		ctx.body = {
-    		error: "No se ha encontrado información del equipo"
-  		};
+	if (id_equipo) {
+		try {
+			id_equipo -= 1;
+			let info = controller.getEquipo(id_equipo);
+	
+			ctx.status = 200;
+			  ctx.body = info;
+				
+		} catch (error) {
+			ctx.status = 404;
+			  ctx.body = {
+				error: "No se ha encontrado información del equipo"
+			  };
+		}
+	} else {
+		ctx.status = 400;
+		ctx.body = {
+		  error: "No se han introducido los parámetros correctos"
+		};
 	}
+	
 });
 ~~~
 
-En este caso, queremos consultar información, por lo que el verbo de la petición es **GET**. Como parámetros, recibimos el ID del equipo en cuestión sobre el que queremos obtener la información. En caso de éxito, devolveremos toda la información del equipo junto con un estado 200, en caso contrario, un error 404 especificando que no se ha podido mostrar la información.
+En este caso, queremos consultar información, por lo que el verbo de la petición es **GET**. Como parámetros, recibimos el ID del equipo en cuestión sobre el que queremos obtener la información. En caso de éxito, devolveremos toda la información del equipo junto con un estado 200, en caso contrario, un error 404 especificando que no se ha podido mostrar la información. Si no introducimos ningún parámetros, devolvemos 400 e información sobre el error.
 
 Ejemplo de petición (consultamos la información del equipo creado al principio):
 ~~~
-vela@vela-PC:~$ http GET localhost:2727/equipo/0
+vela@vela-PC:~$ http GET localhost:2727/equipo/1
 HTTP/1.1 200 OK
 Connection: keep-alive
 Content-Length: 535
