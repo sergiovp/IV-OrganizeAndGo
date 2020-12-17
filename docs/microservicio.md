@@ -172,10 +172,6 @@ Como hemos visto en la ruta de ejemplo, resulta muy cómodo gestionar los estado
 
 ### Diseño en general del API, las rutas (o tareas), tipos devueltos por las peticiones y estados devueltos por las mismas, tests y documentación de todo, justificando como se ajustan a las historias de usuario, de forma que reflejen correctamente un diseño por capas que desacopla la lógica de negocio del API
 
-#### Diseño por capas
-
-Al no disponer aún de una base de datos, tenemos un objeto 'controlador' en nuestro fichero de rutas [routes.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/routes/routes.js) que encontramos en el directorio [app/routes](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/app/routes) llamado `controller` que no es más que una instancia de la clase OrganizeAndGo `var controller = new OrganizeAndGo();`. Con dicho objeto, gestionamos los datos de nuestra aplicación, de forma que tenemos un diseño por caps desacoplando la lógica de necio de la API implementada. 
-
 #### Diseño en general del API, las rutas (o tareas), tipos devueltos por las peticiones y estados devueltos por las mismas, tests y documentación de todo, justificando como se ajustan a las historias de usuario
 
 #### [HU3: Añadir equipos](https://github.com/sergiovp/IV-OrganizeAndGo/issues/32)
@@ -832,9 +828,90 @@ Keep-Alive: timeout=5
 }
 ~~~
 
+#### Diseño por capas
+
+Al no disponer aún de una base de datos, tenemos un objeto 'controlador' en nuestro fichero de rutas [routes.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/routes/routes.js) que encontramos en el directorio [app/routes](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/app/routes) llamado `controller` que no es más que una instancia de la clase OrganizeAndGo `var controller = new OrganizeAndGo();`. Con dicho objeto, gestionamos los datos de nuestra aplicación, de forma que tenemos un diseño por capas desacoplando la lógica de necio de la API implementada. 
+
+### Uso de buenas prácticas: configuración distribuida, logs, uso de middleware.
+
+#### Middleware
+
+Agregar middleware con Koa es una tarea muy sencilla, [este vídeo](https://www.youtube.com/watch?v=tvEGlJeUIVM) explica cómo añadir un middleware para registro de logs, que como sabemos, es esencial implementar.
+
+##### LOGS
+
+Este middleware se encuentra implementado en el fichero [index.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/index.js) en el direcotrio [app](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/app).
+
+Mi middleware para registro de logs es el siguiente:
+~~~
+app.use(async (ctx, next) => {
+    console.log(`${ctx.method} ${ctx.url} ${new Date()}`);
+    return await next();
+});
+~~~
+
+Como vemos, es una función muy sencilla en la que simplemente mostramos el método o verbo con el que realizamos la petición, la URL de dicha petición y la fecha y hora en la que realizamos la petición.
+
+Aquí podemos ver un ejemplo de salida:
+~~~
+Example app listening at http://localhost:2727
+POST /equipo Thu Dec 17 2020 17:30:21 GMT+0100 (hora estándar de Europa central)
+POST /empleado Thu Dec 17 2020 17:30:23 GMT+0100 (hora estándar de Europa central)
+POST /empleado Thu Dec 17 2020 17:30:25 GMT+0100 (hora estándar de Europa central)
+GET /empleado Thu Dec 17 2020 17:31:37 GMT+0100 (hora estándar de Europa central)
+GET /empleado Thu Dec 17 2020 17:31:53 GMT+0100 (hora estándar de Europa central)
+PUT /empleado Thu Dec 17 2020 17:32:08 GMT+0100 (hora estándar de Europa central)
+PUT /empleado Thu Dec 17 2020 17:32:18 GMT+0100 (hora estándar de Europa central)
+PUT /empleado Thu Dec 17 2020 17:32:26 GMT+0100 (hora estándar de Europa central)
+~~~
+
+##### Gestión de errores
+
+Hemos añadido también un middleware para gestión de errores, al igual que el anterior, lo encontramos en el fichero [index.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/index.js).
+
+~~~
+app.use(async (ctx, next) => {
+    try {
+        await next();
+    } catch (err) {
+        ctx.status = err.statusCode || err.status || 500;
+        ctx.body = {
+            Error: err.message
+        };
+    }
+})
+~~~
+
+Como vemos, intentamos llamar al próximo middleware, que sucederá si no tenemos ningún error. En caso de error, mostraremos dicho error con `err.message` y estableceremos el estado de la petición.
+
+
+Un ejemplo de salida, sería el siguiente:
 ~~~
 {
     "Error": "Cannot read property 'id_equipo' of undefined"
 }
-
 ~~~
+
+##### Routes
+
+**koa-router** es otro middleware que hemos utilizado, por ejemplo, para añadir todas las rutas implementadas a nuestro fichero 'index' `app.use(router.routes());`. También para ofrecer más información al usuario cuando hace una llamada a la API con un verbo (URI) que no corresponde `app.use(router.allowedMethods());` ofreciendo una salida como la siguiente:
+~~~
+Method Not Allowed
+~~~
+
+En lugar de indicarnos lo siguiente (menos intuitivo entender qué ocurre):
+~~~
+Not Found
+~~~
+
+##### BodyParser
+
+Para poder trabajar con los parámetros recibidos en una petición POST o PUT, necesitamos este middleware, que incluimos de la siguiente forma `app.use(bodyParser());`.
+
+#### Otras buenas prácticas
+
++ **Configuración distribuida**. Hemos implementado las rutas en un fichero [routes.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/routes/routes.js) y directorio a parte [routes](https://github.com/sergiovp/IV-OrganizeAndGo/tree/master/app/routes), de forma que las separamos del fichero 'index' o 'servidor'.
++ A parte del middleware para gestión de errores, mediante **try y catch** gestionamos los errores en cada ruta implementada, de forma que podemos facilitar mayor información al usuario en función del error.
++ Gestionamos también los **estados** de cada petición (200, 400, 404...).
++ Separamos la lógica de negocio de la API. Con `controller` de mi clase controladora OrganizeAndGo.
+
