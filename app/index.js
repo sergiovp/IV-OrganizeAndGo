@@ -12,7 +12,7 @@ app.use(bodyParser());
  */
 app.use(async (ctx, next) => {
     try {
-        await next();
+        return await next();
     } catch (err) {
         ctx.status = err.statusCode || err.status || 500;
         ctx.body = {
@@ -30,6 +30,7 @@ app.use(async (ctx, next) => {
 });
 
 app.use(router.routes());
+app.use(router.allowedMethods());
 
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`)
