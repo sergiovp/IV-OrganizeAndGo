@@ -357,12 +357,14 @@ router.get('/equipo/:id_equipo', async (ctx) => {
 
 	if (id_equipo) {
 		try {
-			id_equipo -= 1;
-			let info = controller.getEquipo(id_equipo);
-	
-			ctx.status = 200;
-			  ctx.body = info;
-				
+			for (let i in controller.equipos) {
+				if (id_equipo == controller.equipos[i].id) {
+					let info = controller.getEquipo(i);
+					console.log(info);
+					ctx.status = 200;
+			  		ctx.body = info;
+				}
+			}
 		} catch (error) {
 			ctx.status = 404;
 			  ctx.body = {
