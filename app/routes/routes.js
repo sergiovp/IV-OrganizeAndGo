@@ -360,7 +360,6 @@ router.get('/equipo/:id_equipo', async (ctx) => {
 			for (let i in controller.equipos) {
 				if (id_equipo == controller.equipos[i].id) {
 					let info = controller.getEquipo(i);
-					console.log(info);
 					ctx.status = 200;
 			  		ctx.body = info;
 				}
