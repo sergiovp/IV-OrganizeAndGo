@@ -389,12 +389,14 @@ router.get('/empleados/:id_equipo', async (ctx) => {
 	let id_equipo = ctx.params.id_equipo;
 	if (id_equipo) {
 		try {
-			id_equipo -= 1;
-			let empleados = controller.equipos[id_equipo].empleados;
-	
-			ctx.status = 200;
-			  ctx.body = empleados;
-				
+			for (let i in controller.equipos) {
+				if (id_equipo == controller.equipos[i].id) {
+					let empleados = controller.equipos[i].empleados;
+
+					ctx.status = 200;
+					ctx.body = empleados;
+				}
+			}	
 		} catch (error) {
 			ctx.status = 404;
 			  ctx.body = {
