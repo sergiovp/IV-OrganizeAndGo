@@ -19,6 +19,23 @@ Se podrán organizar equipos de trabajo de manera eficiente, de forma que en tod
 
 ---
 
+
+## Microservicio
+
+Toda la información la encontramos en el fichero [microservicio.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/microservicio.md) aunque se facilitan los accesos directos:
+
++ Justificación técnica del framework elegido para el microservicio con documentación sobre cómo se usa en la práctica. Se puede consultar [aquí](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/microservicio.md#justificaci%C3%B3n-t%C3%A9cnica-del-framework-elegido-para-el-microservicio-con-documentaci%C3%B3n-sobre-c%C3%B3mo-se-usa-en-la-pr%C3%A1ctica)
+
++ Diseño en general del API, las rutas (o tareas), tipos devueltos por las peticiones y estados devueltos por las mismas, tests y documentación de todo, justificando como se ajustan a las historias de usuario, de forma que reflejen correctamente un diseño por capas que desacopla la lógica de negocio del API. Se puede consultar [aquí](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/microservicio.md#dise%C3%B1o-en-general-del-api-las-rutas-o-tareas-tipos-devueltos-por-las-peticiones-y-estados-devueltos-por-las-mismas-tests-y-documentaci%C3%B3n-de-todo-justificando-como-se-ajustan-a-las-historias-de-usuario-de-forma-que-reflejen-correctamente-un-dise%C3%B1o-por-capas-que-desacopla-la-l%C3%B3gica-de-negocio-del-api)
+    + Fichero de rutas: [routes.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/routes/routes.js)
+    + Fichero index: [index.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/app/index.js)
+
++ Uso de buenas prácticas: configuración distribuida, logs, uso de middleware. Se puede consultar [aquí](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/microservicio.md#uso-de-buenas-pr%C3%A1cticas-configuraci%C3%B3n-distribuida-logs-uso-de-middleware)
+
++ Tests correctos y de acuerdo con las historias de usuario. Se pueden consultar [aquí]()
+    + Fichero de tests: [api_test.js]()
+---
+
 ## Serverless
 
 + Despliegue correcto y funcionando con documentación de la conexión entre el repositorio de GitHub y vercel para despliegue continuo. Se puede consultar [aquí](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/serverless.md#despliegue-correcto-y-funcionando-con-documentaci%C3%B3n-de-la-conexi%C3%B3n-entre-el-repositorio-de-github-y-vercel-para-despliegue-continuo)
