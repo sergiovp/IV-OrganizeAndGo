@@ -917,4 +917,268 @@ Para poder trabajar con los parámetros recibidos en una petición POST o PUT, n
 
 ### Tests correctos y de acuerdo con las historias de usuario
 
+Para los tests, siguiendo las decisiones que tomé en prácticas anteriores, utilizaré Mocha y Chai. Para este caso, necesitaremos también `chai-http` que ya ha sido instalado.
 
+
+Para iniciar el servidor, usamos `chai.request(server)`, siendo server una variable que iniciará la aplicación de la siguiente forma `server = app.listen(PORT);`.
+
+Podemos especificar el verbo de la petición con `.get`, `.post` o `.put`. Para incluir parámetros en las peticiones, usaremos `.send` y con `.end` podemos consultar los datos devueltos de la petición y el estado de ésta.
+
+#### [HU3: Añadir equipos](https://github.com/sergiovp/IV-OrganizeAndGo/issues/32)
+
+~~~
+	it("POST AÑADIR EQUIPO", (done) => {
+        chai.request(server)
+        .post('/equipo')
+        .send({id_equipo: 1, nombre: "Mi equipo"})
+        .end( function(err,res){
+            expect(res).to.have.status(202);
+            expect(res.body).to.have.property('id_equipo').to.be.equal(1);
+            expect(res.body).to.have.property('nombre').to.be.equal("Mi equipo");
+            done();
+        });
+    });
+
+    it("POST AÑADIR EQUIPO SIN PARÁMETROS", (done) => {
+        chai.request(server)
+        .post('/equipo')
+        .send({})
+        .end( function(err,res){
+            expect(res).to.have.status(400);
+            done();
+        });
+    });
+~~~
+
+Estos han sido los tests implementados para la HU. Como vemos, comprobamos que añadimos un equipo correctamente comprobando que obtenemos un estado 202 y que efectivamente, los datos son correctos. También incluímos otra función para comprobar que en caso de no introducir parámetros obtenemos un estado de error 400. El verbo utilizado, ha sido POST y como vemos, en `.send` hemos especificado los parámetros necesarios.
+
+#### [HU4: Añadir empleados](https://github.com/sergiovp/IV-OrganizeAndGo/issues/33)
+
+~~~
+	it("POST AÑADIR EMPLEADO", (done) => {
+        chai.request(server)
+        .post('/empleado')
+        .send({id_equipo: 1, id_empleado: 1, nombre: "Sergio", apellido: "Vela", email: "sergiovp96@gmail.com"})
+        .end( function(err,res){
+            expect(res).to.have.status(202);
+            expect(res.body).to.have.property('id_empleado').to.be.equal(1);
+            expect(res.body).to.have.property('nombre').to.be.equal("Sergio");
+            expect(res.body).to.have.property('apellido').to.be.equal("Vela");
+            expect(res.body).to.have.property('email').to.be.equal("sergiovp96@gmail.com");
+            done();
+        });
+    });
+
+    it("POST AÑADIR EMPLEADO SIN PARÁMETROS", (done) => {
+        chai.request(server)
+        .post('/empleado')
+        .send({})
+        .end( function(err,res){
+            expect(res).to.have.status(400);
+            done();
+        });
+    });
+~~~
+
+De igual forma, que el caso anterior, comprobamos que efectivamente podemos añadir empleados.
+
+#### [HU6: Consultar información de un empleado](https://github.com/sergiovp/IV-OrganizeAndGo/issues/66)
+
+~~~
+	it("GET OBTENER INFORMACIÓN EMPLEADO", (done) => {
+        chai.request(server)
+        .get('/empleado/1/1')
+        .end( function(err,res){
+            expect(res).to.have.status(200);
+            expect(res.body).to.have.property('_id').to.be.equal(1);
+            expect(res.body).to.have.property('_nombre').to.be.equal("Sergio");
+            expect(res.body).to.have.property('_apellido').to.be.equal("Vela");
+            expect(res.body).to.have.property('_email').to.be.equal("sergiovp96@gmail.com");
+            done();
+        });
+    });
+
+    it("GET OBTENER INFORMACIÓN EMPLEADO INEXISTENTE", (done) => {
+        chai.request(server)
+        .get('/empleado/1/0')
+        .end( function(err,res){
+            expect(res).to.have.status(404);
+            done();
+        });
+    });
+~~~
+
+En este caso, el verbo ha sido GET y no tenemos que especificar parámetros.
+
+#### [HU6: Modificar información de un empleado](https://github.com/sergiovp/IV-OrganizeAndGo/issues/66)
+
+~~~
+	it("MODIFICAMOS INFORMACIÓN DEL EMPLEADO", (done) => {
+        chai.request(server)
+        .put('/empleado')
+        .send({id_equipo: 1, id_empleado: 1, email: "sergiovp96@hotmail.com"})
+        .end( function(err,res){
+            expect(res).to.have.status(202);
+            expect(res.body).to.have.property('id').to.be.equal(1);
+            expect(res.body).to.have.property('nombre').to.be.equal("Sergio");
+            expect(res.body).to.have.property('apellido').to.be.equal("Vela");
+            expect(res.body).to.have.property('email').to.be.equal("sergiovp96@hotmail.com");
+            done();
+        });
+    });
+~~~
+
+Para este caso, usamos el verbo PUT. (Hemos modificado el email del empleado).
+
+#### [HU5: Añadir tareas](https://github.com/sergiovp/IV-OrganizeAndGo/issues/34)
+
+~~~
+	it("POST AÑADIR TAREA", (done) => {
+        chai.request(server)
+        .post('/tarea')
+        .send({id_equipo: 1, id_tarea: 1, terminada: false, descripcion: "Empezar el TFG",
+            tiempo_estimado: "Medio año", prioridad: "Importante", empleado_asignado: 1})
+        .end( function(err,res){
+            expect(res).to.have.status(202);
+            expect(res.body).to.have.property('id_tarea').to.be.equal(1);
+            expect(res.body).to.have.property('terminada').to.be.equal(false);
+            expect(res.body).to.have.property('descripcion').to.be.equal("Empezar el TFG");
+            expect(res.body).to.have.property('tiempoEstimado').to.be.equal("Medio año");
+            expect(res.body).to.have.property('prioridad').to.be.equal("Importante");
+            expect(res.body).to.have.property('empleadoAsignado').to.be.equal(1);
+            done();
+        });
+    });
+
+    it("POST AÑADIR TAREA SIN PARÁMETROS", (done) => {
+        chai.request(server)
+        .post('/tarea')
+        .send({})
+        .end( function(err,res){
+            expect(res).to.have.status(400);
+            done();
+        });
+    });
+~~~
+
+Hemos seguido el mismo proceso que para añadir un equipo y un empleado.
+
+#### [HU1: Consultar información de las tareas](https://github.com/sergiovp/IV-OrganizeAndGo/issues/6)
+
+~~~
+it("GET INFORMACIÓN TAREAS", (done) => {
+        chai.request(server)
+        .get('/tareas/1')
+        .end( function(err,res) {
+            expect(res).to.have.status(200);
+            expect(res.body[0]).to.have.property('_id').to.be.equal(1);
+            expect(res.body[0]).to.have.property('_terminada').to.be.equal(false);
+            expect(res.body[0]).to.have.property('_descripcion').to.be.equal("Empezar el TFG");
+            expect(res.body[0]).to.have.property('_tiempoEstimado').to.be.equal("Medio año");
+            expect(res.body[0]).to.have.property('_prioridad').to.be.equal("Importante");
+            expect(res.body[0]).to.have.property('_empleadoAsignado').to.be.equal(1);
+            done();
+        });
+    });
+~~~
+
+Hemos seguido el mismo proceso que para consultar la información de un empleado.
+
+#### [HU2: Modificar información de las tareas](https://github.com/sergiovp/IV-OrganizeAndGo/issues/7)
+
+~~~
+it("MODIFICAMOS INFORMACIÓN DE LA TAREA", (done) => {
+        chai.request(server)
+        .put('/tarea')
+        .send({id_equipo: 1, id_tarea: 1, tiempo_estimado: "4 meses"})
+        .end( function(err,res){
+            expect(res).to.have.status(202);
+            expect(res.body).to.have.property('id').to.be.equal(1);
+            expect(res.body).to.have.property('terminada').to.be.equal(false);
+            expect(res.body).to.have.property('descripcion').to.be.equal("Empezar el TFG");
+            expect(res.body).to.have.property('tiempoEstimado').to.be.equal("4 meses");
+            expect(res.body).to.have.property('prioridad').to.be.equal("Importante");
+            expect(res.body).to.have.property('empleadoAsignado').to.be.equal(1);
+            done();
+        });
+    });
+~~~
+
+Mismo proceso que para modificar la información de un empleado.
+
+#### [HU8: Como usuario de la aplicación me gustaría saber toda la información relativa a los equipos de la empresa.](https://github.com/sergiovp/IV-OrganizeAndGo/issues/72)
+
+~~~
+	it("GET INFORMACIÓN EQUIPO", (done) => {
+        chai.request(server)
+        .get('/equipo/1')
+        .end( function(err,res) {
+            expect(res).to.have.status(200);
+            expect(res.body).to.have.property('_id').to.be.equal(1);
+            expect(res.body).to.have.property('_nombre').to.be.equal("Mi equipo");
+            expect(res.body._empleados[0]._id).to.be.equal(1);
+            expect(res.body._empleados[0]._nombre).to.be.equal("Sergio");
+            expect(res.body._empleados[0]._apellido).to.be.equal("Vela");
+            expect(res.body._empleados[0]._email).to.be.equal("sergiovp96@hotmail.com");
+            expect(res.body._tareas[0]._id).to.be.equal(1);
+            expect(res.body._tareas[0]._terminada).to.be.equal(false);
+            expect(res.body._tareas[0]._descripcion).to.be.equal("Empezar el TFG");
+            expect(res.body._tareas[0]._tiempoEstimado).to.be.equal("4 meses");
+            expect(res.body._tareas[0]._prioridad).to.be.equal("Importante");
+            expect(res.body._tareas[0]._empleadoAsignado).to.be.equal(1);
+            done();
+        });
+    });
+
+    it("GET INFORMACIÓN EQUIPO INEXISTENTE", (done) => {
+        chai.request(server)
+        .get('/equipo/2')
+        .end( function(err,res) {
+            expect(res).to.have.status(404);
+            done();
+        });
+    });
+~~~
+
+Al igual que para obtener la información de los empleados o tareas, como se puede ver, comprobamos también que todos los datos relativos al equipo son correctos.
+
+Salida tras la ejecución de los tests:
+
+~~~
+API TESTS
+
+GET / Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ GET /
+POST /equipo Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ POST AÑADIR EQUIPO
+POST /equipo Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ POST AÑADIR EQUIPO SIN PARÁMETROS
+POST /empleado Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ POST AÑADIR EMPLEADO
+POST /empleado Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ POST AÑADIR EMPLEADO SIN PARÁMETROS
+GET /empleado/1/1 Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ GET OBTENER INFORMACIÓN EMPLEADO
+GET /empleado/1/0 Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ GET OBTENER INFORMACIÓN EMPLEADO INEXISTENTE
+PUT /empleado Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ MODIFICAMOS INFORMACIÓN DEL EMPLEADO
+GET /empleado/1/1 Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ GET OBTENER INFORMACIÓN EMPLEADO CON INFORMACIÓN MODIFICADA
+POST /tarea Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ POST AÑADIR TAREA
+POST /tarea Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ POST AÑADIR TAREA SIN PARÁMETROS
+GET /tareas/1 Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ GET INFORMACIÓN TAREAS
+PUT /tarea Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ MODIFICAMOS INFORMACIÓN DE LA TAREA
+GET /tareas/1 Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ GET OBTENER INFORMACIÓN TAREA CON INFORMACIÓN MODIFICADA
+GET /equipo/1 Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ GET INFORMACIÓN EQUIPO
+GET /equipo/2 Fri Dec 18 2020 18:28:53 GMT+0100 (hora estándar de Europa central)
+    ✓ GET INFORMACIÓN EQUIPO INEXISTENTE
+~~~
+
+Como podemos ver, todos los tests se ejecutan correctamente.
