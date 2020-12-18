@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "nodemon app/index.js",
-    "test": "mocha tests"
+    "test": "mocha tests --exit"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/sergiovp/IV-OrganizeAndGo#readme",
   "dependencies": {
+    "chai-http": "^4.3.0",
     "koa": "^2.13.0",
     "koa-body": "^4.2.0",
     "koa-bodyparser": "^4.3.0",
