@@ -112,4 +112,31 @@ describe("API TESTS", () => {
             done();
         });
     });
+
+    it("POST AÑADIR TAREA", (done) => {
+        chai.request(server)
+        .post('/tarea')
+        .send({id_equipo: 1, id_tarea: 1, terminada: false, descripcion: "Empezar el TFG",
+            tiempo_estimado: "Medio año", prioridad: "Importante", empleado_asignado: 1})
+        .end( function(err,res){
+            expect(res).to.have.status(202);
+            expect(res.body).to.have.property('id_tarea').to.be.equal(1);
+            expect(res.body).to.have.property('terminada').to.be.equal(false);
+            expect(res.body).to.have.property('descripcion').to.be.equal("Empezar el TFG");
+            expect(res.body).to.have.property('tiempoEstimado').to.be.equal("Medio año");
+            expect(res.body).to.have.property('prioridad').to.be.equal("Importante");
+            expect(res.body).to.have.property('empleadoAsignado').to.be.equal(1);
+            done();
+        });
+    });
+
+    it("POST AÑADIR TAREA SIN PARÁMETROS", (done) => {
+        chai.request(server)
+        .post('/tarea')
+        .send({})
+        .end( function(err,res){
+            expect(res).to.have.status(400);
+            done();
+        });
+    });
 });
