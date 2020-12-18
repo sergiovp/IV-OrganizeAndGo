@@ -185,4 +185,34 @@ describe("API TESTS", () => {
             done();
         });
     });
+
+    it("GET INFORMACIÓN EQUIPO", (done) => {
+        chai.request(server)
+        .get('/equipo/1')
+        .end( function(err,res) {
+            expect(res).to.have.status(200);
+            expect(res.body).to.have.property('_id').to.be.equal(1);
+            expect(res.body).to.have.property('_nombre').to.be.equal("Mi equipo");
+            expect(res.body._empleados[0]._id).to.be.equal(1);
+            expect(res.body._empleados[0]._nombre).to.be.equal("Sergio");
+            expect(res.body._empleados[0]._apellido).to.be.equal("Vela");
+            expect(res.body._empleados[0]._email).to.be.equal("sergiovp96@hotmail.com");
+            expect(res.body._tareas[0]._id).to.be.equal(1);
+            expect(res.body._tareas[0]._terminada).to.be.equal(false);
+            expect(res.body._tareas[0]._descripcion).to.be.equal("Empezar el TFG");
+            expect(res.body._tareas[0]._tiempoEstimado).to.be.equal("4 meses");
+            expect(res.body._tareas[0]._prioridad).to.be.equal("Importante");
+            expect(res.body._tareas[0]._empleadoAsignado).to.be.equal(1);
+            done();
+        });
+    });
+
+    it("GET INFORMACIÓN EQUIPO INEXISTENTE", (done) => {
+        chai.request(server)
+        .get('/equipo/2')
+        .end( function(err,res) {
+            expect(res).to.have.status(404);
+            done();
+        });
+    });
 });
