@@ -139,4 +139,19 @@ describe("API TESTS", () => {
             done();
         });
     });
+
+    it("GET INFORMACIÓN TAREAS", (done) => {
+        chai.request(server)
+        .get('/tareas/1')
+        .end( function(err,res) {
+            expect(res).to.have.status(200);
+            expect(res.body[0]).to.have.property('_id').to.be.equal(1);
+            expect(res.body[0]).to.have.property('_terminada').to.be.equal(false);
+            expect(res.body[0]).to.have.property('_descripcion').to.be.equal("Empezar el TFG");
+            expect(res.body[0]).to.have.property('_tiempoEstimado').to.be.equal("Medio año");
+            expect(res.body[0]).to.have.property('_prioridad').to.be.equal("Importante");
+            expect(res.body[0]).to.have.property('_empleadoAsignado').to.be.equal(1);
+            done();
+        });
+    });
 });
