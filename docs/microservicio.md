@@ -915,3 +915,6 @@ Para poder trabajar con los parámetros recibidos en una petición POST o PUT, n
 + Gestionamos también los **estados** de cada petición (200, 400, 404...).
 + Separamos la lógica de negocio de la API. Con `controller` de mi clase controladora OrganizeAndGo.
 
+### Tests correctos y de acuerdo con las historias de usuario
+
+
