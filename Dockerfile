@@ -12,6 +12,6 @@ ENV PATH=/node_modules/.bin:$PATH
 WORKDIR /test
 VOLUME /test
 
-USER node
+#USER node
 
 CMD ["npm", "test"]
