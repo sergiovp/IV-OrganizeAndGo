@@ -32,8 +32,8 @@ Toda la información la encontramos en el fichero [microservicio.md](https://git
 
 + Uso de buenas prácticas: configuración distribuida, logs, uso de middleware. Se puede consultar [aquí](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/microservicio.md#uso-de-buenas-pr%C3%A1cticas-configuraci%C3%B3n-distribuida-logs-uso-de-middleware)
 
-+ Tests correctos y de acuerdo con las historias de usuario. Se pueden consultar [aquí]()
-    + Fichero de tests: [api_test.js]()
++ Tests correctos y de acuerdo con las historias de usuario. Se pueden consultar [aquí](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/docs/microservicio.md#tests-correctos-y-de-acuerdo-con-las-historias-de-usuario)
+    + Fichero de tests: [api_test.js](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/tests/api_test.js)
 ---
 
 ## Serverless
