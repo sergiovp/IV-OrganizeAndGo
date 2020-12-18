@@ -4,3 +4,7 @@ node_js:
   - 11.10.0
   - 12.19.0
   - 14.13.0
+
+build:
+  ci:
+    - mocha tests --exit
