@@ -99,4 +99,17 @@ describe("API TESTS", () => {
             done();
         });
     });
+
+    it("GET OBTENER INFORMACIÓN EMPLEADO CON INFORMACIÓN MODIFICADA", (done) => {
+        chai.request(server)
+        .get('/empleado/1/1')
+        .end( function(err,res){
+            expect(res).to.have.status(200);
+            expect(res.body).to.have.property('_id').to.be.equal(1);
+            expect(res.body).to.have.property('_nombre').to.be.equal("Sergio");
+            expect(res.body).to.have.property('_apellido').to.be.equal("Vela");
+            expect(res.body).to.have.property('_email').to.be.equal("sergiovp96@hotmail.com");
+            done();
+        });
+    });
 });
