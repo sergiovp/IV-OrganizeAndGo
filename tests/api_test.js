@@ -63,4 +63,26 @@ describe("API TESTS", () => {
             done();
         });
     });
+
+    it("GET OBTENER INFORMACIÓN EMPLEADO", (done) => {
+        chai.request(server)
+        .get('/empleado/1/1')
+        .end( function(err,res){
+            expect(res).to.have.status(200);
+            expect(res.body).to.have.property('_id').to.be.equal(1);
+            expect(res.body).to.have.property('_nombre').to.be.equal("Sergio");
+            expect(res.body).to.have.property('_apellido').to.be.equal("Vela");
+            expect(res.body).to.have.property('_email').to.be.equal("sergiovp96@gmail.com");
+            done();
+        });
+    });
+
+    it("GET OBTENER INFORMACIÓN EMPLEADO INEXISTENTE", (done) => {
+        chai.request(server)
+        .get('/empleado/1/0')
+        .end( function(err,res){
+            expect(res).to.have.status(404);
+            done();
+        });
+    });
 });
