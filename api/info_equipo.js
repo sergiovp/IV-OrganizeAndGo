@@ -4,6 +4,8 @@ const OrganizeAndGo = require('../app/organizeandgo/organizeandgo');
 var controlador = new OrganizeAndGo();
 
 function initApp() {
+    controlador = new OrganizeAndGo();
+
     /* Añadimos dos equipos */
     controlador.addEquipo(0, "Equipo de desarrollo");
     controlador.addEquipo(1, "Equipo de RRHH");
