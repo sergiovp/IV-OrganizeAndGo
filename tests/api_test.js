@@ -154,4 +154,35 @@ describe("API TESTS", () => {
             done();
         });
     });
+
+    it("MODIFICAMOS INFORMACIÓN DE LA TAREA", (done) => {
+        chai.request(server)
+        .put('/tarea')
+        .send({id_equipo: 1, id_tarea: 1, tiempo_estimado: "4 meses"})
+        .end( function(err,res){
+            expect(res).to.have.status(202);
+            expect(res.body).to.have.property('id').to.be.equal(1);
+            expect(res.body).to.have.property('terminada').to.be.equal(false);
+            expect(res.body).to.have.property('descripcion').to.be.equal("Empezar el TFG");
+            expect(res.body).to.have.property('tiempoEstimado').to.be.equal("4 meses");
+            expect(res.body).to.have.property('prioridad').to.be.equal("Importante");
+            expect(res.body).to.have.property('empleadoAsignado').to.be.equal(1);
+            done();
+        });
+    });
+
+    it("GET OBTENER INFORMACIÓN TAREA CON INFORMACIÓN MODIFICADA", (done) => {
+        chai.request(server)
+        .get('/tareas/1')
+        .end( function(err,res){
+            expect(res).to.have.status(200);
+            expect(res.body[0]).to.have.property('_id').to.be.equal(1);
+            expect(res.body[0]).to.have.property('_terminada').to.be.equal(false);
+            expect(res.body[0]).to.have.property('_descripcion').to.be.equal("Empezar el TFG");
+            expect(res.body[0]).to.have.property('_tiempoEstimado').to.be.equal("4 meses");
+            expect(res.body[0]).to.have.property('_prioridad').to.be.equal("Importante");
+            expect(res.body[0]).to.have.property('_empleadoAsignado').to.be.equal(1);
+            done();
+        });
+    });
 });
