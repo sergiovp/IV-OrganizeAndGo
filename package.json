@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "nodemon app/index.js",
+    "start": "",
     "test": "mocha tests --exit"
   },
   "repository": {
