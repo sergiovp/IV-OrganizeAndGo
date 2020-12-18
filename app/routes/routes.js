@@ -202,7 +202,7 @@ router.post('/tarea', async (ctx) => {
 	let prioridad = ctx.request.body.prioridad;
 	let empleadoAsignado = ctx.request.body.empleado_asignado;
 
-	if (id_equipo && id_tarea && terminada && descripcion &&
+	if (id_equipo && id_tarea && terminada != undefined && descripcion &&
 		tiempoEstimado && prioridad && empleadoAsignado) {
 			for (let i in controller.equipos) {
 				if (id_equipo == controller.equipos[i].id) {
@@ -309,9 +309,9 @@ router.put('/empleado', async (ctx) => {
 							ctx.status = 202;
 							ctx.body = {
 								id: controller.equipos[i].empleados[j].id,
-								terminada: controller.equipos[i].empleados[j].nombre,
-								descripcion: controller.equipos[i].empleados[j].apellido,
-								tiempoEstimado: controller.equipos[i].empleados[j].email
+								nombre: controller.equipos[i].empleados[j].nombre,
+								apellido: controller.equipos[i].empleados[j].apellido,
+								email: controller.equipos[i].empleados[j].email
 							};
 
 						} catch (error) {
