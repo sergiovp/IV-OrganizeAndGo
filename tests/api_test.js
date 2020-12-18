@@ -40,5 +40,27 @@ describe("API TESTS", () => {
         });
     });
 
+    it("POST AÑADIR EMPLEADO", (done) => {
+        chai.request(server)
+        .post('/empleado')
+        .send({id_equipo: 1, id_empleado: 1, nombre: "Sergio", apellido: "Vela", email: "sergiovp96@gmail.com"})
+        .end( function(err,res){
+            expect(res).to.have.status(202);
+            expect(res.body).to.have.property('id_empleado').to.be.equal(1);
+            expect(res.body).to.have.property('nombre').to.be.equal("Sergio");
+            expect(res.body).to.have.property('apellido').to.be.equal("Vela");
+            expect(res.body).to.have.property('email').to.be.equal("sergiovp96@gmail.com");
+            done();
+        });
+    });
 
+    it("POST AÑADIR EMPLEADO SIN PARÁMETROS", (done) => {
+        chai.request(server)
+        .post('/empleado')
+        .send({})
+        .end( function(err,res){
+            expect(res).to.have.status(400);
+            done();
+        });
+    });
 });
