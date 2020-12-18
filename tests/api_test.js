@@ -85,4 +85,18 @@ describe("API TESTS", () => {
             done();
         });
     });
+
+    it("MODIFICAMOS INFORMACIÓN DEL EMPLEADO", (done) => {
+        chai.request(server)
+        .put('/empleado')
+        .send({id_equipo: 1, id_empleado: 1, email: "sergiovp96@hotmail.com"})
+        .end( function(err,res){
+            expect(res).to.have.status(202);
+            expect(res.body).to.have.property('id').to.be.equal(1);
+            expect(res.body).to.have.property('nombre').to.be.equal("Sergio");
+            expect(res.body).to.have.property('apellido').to.be.equal("Vela");
+            expect(res.body).to.have.property('email').to.be.equal("sergiovp96@hotmail.com");
+            done();
+        });
+    });
 });
