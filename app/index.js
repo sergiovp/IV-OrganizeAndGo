@@ -1,6 +1,6 @@
 const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
-const PORT = process.env.PORT || 2727;
+//const PORT = process.env.PORT || 2727;
 const router = require('./routes/routes');
 
 const app = new Koa();
@@ -32,8 +32,8 @@ app.use(async (ctx, next) => {
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app.listen(PORT, () => {
+/*app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`)
-});
+});*/
 
 module.exports = app;
