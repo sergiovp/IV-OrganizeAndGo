@@ -2,7 +2,7 @@ entidad: app/organizeandgo/organizeandgo.js
 
 lenguaje: JavaScript
 
-test: tests/organizeandgo_test.ts
+test: tests/organizeandgo_test.js
 
 taskfile: package.json
 
