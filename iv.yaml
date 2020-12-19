@@ -1,6 +1,6 @@
 entidad: app/organizeandgo/organizeandgo.ts
 
-lenguaje: TypeScript
+lenguaje: JavaScript
 
 test: tests/organizeandgo_test.ts
 
