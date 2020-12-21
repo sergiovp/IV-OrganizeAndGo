@@ -5,7 +5,9 @@ LABEL version="1.0" maintainer="sergiovp96@gmail.com"
 COPY package*.json ./
 
 RUN npm install --no-optional \
-    && rm package*.json
+    && rm package*.json \
+    && apt update -y \
+    && apt install make -y
 
 ENV PATH=/node_modules/.bin:$PATH
 
