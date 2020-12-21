@@ -10,7 +10,6 @@ RUN npm install --no-optional \
 ENV PATH=/node_modules/.bin:$PATH
 
 WORKDIR /test
-VOLUME /test
 
 USER node
 
