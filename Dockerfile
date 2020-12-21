@@ -2,15 +2,22 @@ FROM node:14-slim
 
 LABEL version="1.0" maintainer="sergiovp96@gmail.com"
 
-COPY package*.json ./
+RUN npm i -g chai mocha chai-http @types/chai @types/mocha @vercel/node && \
+    mkdir /node_modules && chmod 755 /node_modules && chown node /node_modules
 
-RUN npm install --no-optional \
-    && rm package*.json
+USER node
+
+COPY --chown=node package*.json ./
+
+RUN npm install
+
+USER root
+
+RUN rm package*.json
 
 ENV PATH=/node_modules/.bin:$PATH
 
-WORKDIR /test
-
 USER node
+WORKDIR /test
 
 CMD ["npm", "test"]
